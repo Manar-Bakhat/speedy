@@ -46,11 +46,11 @@
 
         <div class="form-group">
           <div class="py-3">
-            <p>Company Website Url</p>
-            <p class="text-primary">For example : https://www.examplecompany.com</p>
+            <p>Company facebook Url</p>
+
           </div>
-          <input type="text" placeholder="Company Website" class="form-control @error('website') is-invalid @enderror" name="website" value="{{ old('website')}}" required>
-            @error('website')
+          <input type="text" placeholder="Company Website" class="form-control @error('facebook') is-invalid @enderror" name="website" value="{{ old('website')}}" required>
+            @error('facebook')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -83,7 +83,7 @@
                 </span>
             @enderror
         </div>
-   
+
         <div class="line-divider"></div>
         <div class="mt-3">
           <button type="submit" class="btn primary-btn">Create company</button>

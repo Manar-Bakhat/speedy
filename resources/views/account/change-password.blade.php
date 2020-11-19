@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="account-layout  border">
-    <div class="account-hdr bg-primary text-white border">
+    <div class="account-hdr bg-light text-dark border">
       Change Password
     </div>
     <div class="account-bdy p-3">

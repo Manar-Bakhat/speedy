@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\JobApplication;
+use App\Models\CarServiceApplication;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -52,7 +52,7 @@ class AccountController extends Controller
 
     public function applyJob(Request $request)
     {
-        $application = new JobApplication;
+        $application = new CarServiceApplication;
         $user = User::find(auth()->user()->id);
 
         if ($this->hasApplied($user, $request->post_id)) {

@@ -20,6 +20,7 @@ class CreateCompaniesTable extends Migration
             $table->string('logo');
             $table->string('title', 50);
             $table->text('description');
+            $table->string('facebook')->nullable();
             $table->string('website');
             $table->string('cover_img');
             $table->timestamps();

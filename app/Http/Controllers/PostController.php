@@ -94,17 +94,12 @@ class PostController extends Controller
     protected function requestValidate($request)
     {
         return $request->validate([
-            'job_title' => 'required|min:3',
-            'job_level' => 'required',
-            'vacancy_count' => 'required|int',
-            'employment_type' => 'required',
-            'job_location' => 'required',
-            'salary' => 'required',
+            'service_title' => 'required|min:3',
+            'service_ville' => 'required',
+            'service_zone' => 'required',
             'deadline' => 'required',
-            'education_level' => 'required',
-            'experience' => 'required',
-            'skills' => 'required',
-            'specifications' => 'sometimes|min:5',
+            'service_specification' => 'required|min:5',
+
         ]);
     }
 }

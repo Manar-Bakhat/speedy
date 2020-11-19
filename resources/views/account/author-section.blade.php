@@ -3,7 +3,7 @@
 @section('content')
   <div class="account-layout  border">
     <div class="account-hdr bg-primary text-white border">
-      Author Section
+      Jobbers Section
     </div>
     <div class="account-bdy p-3">
         <div class="row mb-3">
@@ -30,7 +30,7 @@
               </div>
           </div>
           <div class="col-xl-4 col-sm-6 py-2">
-              <a href="{{route('jobApplication.index')}}">
+              <a href="{{route('serviceApplication.index')}}">
                 <div class="card dashboard-card text-white h-100 shadow">
                     <div class="card-body bg-danger">
                         <div class="rotate">
@@ -51,7 +51,7 @@
                       <div class="card-body">
                           <h4 class="card-title">Manage Company Details</h4>
                           <p class="mb-3 alert alert-info">For job listings you need to add Company details.</p>
-                          
+
                           <div class="mb-3 d-flex">
                             @if(!$company)
                             <a href="{{route('company.create')}}" class="btn primary-btn mr-2">Create Company</a>
@@ -101,8 +101,8 @@
                         <tr>
                             <th>#</th>
                             <th>Title</th>
-                            <th>Level</th>
-                            <th>No of vacancies</th>
+                            <th>Ville</th>
+                            <th>Zone</th>
                             <th>Deadline</th>
                             <th>Action</th>
                         </tr>
@@ -112,10 +112,11 @@
                             @foreach($company->posts as $index=>$post)
                             <tr>
                                 <td>{{$index+1}}</td>
-                                <td> <a href="{{route('post.show',['job'=>$post])}}" target="_blank" title="Go to this post">{{$post->job_title}}</a></td>
-                                <td>{{$post->job_level}}</td>
-                                <td>{{$post->vacancy_count}}</td>
-                                <td>@php 
+                                <td> <a href="{{route('post.show',['service'=>$post])}}" target="_blank" title="Go to this post">{{$post->service_title}}</a></td>
+                                <td>{{$post->service_ville}}</td>
+                                <td>{{$post->service_zone}}</td>
+
+                                <td>@php
                                     $date = new DateTime($post->deadline);
                                     $timestamp =  $date->getTimestamp();
                                     $dayMonthYear = date('d/m/Y',$timestamp);
@@ -129,7 +130,7 @@
                                     @method('DELETE')
                                     <button type="submit" id="delPostBtn" class="btn danger-btn">Delete</button>
                                 </form>
-                                </td> 
+                                </td>
                             </tr>
                             @endforeach
                             @else
@@ -165,5 +166,5 @@
             }
         })
     })
-</script>    
+</script>
 @endpush

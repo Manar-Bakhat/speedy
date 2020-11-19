@@ -2,80 +2,70 @@
 
 @section('content')
   <div class="account-layout  border">
-    <div class="account-hdr bg-primary text-white border" >
+    <div class="account-hdr bg-light text-dark border" >
       Dashboard
     </div>
-    <div class="account-bdy p-3">
-        <div class="row mb-3">
-          <div class="col-xl-4 col-sm-6 py-2">
-              <div class="card dashboard-card text-white h-100 shadow">
-                  <div class="card-body primary-bg">
-                      <div class="rotate">
-                          <i class="fas fa-users fa-4x"></i>
-                      </div>
-                      <h6 class="text-uppercase">Users</h6>
-                      <h1 class="">{{$dashCount['user']}}</h1>
-                  </div>
-              </div>
-          </div>
-          <div class="col-xl-4 col-sm-6 py-2">
-              <div class="card dashboard-card text-white  h-100 shadow">
-                  <div class="card-body bg-secondary">
-                      <div class="rotate">
-                          <i class="fas fa-building fa-4x"></i>
-                      </div>
-                      <h6 class="text-uppercase">Total Jobs</h6>
-                      <h1 class="">{{$dashCount['post']}}</h1>
-                  </div>
-              </div>
-          </div>
-          <div class="col-xl-4 col-sm-6 py-2">
-              <div class="card dashboard-card text-white h-100 shadow">
-                  <div class="card-body bg-info">
-                      <div class="rotate">
-                          <i class="fas fa-user-tie fa-4x"></i>
-                      </div>
-                      <h6 class="text-uppercase">Authors</h6>
-                      <h1 class="">{{$dashCount['author']}}</h1>
-                  </div>
-              </div>
-          </div>
-          <div class="col-xl-6 col-sm-6 py-2">
-            <div class="card dashboard-card text-white h-100 shadow">
-                <div class="card-body bg-danger">
-                    <div class="rotate">
-                        <i class="fas fa-star-of-life fa-4x"></i>
-                    </div>
-                    <h6 class="text-uppercase">LivePosts</h6>
-                    <h1 class="">{{$dashCount['livePost']}}</h1>
+    <main>
+        <div class="cards">
+            <div class="card-single">
+                <div>
+                    <h1>{{$dashCount['user']}}</h1>
+                    <span>Users</span>
+                </div>
+                <div>
+                    <span class="fas fa-users fa-4x"></span>
                 </div>
             </div>
-        </div>
-        <div class="col-xl-6 col-sm-6 py-2">
-            <div class="card dashboard-card text-white h-100 shadow">
-                <div class="card-body bg-warning">
-                    <div class="rotate">
-                        <i class="fas fa-industry fa-4x"></i>
-                    </div>
-                    <h6 class="text-uppercase">Company Categories</h6>
-                    <h1 class="">{{$companyCategories->count()}}</h1>
+
+            <div class="card-single">
+                <div>
+                    <h1>{{$dashCount['post']}}</h1>
+                    <span>Services</span>
+                </div>
+                <div>
+                    <span class="fas fa-building fa-4x"></span>
                 </div>
             </div>
+
+            <div class="card-single">
+                <div>
+                    <h1>{{$dashCount['author']}}</h1>
+                    <span>Jobbers</span>
+                </div>
+                <div>
+                    <span class="fas fa-user-tie fa-4x"></span>
+                </div>
+            </div>
+
+            <div class="card-single">
+                <div>
+                    <h1>{{$companyCategories->count()}}</h1>
+                    <span>Categories</span>
+                </div>
+                <div>
+                    <span class="fas fa-industry fa-4x"></span>
+                </div>
+            </div>
+
+
+
+
+
         </div>
-      </div>
+    </main>
 
       <section class="dashboard-authors my-5">
         <div class="row my-4">
           <div class="col-lg-12 col-md-8 col-sm-12">
-            <h4 class="card-title text-secondary">Manage Authors (Job listers) </h4>
-            <div class="table-responsive">
+            <h4 class="card-title text-secondary">Manage Jobbers </h4>
+            <div class="table-respons">
                 <table class="table table-striped table-hover">
                     <thead class="thead-inverse">
                         <tr>
                             <th>#</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Company name</th>
+                            <th>Jobber name</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -88,15 +78,15 @@
                             <td>{{$author->email}}</td>
                             <td>{{$author->company->title}}</td>
                             <td>
-                            <a href="{{route('account.employer',['employer'=>$author->company])}}" class="btn primary-btn">View Company</a>
-                            </td> 
+                            <a href="{{route('account.employer',['employer'=>$author->company])}}" class="btn primary-btnn">View Jobber</a>
+                            </td>
                         </tr>
                         @endif
                         @endforeach
                     </tbody>
                 </table>
             </div>
-            <button class="btn primary-outline-btn disabled">Total Number of authors registered ({{ $recentAuthors->total()}}) </button>
+            <button class="btn primary-outline-btn disabled">Total Number of Jobber registered ({{ $recentAuthors->total()}}) </button>
 
             <div class="d-flex justify-content-center mt-4 custom-pagination">
                 {{ $recentAuthors->links() }}
@@ -106,14 +96,14 @@
       <!--/row-->
       </section>
       <hr>
-    
+
       <section class="dashboard-company">
-          <h4 class="card-title text-secondary">Manage Roles and Categories</h4>
+          <h4 class="card-title text-secondaryy">Manage Roles and Categories</h4>
           <div class="row my-4">
             <div class="col-sm-12 col-md-12">
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#categories-tab" role="tab" data-toggle="tab">Company Categories</a>
+                        <a class="nav-link active" href="#categories-tab" role="tab" data-toggle="tab">Company Category of service</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#roles-tab" role="tab" data-toggle="tab">Roles</a>
@@ -124,7 +114,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#role-have-permission-tab" role="tab" data-toggle="tab">Roles have permissions</a>
                     </li>
-                    
+
                 </ul>
 
                 <!-- Tab panes -->
@@ -144,8 +134,8 @@
                                     @enderror
                             </form>
                         </div>
-                      
-                        <div class="table-responsive">
+
+                        <div class="table-responsivee">
                             <table class="table table-striped">
                                 <thead class="thead-inverse">
                                     <tr>
@@ -159,7 +149,7 @@
                                     <tr>
                                         <td>{{$category->id}}</td>
                                         <td>{{$category->category_name}}</td>
-                                        <td><a class="btn secondary-btn" href="{{route('category.edit',['category'=>$category])}}">Edit</a> 
+                                        <td><a class="btn secondary-btn" href="{{route('category.edit',['category'=>$category])}}">Edit</a>
                                             <form action="{{route('category.destroy',['id'=>$category->id])}}" id="categoryDestroyForm" class="d-inline">
                                                 @csrf
                                                 @method('delete')
@@ -168,14 +158,14 @@
                                         </td>
                                     </tr>
                                     @endforeach
-                                
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <div role="tabpanel" class="tab-pane" id="roles-tab">
                         <div class="table-responsive">
-                            <table class="table table-striped">
+                            <table class="tablee table-striped">
                                 <thead class="thead-inverse">
                                     <tr>
                                         <th>#</th>
@@ -197,7 +187,7 @@
                     </div>
                     <div role="tabpanel" class="tab-pane" id="permissions-tab">
                         <div class="table-responsive">
-                            <table class="table table-striped">
+                            <table class="tablee table-striped">
                                 <thead class="thead-inverse">
                                     <tr>
                                         <th>#</th>
@@ -210,7 +200,7 @@
                                         <tr>
                                             <td>{{$index+1}}</td>
                                             <td>{{$permission}}</td>
-                                            <td><a class="btn secondary-btn" href="">Edit</a> 
+                                            <td><a class="btn secondary-btn" href="">Edit</a>
                                             <form action="" class="d-inline"><button type="submit" class="btn danger-btn">Delete</button></form></td>
                                         </tr>
                                     @endforeach
@@ -220,7 +210,7 @@
                     </div>
                     <div role="tabpanel" class="tab-pane" id="role-have-permission-tab">
                         <div class="table-responsive">
-                            <table class="table table-striped">
+                            <table class="tablee table-striped">
                                 <thead class="thead-inverse">
                                     <tr>
                                         <th>#</th>
@@ -262,7 +252,7 @@
 @push('js')
 <script>
      $(document).ready(function(){
-        //delete category 
+        //delete category
         $('#categoryDestroyBtn').click(function(e){
             e.preventDefault();
             if(window.confirm('Are you sure you want delete the Category?')){

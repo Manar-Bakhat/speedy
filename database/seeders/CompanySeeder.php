@@ -18,34 +18,28 @@ class CompanySeeder extends Seeder
         $details = [
             [
                 'title' => 'Php laravel developer',
-                'level' => 'Senior level',
-                'employment' => 'full time',
-                'education' => 'bachelors',
+                'ville' => 'full time',
+                'zone' => 'bachelors',
             ], [
                 'title' => 'Marketing Expert',
-                'level' => 'Senior level',
-                'employment' => 'full time',
-                'education' => 'bachelors',
+                'ville' => 'full time',
+                'zone' => 'bachelors',
             ], [
                 'title' => 'Professional designer',
-                'level' => 'Top level',
-                'employment' => 'Part time',
-                'education' => 'bachelors',
+                'ville' => 'Part time',
+                'zone' => 'bachelors',
             ], [
                 'title' => 'Dotnet programmer',
-                'level' => 'Senior level',
-                'employment' => 'full time',
-                'education' => 'high school',
+                'ville' => 'full time',
+                'zone' => 'high school',
             ], [
                 'title' => 'Sales Executive',
-                'level' => 'Senior level',
-                'employment' => 'Part time',
-                'education' => 'bachelors',
+                'ville' => 'Part time',
+                'zone' => 'bachelors',
             ], [
                 'title' => 'Maths Teacher',
-                'level' => 'Senior level',
-                'employment' => 'full time',
-                'education' => 'master',
+                'zone' => 'full time',
+                'ville' => 'master',
             ],
         ];
         //user id is 2 that has author role
@@ -57,10 +51,10 @@ class CompanySeeder extends Seeder
         foreach ($details as $index => $detail) {
             $post = Post::factory()->create([
                 'company_id' => $company->id,
-                'job_title' => $detail['title'],
-                'job_level' => $detail['level'],
-                'employment_type' => $detail['employment'],
-                'education_level' => $detail['education'],
+                'service_title' => $detail['title'],
+                'service_ville' => $detail['ville'],
+                'service_zone' => $detail['zone'],
+
             ]);
         }
     }

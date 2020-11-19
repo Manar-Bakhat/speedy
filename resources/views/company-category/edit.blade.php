@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="account-layout border">
-  <div class="account-hdr bg-primary text-white border " >
-    Edit Company Category
+  <div class="account-hdrr bg-primary text-white border " >
+    Edit Jobber Category
   </div>
   <div class="account-bdy p-3">
     @if($errors->any())
@@ -11,12 +11,12 @@
 @endif
       <div class="row mb-3">
         <div class="col-12">
-          <p class="alert alert-primary">You are about to change company category : {{$category->category_name}}</p>
+          <p class="alert alert-primary">You are about to change Jobber category : {{$category->category_name}}</p>
           <form action="{{route('category.update',['id'=>$category->id])}}" method="POST">
             @csrf
             @method('put')
             <div class="form-group">
-              <label for="">Choose a Company Category</label>
+              <label for="">Choose a Jobber Category</label>
               <input type="text" placeholder="Edit your category name here" name="category_name" class="form-control @error('category_name') input-error @enderror">
             </div>
             <div class="d-flex">

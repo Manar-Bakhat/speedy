@@ -54,31 +54,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-md-6 px-0">
-            <div class="login-poster">
-                {{-- <img src="" alt=""> --}}
-                <h2 class="mb-3 slogon">Mark yourself as <br>Actively Job seeker</h2>
-                <p class="text-white lead">We have enabled this feature targeting superheros
-                    who lost their jobs during this crisis.</p>
-            </div>
-        </div>
-    </div>
+
 </div>
 @endsection
 
-@push('css')
-<style>
-.login-poster {
-   background-image: url('{{asset("images/login-bg.jpg")}}');
-    background-image: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.35)
-        ),
-        url('{{asset("images/login-bg.jpg")}}');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-</style>
-@endpush
+

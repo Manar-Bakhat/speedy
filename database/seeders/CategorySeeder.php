@@ -15,14 +15,15 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = [
-            'IT & Telecommunication',
-            'Marketing / Advertising',
-            'General Mgmt', 'Banking / Insurance /Financial Services',
-            'Construction / Engineering / Architects ',
-            'Creative / Graphics / Designing',
-            'Social work', 'hospitality', 'journalism-editor-media', 'Agriculture + Livestock',
-            'Teaching profession', 'Engineer', 'Sales', 'Leadership', 'Web development',
-            'Mobile App', 'Sales', 'E-Commerce', 'Others'
+            'interior washing',
+            'exterior washing', 'Exhaust',
+            'Clutch ',
+            'air conditioner',
+            'mechanic', 'electrite', 'running gear adjustment', 'reservation guaranteed manufacturer preserved',
+            'allumage gestion auteur', '
+            diagnostic electronique
+            electronic diagnosis', 'pneumatic', 'braking', 'shock absorber',
+
         ];
         foreach ($categories as $category) {
             DB::table('company_categories')->insert([

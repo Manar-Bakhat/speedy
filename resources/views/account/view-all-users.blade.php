@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="account-layout  border">
-    <div class="account-hdr bg-primary text-white border">
+    <div class="account-hdr bg-light text-dark border">
       VIewing all users <span class="badge badge-primary">Any Role</span>
     </div>
     <div class="account-bdy p-3">
@@ -20,7 +20,7 @@
                 </tr>
               </thead>
               <tbody>
-                @if($users->count()) 
+                @if($users->count())
                 @foreach($users as $user)
                 <tr>
                   <td>{{$user->id}}</td>
@@ -45,7 +45,7 @@
                   <td></td>
                   <td></td>
                 </tr>
-                @endif 
+                @endif
               </tbody>
             </table>
           </div>

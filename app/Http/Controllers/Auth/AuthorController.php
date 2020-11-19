@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Company;
-use App\Models\JobApplication;
+use App\Models\CarServiceApplication;
 use Carbon\Carbon;
 
 class AuthorController extends Controller
@@ -24,7 +24,7 @@ class AuthorController extends Controller
             if ($company->posts->count()) {
                 $livePosts = $posts->where('deadline', '>', Carbon::now())->count();
                 $ids = $posts->pluck('id');
-                $applications = JobApplication::whereIn('post_id', $ids)->get();
+                $applications = CarServiceApplication::whereIn('post_id', $ids)->get();
             }
         }
 

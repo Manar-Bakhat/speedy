@@ -16,17 +16,12 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('company_id');
-            $table->string('job_title', 50);
-            $table->string('job_level', 20);
-            $table->unsignedSmallInteger('vacancy_count');
-            $table->string('employment_type');
-            $table->string('salary', 30);
-            $table->string('job_location');
+            $table->string('service_title', 50);
+            $table->string('service_ville');
+            $table->string('service_zone');
             $table->timestamp('deadline');
-            $table->string('education_level');
-            $table->string('experience');
-            $table->string('skills');
-            $table->text('specifications');
+            $table->text('service_specification');
+
             $table->unsignedMediumInteger('views')->default(1);
             $table->timestamps();
         });

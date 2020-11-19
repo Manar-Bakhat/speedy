@@ -2,7 +2,7 @@
 @section('content')
 <div class="account-layout  border">
   <div class="account-hdr bg-primary text-white border">
-   Become an employer in {{config('app.name')}}
+   Become an Jobber in {{config('app.name')}}
   </div>
   <div class="account-bdy p-3">
     <div class="row">
@@ -18,7 +18,7 @@
               @csrf
               <div class="form-group">
                 <div class="d-flex">
-                  <button type="submit" class="btn primary-outline-btn">Become Employer</button>
+                  <button type="submit" class="btn primary-outline-btn">Become Jobber</button>
                 </div>
               </div>
             </form>
