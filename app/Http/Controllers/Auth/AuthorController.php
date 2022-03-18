@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Company;
+use App\Models\Jobber;
 use App\Models\CarServiceApplication;
 use Carbon\Carbon;
 
@@ -13,15 +13,15 @@ class AuthorController extends Controller
     public function authorSection()
     {
         $livePosts = null;
-        $company = null;
+        $jobber = null;
         $applications = null;
 
         if ($this->hasCompany()) {
             //without the if block the posts relationship returns error
-            $company = auth()->user()->company;
-            $posts = $company->posts()->get();
+            $jobber = auth()->user()->jobber;
+            $posts = $jobber->posts()->get();
 
-            if ($company->posts->count()) {
+            if ($jobber->posts->count()) {
                 $livePosts = $posts->where('deadline', '>', Carbon::now())->count();
                 $ids = $posts->pluck('id');
                 $applications = CarServiceApplication::whereIn('post_id', $ids)->get();
@@ -30,7 +30,7 @@ class AuthorController extends Controller
 
         //doesnt have company
         return view('account.author-section')->with([
-            'company' => $company,
+            'jobber' => $jobber,
             'applications' => $applications,
             'livePosts' => $livePosts
         ]);
@@ -40,15 +40,15 @@ class AuthorController extends Controller
     //employer is company of author
     public function employer($employer)
     {
-        $company = Company::find($employer)->with('posts')->first();
+        $jobber = jobber::find($employer)->with('posts')->first();
         return view('account.employer')->with([
-            'company' => $company,
+            'jobber' => $jobber,
         ]);
     }
 
     //check if has company
     protected function hasCompany()
     {
-        return auth()->user()->company ? true : false;
+        return auth()->user()->jobber ? true : false;
     }
 }

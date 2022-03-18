@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Events\PostViewEvent;
-use App\Models\Company;
-use App\Models\CompanyCategory;
+use App\Models\Jobber;
+use App\Models\JobberCategory;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -13,9 +13,9 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::latest()->take(20)->with('company')->get();
-        $categories = CompanyCategory::take(5)->get();
-        $topEmployers = Company::latest()->take(3)->get();
+        $posts = Post::latest()->take(20)->with('jobber')->get();
+        $categories = JobberCategory::take(5)->get();
+        $topEmployers = Jobber::latest()->take(3)->get();
         return view('home')->with([
             'posts' => $posts,
             'categories' => $categories,
@@ -25,9 +25,9 @@ class PostController extends Controller
 
     public function create()
     {
-        if (!auth()->user()->company) {
-            Alert::toast('You must create a company first!', 'info');
-            return redirect()->route('company.create');
+        if (!auth()->user()->jobber) {
+            Alert::toast('You must create a Jobber first!', 'info');
+            return redirect()->route('jobber.create');
         }
         return view('post.create');
     }
@@ -36,7 +36,7 @@ class PostController extends Controller
     {
         $this->requestValidate($request);
 
-        $postData = array_merge(['company_id' => auth()->user()->company->id], $request->all());
+        $postData = array_merge(['jobber_id' => auth()->user()->jobber->id], $request->all());
 
         $post = Post::create($postData);
         if ($post) {
@@ -52,14 +52,14 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
 
         event(new PostViewEvent($post));
-        $company = $post->company()->first();
+        $jobber = $post->jobber()->first();
 
-        $similarPosts = Post::whereHas('company', function ($query) use ($company) {
-            return $query->where('company_category_id', $company->company_category_id);
-        })->where('id', '<>', $post->id)->with('company')->take(5)->get();
+        $similarPosts = Post::whereHas('jobber', function ($query) use ($jobber) {
+            return $query->where('jobber_category_id', $jobber->jobber_category_id);
+        })->where('id', '<>', $post->id)->with('jobber')->take(5)->get();
         return view('post.show')->with([
             'post' => $post,
-            'company' => $company,
+            'jobber' => $jobber,
             'similarJobs' => $similarPosts
         ]);
     }

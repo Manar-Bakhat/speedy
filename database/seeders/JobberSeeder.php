@@ -3,10 +3,10 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Company;
+use App\Models\Jobber;
 use App\Models\Post;
 
-class CompanySeeder extends Seeder
+class JobberSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -43,14 +43,14 @@ class CompanySeeder extends Seeder
             ],
         ];
         //user id is 2 that has author role
-        $company = Company::factory()->create([
-            'company_category_id' => 1,
+        $jobber = jobber::factory()->create([
+            'jobber_category_id' => 1,
             'title' => 'Gabrato company',
             'logo' => 'images/logo/7.png',
         ]);
         foreach ($details as $index => $detail) {
             $post = Post::factory()->create([
-                'company_id' => $company->id,
+                'jobber_id' => $jobber->id,
                 'service_title' => $detail['title'],
                 'service_ville' => $detail['ville'],
                 'service_zone' => $detail['zone'],

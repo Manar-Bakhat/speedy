@@ -28,8 +28,8 @@ class RolePermissionSeeder extends Seeder
 
         $permissions = [
             'view-dashboard', 'create-post', 'edit-post', 'delete-post',
-            'manage-authors', 'author-section', 'create-category', 'edit-category', 'delete-category',
-            'create-company', 'edit-company', 'delete-company'
+            'manage-authors', 'author-section', 'create-category', 'edit-category', 'delete-jobber',
+            'create-jobber', 'edit-jobber', 'delete-jobber'
         ];
         foreach ($permissions as $permission) {
             DB::table('permissions')->insert([
@@ -48,7 +48,7 @@ class RolePermissionSeeder extends Seeder
         }
 
         $role = Role::findByName('author');
-        $permissions = ['create-post', 'edit-post', 'delete-post', 'author-section', 'create-company', 'edit-company', 'delete-company'];
+        $permissions = ['create-post', 'edit-post', 'delete-post', 'author-section', 'create-jobber', 'edit-jobber', 'delete-jobber'];
         foreach ($permissions as $permission) {
             $getPermission = Permission::findByName($permission);
             $role->givePermissionTo($getPermission);

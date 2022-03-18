@@ -72,8 +72,8 @@
     box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
     border: none;
     margin-bottom: 40px;
-    margin-right: 210px;
-    margin-left: -210px;
+    margin-right: 80px;
+    margin-left: -60px;
     margin-top: 30px;
 }
 .m-r-0 {

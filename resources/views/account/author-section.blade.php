@@ -14,7 +14,7 @@
                           <i class="fas fa-users fa-4x"></i>
                       </div>
                       <h6 class="text-uppercase">My Posts</h6>
-                      <h1 class="">{{$company? $company->posts->count() : 0}}</h1>
+                      <h1 class="">{{$jobber? $jobber->posts->count() : 0}}</h1>
                   </div>
               </div>
           </div>
@@ -53,28 +53,28 @@
                           <p class="mb-3 alert alert-info">For job listings you need to add Company details.</p>
 
                           <div class="mb-3 d-flex">
-                            @if(!$company)
-                            <a href="{{route('company.create')}}" class="btn primary-btn mr-2">Create Company</a>
+                            @if(!$jobber)
+                            <a href="{{route('jobber.create')}}" class="btn primary-btn mr-2">Create Jobber</a>
                             @else
-                            <a href="{{route('company.edit')}}" class="btn secondary-btn mr-2">Edit Company</a>
+                            <a href="{{route('jobber.edit')}}" class="btn secondary-btn mr-2">Edit Jobber</a>
                             <div class="ml-auto">
-                                <form action="{{route('company.destroy')}}" id="companyDestroyForm" method="POST">
+                                <form action="{{route('jobber.destroy')}}" id="jobberDestroyForm" method="POST">
                                     @csrf
                                     @method('delete')
-                                    <button type="submit" id="companyDestroyBtn" class="btn danger-btn">Delete Company</a>
+                                    <button type="submit" id="jobberDestroyBtn" class="btn danger-btn">Delete Jobber</a>
                                 </form>
                             </div>
                             @endif
                           </div>
-                          @if($company)
+                          @if($jobber)
                           <div class="row">
                               <div class="col-sm-12 col-md-12">
                                   <div class="card">
                                       <div class="card-body text-center">
-                                          <img src="{{asset($company->logo)}}" width="100px" class="img-fluid border p-2" alt="">
-                                          <h5>{{$company->title}}</h5>
-                                          <small>{{$company->getCategory->category_name}}</small>
-                                        <a class="d-block" href="{{$company->website}}"><i class="fas fa-globe"></i></a>
+                                          <img src="{{asset($jobber->logo)}}" width="100px" class="img-fluid border p-2" alt="">
+                                          <h5>{{$jobber->title}}</h5>
+                                          <small>{{$jobber->getCategory->category_name}}</small>
+                                        <a class="d-block" href="{{$jobber->website}}"><i class="fas fa-globe"></i></a>
                                       </div>
                                   </div>
                               </div>
@@ -108,8 +108,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if($company)
-                            @foreach($company->posts as $index=>$post)
+                        @if($jobber)
+                            @foreach($jobber->posts as $index=>$post)
                             <tr>
                                 <td>{{$index+1}}</td>
                                 <td> <a href="{{route('post.show',['service'=>$post])}}" target="_blank" title="Go to this post">{{$post->service_title}}</a></td>
@@ -159,10 +159,10 @@
 <script>
     $(document).ready(function(){
         //delete author company
-        $('#companyDestroyBtn').click(function(e){
+        $('#jobberDestroyBtn').click(function(e){
             e.preventDefault();
             if(window.confirm('Are you sure you want delete the company?')){
-                $('#companyDestroyForm').submit();
+                $('#jobberDestroyForm').submit();
             }
         })
     })

@@ -26,7 +26,7 @@ class CategorySeeder extends Seeder
 
         ];
         foreach ($categories as $category) {
-            DB::table('company_categories')->insert([
+            DB::table('jobber_categories')->insert([
                 'category_name' => $category
             ]);
         }

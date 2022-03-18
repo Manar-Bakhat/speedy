@@ -12,10 +12,10 @@ class CarServiceApplicationController extends Controller
     public function index()
     {
         $applicationsWithPostAndUser = null;
-        $company = auth()->user()->company;
+        $jobber = auth()->user()->jobber;
 
-        if ($company) {
-            $ids =  $company->posts()->pluck('id');
+        if ($jobber) {
+            $ids =  $jobber->posts()->pluck('id');
             $applications = CarServiceApplication::whereIn('post_id', $ids);
             $applicationsWithPostAndUser = $applications->with('user', 'post')->latest()->paginate(10);
         }
@@ -32,11 +32,11 @@ class CarServiceApplicationController extends Controller
         $userId = $application->user_id;
         $applicant = User::find($userId);
 
-        $company = $post->company()->first();
+        $jobber = $post->jobber()->first();
         return view('service-application.show')->with([
             'applicant' => $applicant,
             'post' => $post,
-            'company' => $company,
+            'jobber' => $jobber,
             'application' => $application
         ]);
     }
@@ -44,7 +44,7 @@ class CarServiceApplicationController extends Controller
     {
         $application = CarServiceApplication::find($request->application_id);
         $application->delete();
-        Alert::toast('Company deleleted', 'warning');
+        Alert::toast('jobber deleleted', 'warning');
         return redirect()->route('serviceApplication.index');
     }
 }

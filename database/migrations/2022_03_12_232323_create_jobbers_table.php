@@ -16,7 +16,7 @@ class CreateJobbersTable extends Migration
         Schema::create('jobbers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedInteger('company_category_id');
+            $table->unsignedInteger('jobber_category_id');
             $table->string('logo');
             $table->string('title', 50);
             $table->text('description');

@@ -6,7 +6,7 @@
       Edit Jobber
     </div>
     <div class="account-bdy p-3">
-     <form action="{{route('jobber.update',['id'=>$company])}}" method="POST" enctype="multipart/form-data">
+     <form action="{{route('jobber.update',['id'=>$jobber])}}" method="POST" enctype="multipart/form-data">
       @if($errors->any())
         {{ implode('', $errors->all('<div>:message</div>')) }}
     @endif
@@ -42,7 +42,7 @@
           <div class="py-3">
             <p>Jobber Title</p>
           </div>
-          <input type="text" placeholder="Jobber title" class="form-control @error('password') is-invalid @enderror" name="title" value="{{ old('title')??$company->title }}" required>
+          <input type="text" placeholder="Jobber title" class="form-control @error('password') is-invalid @enderror" name="title" value="{{ old('title')??$jobber->title }}" required>
             @error('title')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -55,7 +55,7 @@
             <p>Company Website Url</p>
             <p class="text-primary">For example : https://www.examplecompany.com</p>
           </div>
-          <input type="text" placeholder="Jobber Website" class="form-control @error('website') is-invalid @enderror" name="website" value="{{ old('website')??$company->website }}" required>
+          <input type="text" placeholder="Jobber Website" class="form-control @error('website') is-invalid @enderror" name="website" value="{{ old('website')??$jobber->website }}" required>
             @error('website')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -83,7 +83,7 @@
           <p class="mt-3 alert alert-primary">Provide a short paragraph description about your company</p>
         </div>
         <div class="form-group">
-          <textarea class="form-control @error('description') is-invalid @enderror" name="description" required>{{ old('description')??$company->description }}</textarea>
+          <textarea class="form-control @error('description') is-invalid @enderror" name="description" required>{{ old('description')??$jobber->description }}</textarea>
             @error('description')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

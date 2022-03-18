@@ -22,8 +22,8 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'job_title' => 'Marketing manager',
-            'job_level' => 'Senior level',
+            'service_title' => 'Marketing manager',
+            'service_level' => 'Senior level',
             'vacancy_count' => rand(2, 10), // password
             'employment_type' => 'Full time',
             'job_location' => 'kathmandu-18,Nepal',

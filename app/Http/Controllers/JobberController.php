@@ -33,7 +33,7 @@ class JobberController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateCompany($request);
+        $this->validateJobber($request);
 
         $jobber = new jobber();
         if ($this->companySave($jobber, $request)) {
@@ -52,7 +52,7 @@ class JobberController extends Controller
      */
     public function edit()
     {
-        $company = auth()->user()->company;
+        $jobber = auth()->user()->jobber;
         $categories = JobberCategory::all();
         return view('jobber.edit', compact('jobber', 'categories'));
     }
@@ -60,10 +60,10 @@ class JobberController extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->validateCompanyUpdate($request);
+        $this->validateJobberUpdate($request);
 
-        $company = auth()->user()->company;
-        if ($this->companyUpdate($company, $request)) {
+        $jobber = auth()->user()->jobber;
+        if ($this->jobberUpdate($jobber, $request)) {
             Alert::toast('Jobber created!', 'success');
             return redirect()->route('account.authorSection');
         }
@@ -71,7 +71,7 @@ class JobberController extends Controller
         return redirect()->route('account.authorSection');
     }
 
-    protected function validateCompany(Request $request)
+    protected function validateJobber(Request $request)
     {
         return $request->validate([
             'title' => 'required|min:5',
@@ -82,7 +82,7 @@ class JobberController extends Controller
             'cover_img' => 'sometimes|image|max:3999'
         ]);
     }
-    protected function validateCompanyUpdate(Request $request)
+    protected function validateJobberUpdate(Request $request)
     {
         return $request->validate([
             'title' => 'required|min:5',
@@ -93,35 +93,35 @@ class JobberController extends Controller
             'cover_img' => 'sometimes|image|max:3999'
         ]);
     }
-    protected function companySave(Jobber $company, Request $request)
+    protected function jobberSave(Jobber $jobber, Request $request)
     {
-        $company->user_id = auth()->user()->id;
-        $company->title = $request->title;
-        $company->description = $request->description;
-        $company->company_category_id = $request->category;
-        $company->website = $request->website;
+        $jobber->user_id = auth()->user()->id;
+        $jobber->title = $request->title;
+        $jobber->description = $request->description;
+        $jobber->jobber_category_id = $request->category;
+        $jobber->website = $request->website;
 
         //logo
         $fileNameToStore = $this->getFileName($request->file('logo'));
-        $logoPath = $request->file('logo')->storeAs('public/companies/logos', $fileNameToStore);
-        if ($company->logo) {
-            Storage::delete('public/companies/logos/' . basename($company->logo));
+        $logoPath = $request->file('logo')->storeAs('public/jobbers/logos', $fileNameToStore);
+        if ($jobber->logo) {
+            Storage::delete('public/jobbers/logos/' . basename($jobber->logo));
         }
-        $company->logo = 'storage/companies/logos/' . $fileNameToStore;
+        $jobber->logo = 'storage/jobbers/logos/' . $fileNameToStore;
 
         //cover image
         if ($request->hasFile('cover_img')) {
             $fileNameToStore = $this->getFileName($request->file('cover_img'));
-            $coverPath = $request->file('cover_img')->storeAs('public/companies/cover', $fileNameToStore);
-            if ($company->cover_img) {
-                Storage::delete('public/companies/cover/' . basename($company->cover_img));
+            $coverPath = $request->file('cover_img')->storeAs('public/jobbers/cover', $fileNameToStore);
+            if ($jobber->cover_img) {
+                Storage::delete('public/jobbers/cover/' . basename($jobber->cover_img));
             }
-            $company->cover_img = 'storage/companies/cover/' . $fileNameToStore;
+            $jobber->cover_img = 'storage/jobbers/cover/' . $fileNameToStore;
         } else {
-            $company->cover_img = 'nocover';
+            $jobber->cover_img = 'nocover';
         }
 
-        if ($company->save()) {
+        if ($jobber->save()) {
             return true;
         }
         return false;
@@ -132,27 +132,27 @@ class JobberController extends Controller
         $jobber->user_id = auth()->user()->id;
         $jobber->title = $request->title;
         $jobber->description = $request->description;
-        $jobber->company_category_id = $request->category;
+        $jobber->jobber_category_id = $request->category;
         $jobber->website = $request->website;
 
         //logo should exist but still checking for the name
         if ($request->hasFile('logo')) {
             $fileNameToStore = $this->getFileName($request->file('logo'));
-            $logoPath = $request->file('logo')->storeAs('public/companies/logos', $fileNameToStore);
-            if ($company->logo) {
-                Storage::delete('public/companies/logos/' . basename($company->logo));
+            $logoPath = $request->file('logo')->storeAs('public/jobbers/logos', $fileNameToStore);
+            if ($jobber->logo) {
+                Storage::delete('public/jobbers/logos/' . basename($jobber->logo));
             }
-            $company->logo = 'storage/companies/logos/' . $fileNameToStore;
+            $jobber->logo = 'storage/jobbers/logos/' . $fileNameToStore;
         }
 
         //cover image
         if ($request->hasFile('cover_img')) {
             $fileNameToStore = $this->getFileName($request->file('cover_img'));
-            $coverPath = $request->file('cover_img')->storeAs('public/companies/cover', $fileNameToStore);
+            $coverPath = $request->file('cover_img')->storeAs('public/jobbers/cover', $fileNameToStore);
             if ($jobber->cover_img) {
-                Storage::delete('public/companies/cover/' . basename($jobber->cover_img));
+                Storage::delete('public/jobbers/cover/' . basename($jobber->cover_img));
             }
-            $jobber->cover_img = 'storage/companies/cover/' . $fileNameToStore;
+            $jobber->cover_img = 'storage/jobbers/cover/' . $fileNameToStore;
         }
         $jobber->cover_img = 'nocover';
         if ($jobber->save()) {
@@ -170,8 +170,8 @@ class JobberController extends Controller
 
     public function destroy()
     {
-        Storage::delete('public/companies/logos/' . basename(auth()->user()->company->logo));
-        if (auth()->user()->company->delete()) {
+        Storage::delete('public/jobbers/logos/' . basename(auth()->user()->jobber->logo));
+        if (auth()->user()->jobber->delete()) {
             return redirect()->route('account.authorSection');
         }
         return redirect()->route('account.authorSection');

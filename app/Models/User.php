@@ -42,9 +42,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function company()
+    public function jobber()
     {
-        return $this->hasOne('App\Models\Company');
+        return $this->hasOne('App\Models\Jobber');
     }
 
     //piviot for saved jobs

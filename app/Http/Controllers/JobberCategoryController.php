@@ -15,13 +15,13 @@ class JobberCategoryController extends Controller
             'category_name' => 'required|min:5'
         ]);
         JobberCategory::create([
-            'category_name' => $request->jobber_name
+            'category_name' => $request->category_name
         ]);
         Alert::toast('Category Created!', 'success');
         return redirect()->route('account.dashboard');
     }
 
-    public function edit(JobberCategory $jobber)
+    public function edit(JobberCategory $category)
     {
         return view('jobber-category.edit', compact('category'));
     }

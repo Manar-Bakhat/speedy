@@ -47,7 +47,7 @@ class AccountController extends Controller
 
         $post = Post::find($request->post_id);
         $company = $post->company()->first();
-        return view('account.apply-job', compact('post', 'company'));
+        return view('account.apply-job', compact('post', 'jobber'));
     }
 
     public function applyJob(Request $request)

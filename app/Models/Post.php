@@ -11,7 +11,7 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
-        'company_id', 'service_title', 'service_ville',
+        'jobber_id', 'service_title', 'service_ville',
         'service_zone', 'deadline',
         'service_specification'
     ];
@@ -22,9 +22,9 @@ class Post extends Model
         return $this->hasMany('App\Models\User');
     }
 
-    public function company()
+    public function jobber()
     {
-        return $this->belongsTo('App\Models\Company');
+        return $this->belongsTo('App\Models\Jobber');
     }
 
     public function deadlineTimestamp()

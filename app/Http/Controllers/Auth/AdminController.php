@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\CompanyCategory;
+use App\Models\JobberCategory;
 use App\Models\Post;
 use App\Models\User;
 use Carbon\Carbon;
@@ -16,7 +16,7 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
-        $authors = User::role('author')->with('company')->paginate(30);
+        $authors = User::role('author')->with('jobber')->paginate(30);
         $roles = Role::all()->pluck('name');
         $permissions = Permission::all()->pluck('name');
         $rolesHavePermissions = Role::with('permissions')->get();
@@ -28,7 +28,7 @@ class AdminController extends Controller
         $dashCount['livePost'] = Post::where('deadline', '>', Carbon::now())->count();
 
         return view('account.dashboard')->with([
-            'companyCategories' => CompanyCategory::all(),
+            'jobberCategories' => JobberCategory::all(),
             'dashCount' => $dashCount,
             'recentAuthors' => $authors,
             'roles' => $roles,

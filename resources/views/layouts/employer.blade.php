@@ -9,15 +9,15 @@
                   <div class="card left-card">
                     <div class="card-body text-center">
                       <div class="employer-card">
-                        <img src="{{asset($company->logo)}}"  class="img-fluid mb-3" alt="">
+                        <img src="{{asset($jobber->logo)}}"  class="img-fluid mb-3" alt="">
                       </div>
-                      <h6 class="lead font-weight-bold">{{$company->title}}</h6>
-                      <p >{{$company->getCategory->category_name}}</p>
+                      <h6 class="lead font-weight-bold">{{$jobber->title}}</h6>
+                      <p >{{$jobber->getCategory->category_name}}</p>
                       <div class="py-2">
-                        <p class="small">{{$company->description}}</p>
+                        <p class="small">{{$jobber->description}}</p>
                       </div>
                       <div class="text-center">
-                        <a target="_blank" href="{{'https://'.$company->website}}"><i class="fas fa-globe"></i></a>
+                        <a target="_blank" href="{{'https://'.$jobber->website}}"><i class="fas fa-globe"></i></a>
                       </div>
                     </div>
                   </div>

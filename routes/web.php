@@ -5,6 +5,8 @@ use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\Auth\AuthorController;
 use App\Http\Controllers\CompanyCategoryController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\JobberCategoryController;
+use App\Http\Controllers\JobberController;
 use App\Http\Controllers\CarServiceApplicationController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PostController;
@@ -42,11 +44,19 @@ Route::middleware('auth')->prefix('account')->group(function () {
     Route::get('view-all-users', [AdminController::class, 'viewAllUsers'])->name('account.viewAllUsers');
     Route::delete('view-all-users', [AdminController::class, 'destroyUser'])->name('account.destroyUser');
 
-    Route::get('category/{category}/edit', [CompanyCategoryController::class, 'edit'])->name('category.edit');
-    Route::post('category', [CompanyCategoryController::class, 'store'])->name('category.store');
-    Route::put('category/{id}', [CompanyCategoryController::class, 'update'])->name('category.update');
-    Route::get('category/{id}', [CompanyCategoryController::class, 'destroy'])->name('category.destroy');
-  });
+   // Route::get('category/{category}/edit', [CompanyCategoryController::class, 'edit'])->name('category.edit');
+    //Route::post('category', [CompanyCategoryController::class, 'store'])->name('category.store');
+    //Route::put('category/{id}', [CompanyCategoryController::class, 'update'])->name('category.update');
+   // Route::get('category/{id}', [CompanyCategoryController::class, 'destroy'])->name('category.destroy');
+
+
+    Route::get('category/{category}/edit', [JobberCategoryController::class, 'edit'])->name('category.edit');
+    Route::post('category', [JobberCategoryController::class, 'store'])->name('category.store');
+    Route::put('category/{id}', [JobberCategoryController::class, 'update'])->name('category.update');
+    Route::get('category/{id}', [JobberCategoryController::class, 'destroy'])->name('category.destroy');
+
+
+});
 
   //Author Role Routes
   Route::group(['middleware' => ['role:author']], function () {
@@ -62,11 +72,21 @@ Route::middleware('auth')->prefix('account')->group(function () {
     Route::put('post/{post}', [PostController::class, 'update'])->name('post.update');
     Route::delete('post/{post}', [PostController::class, 'destroy'])->name('post.destroy');
 
-    Route::get('company/create', [CompanyController::class, 'create'])->name('company.create');
-    Route::put('company/{id}', [CompanyController::class, 'update'])->name('company.update');
-    Route::post('company', [CompanyController::class, 'store'])->name('company.store');
-    Route::get('company/edit', [CompanyController::class, 'edit'])->name('company.edit');
-    Route::delete('company', [CompanyController::class, 'destroy'])->name('company.destroy');
+    //Route::get('company/create', [CompanyController::class, 'create'])->name('company.create');
+    //Route::put('company/{id}', [CompanyController::class, 'update'])->name('company.update');
+    //Route::post('company', [CompanyController::class, 'store'])->name('company.store');
+    //Route::get('company/edit', [CompanyController::class, 'edit'])->name('company.edit');
+    //Route::delete('company', [CompanyController::class, 'destroy'])->name('company.destroy');
+
+
+    Route::get('jobber/create', [JobberController::class, 'create'])->name('jobber.create');
+    Route::put('jobber/{id}', [JobberController::class, 'update'])->name('jobber.update');
+    Route::post('jobber', [JobberController::class, 'store'])->name('jobber.store');
+    Route::get('jobber/edit', [JobberController::class, 'edit'])->name('jobber.edit');
+    Route::delete('jobber', [JobberController::class, 'destroy'])->name('jobber.destroy');
+
+
+
 
   });
 
