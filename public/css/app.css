@@ -170,13 +170,14 @@ sup {
 }
 
 a {
-  color: #2d873a;
+  color: #448aff;
   text-decoration: none;
   background-color: transparent;
+  margin-left: 1px;
 }
 
 a:hover {
-  color: #2d873a;
+  color: #448aff;
   text-decoration: underline;
 }
 
@@ -2184,7 +2185,7 @@ pre code {
 .form-control:focus {
   color: #495057;
   background-color: #fff;
-  border-color: #80bdff;
+  border-color: #448aff;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
@@ -5381,7 +5382,7 @@ a.badge:focus {
 
 .badge-primary {
   color: #fff;
-  background-color: #2d873a;
+  background-color: #448aff;
 }
 
 a.badge-primary:hover,
@@ -5564,9 +5565,9 @@ a.badge-dark.focus {
 }
 
 .alert-primary {
-  color: #432d54;
-  background-color: #e5f7d2;
-  border-color: #432d54;
+  color: #000;
+  background-color: #7fadfa;
+  border-color: #448aff;
 }
 
 .alert-primary hr {
@@ -5781,7 +5782,7 @@ a.badge-dark.focus {
   display: block;
   padding: 1.3rem 1.25rem;
   background-color: #f8f9fa;;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+
   margin-right: 15px;
 }
 
@@ -7247,6 +7248,11 @@ button.bg-dark:focus {
   width: 870px;
   margin-left: 180px;
 }
+.d--flex{
+   display: flex !important;
+   width: 870px;
+   margin-left: 60px;
+}
 .d-flexx {
     display: flex !important;
     width: 870px;
@@ -8529,6 +8535,7 @@ button.bg-dark:focus {
 .mt-4,
 .my-4 {
   margin-top: 1.5rem !important;
+  margin-right:5px
 }
 
 .mr-4,
@@ -11974,21 +11981,21 @@ button {
 }
 
 .primary-btn {
-  background-color: #2d873a;
+  background-color: #448aff;
   color: white;
   transition: background-color 0.25s ease;
   padding: 6px 8px;
-  border: 1px solid #2d873a;
+  border: 1px solid #448aff;
   border-radius: 2px;
   margin-bottom: 12px;
   margin-left: 20px;
 }
 .primary-btnn{
-  background-color: #2d873a;
+  background-color: #448aff;
   color: white;
   transition: background-color 0.25s ease;
   padding: 6px 8px;
-  border: 1px solid #2d873a;
+  border: 1px solid #448aff;
   border-radius: 2px;
   margin-bottom: 12px;
   margin-right: 40px;
@@ -12004,21 +12011,21 @@ button {
 
 .primary-outline-btn {
   background-color: white;
-  color: #2d873a;
+  color: #448aff;
   transition: background-color 0.25s ease;
   padding: 6px 8px;
-  border: 1px solid #2d873a;
+  border: 1px solid #448aff;
   border-radius: 2px;
   margin-left: 85px;
   margin-right: -78px;
   margin-bottom: 8px;
 }
 .primary-out-btn{
-  background-color: green;
+  background-color: #448aff;
   color: white;
   transition: background-color 0.25s ease;
   padding: 6px 8px;
-  border: 1px solid #2d873a;
+  border: 1px solid #2da669;
   border-radius: 2px;
   margin-left: -85px;
   margin-right: -78px;
@@ -12027,12 +12034,12 @@ button {
 
 
 .primary-outline-btn:hover {
-  background-color: #2d873a;
+  background-color: #639cfa;
   color: white;
 }
 
 .secondary-btn {
-  background-color: #2d873a;
+  background-color: #639cfa;
   color: white;
   transition: background-color 0.25s ease;
   padding: 6px 8px;
@@ -12041,8 +12048,8 @@ button {
 }
 
 .secondary-btn:hover {
-  background-color: #023966;
-  color: white;
+  background-color: #fff;
+  color: #639cfa;
 }
 
 .secondary-outline-btn {
@@ -12074,10 +12081,11 @@ button {
   letter-spacing: 0.1rem;
   color: #2d873a !important;
   font-weight: bold;
+  margin-left:-30px;
 }
 
 .bg-primary {
-  background-color: #2d873a !important;
+  background-color: #639cfa !important;
 }
 
 .custom-pagination .page-item .page-link {
@@ -12092,7 +12100,8 @@ button {
 
 .home-page {
   padding: 2rem;
-  background: linear-gradient(to bottom right, #0261a6, #022c5a);
+  background-image: url('../images/31.png');
+  height:600px;
 }
 
 .home-page .rounded-text {
@@ -12230,7 +12239,7 @@ button {
     margin-right: -19px;
   }
 .account-layout .account-bdy .list-group-item.active {
-  background-color:  #d6b655;
+  background-color:  #448aff;
   color: #fff;
   border: #185a91;
 }
@@ -12262,7 +12271,7 @@ button {
 
 .card-single div:last-child span {
     font-size: 3rem;
-    color:  #e6b904;
+    color:  #448aff;
 }
 
 .card-single span:last-child {
@@ -12277,7 +12286,7 @@ button {
      color: #fff;
 }
 .card-single:last-child {
-    background-color: #000;
+    background-color: #448aff;
 }
 .card-single:last-child h1,
 .card-single:last-child div:first-child span
@@ -12285,146 +12294,5 @@ button {
     color:#fff;
 }
 
-.home{
-	height: 100vh;
-	overflow:hidden;
-	position: relative;
-}
 
-.home .slide{
-	position: absolute;
-	left:0;
-	top:0;
-	width: 100%;
-	height: 100%;
-	background-size: cover;
-	background-position: center;
-	z-index:1;
-	display:none;
-	padding:0 15px;
-	animation: slide 2s ease;
-}
-.home .slide.active{
-	display: flex;
-}
-@keyframes slide{
-	0%{
-		transform:scale(1.1);
-	}
-	100%{
-		transform: scale(1);
-	}
-}
-.container{
-	max-width: 1170px;
-	margin:auto;
 
-}
-
-.home .container{
-	 flex-grow: 1;
-}
-.home .caption{
-	width:50%;
-}
-.home .caption h1{
-	font-size:42px;
-	color:#000000;
-	margin:0;
-
-}
-.home .slide.active .caption h1{
-	opacity:0;
-	animation: captionText .5s ease forwards;
-	animation-delay:1s;
-}
-.home .caption p{
-	font-size: 18px;
-	margin:15px 0 30px;
-	color:#222222;
-}
-.home .slide.active .caption p{
-	opacity:0;
-	animation: captionText .5s ease forwards;
-	animation-delay:1.2s;
-}
-.home .caption a{
- display: inline-block;
- padding:10px 30px;
- background-color: #000000;
- text-decoration: none;
- color:#ffffff;
-}
-
-.home .slide.active .caption a{
-	opacity:0;
-	animation: captionText .5s ease forwards;
-	animation-delay:1.4s;
-}
-
-@keyframes captionText{
-	0%{
-		opacity:0; transform: translateX(-100px);
-	}
-	100%{
-	 opacity:1; transform: translateX(0px);
-	}
-}
-
-.home .controls .prev,
-.home .controls .next{
- position: absolute;
- z-index:2;
- top:50%;
- height:40px;
- width: 40px;
- margin-top: -20px;
- color:#ffffff;
- background-color: #FF5722;
- text-align: center;
- line-height: 40px;
- font-size:20px;
- cursor:pointer;
- transition: all .5s ease;
-}
-.home .controls .prev:hover,
-.home .controls .next:hover{
-	background-color: #000000;
-}
-.home .controls .prev{
- left:0;
-}
-.home .controls .next{
- right:0;
-}
-
-.home .indicator{
-	position: absolute;
-	left:50%;
-	bottom:30px;
-	z-index: 2;
-	transform: translateX(-50%);
-}
-
-.home .indicator div{
-	display: inline-block;
-	width:25px;
-	height: 25px;
-	color:#ffffff;
-	background-color: #FF5722;
-	border-radius:50%;
-	text-align: center;
-	line-height: 25px;
-	margin:0 3px;
-}
-
-.home .indicator div.active{
- background-color: #000;
-}
-
-/*responsive*/
-@media(max-width: 767px){
-	.controls{
-		display: none;
-	}
-}

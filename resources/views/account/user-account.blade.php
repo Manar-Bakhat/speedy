@@ -6,7 +6,7 @@
     User Account
   </div>
   <div class="account-bdy border py-3">
-    <div class="row container d-flex justify-content-center">
+    <div class="row container d--flex justify-content-center">
         <div class="col-xl-12 col-md-12">
             <div class="card user-card-full">
                 <div class="row m-l-0 m-r-0">
@@ -80,13 +80,14 @@
     margin-right: 0px
 }
 .m-l-0 {
-    margin-left: 0px
+    margin-left: 0px;
+    margin-bottom: -90px
 }
 .user-card-full .user-profile {
     border-radius: 5px 0 0 5px
 }
 .bg-c-lite-green {
-    background: linear-gradient(to right, #2d873a, #649c6c)
+    background: linear-gradient(to right, #448aff, #639cfa)
 }
 .user-profile {
     padding: 20px 0

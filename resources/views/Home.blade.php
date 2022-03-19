@@ -2,49 +2,35 @@
 
 @section('content')
 
-<section class="home">
-    <div class="slider">
-       <div class="slide active" style="background-image: url('images/man.png')">
-           <div class="container">
-               <div class="caption">
-                   <h1></h1>
-                   <p></p>
+<section class="home-page pt-4">
+    <div class="container">
+      <form action="{{route('service.index')}}">
+        <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <div class="px-4">
+              <div class="rounded-text">
+                <p>
 
-               </div>
-           </div>
-       </div>
-       <div class="slide" style="background-image: url('images/bg.png')">
-           <div class="container">
-               <div class="caption">
-                   <h1>2. Winter Collection 2020</h1>
-                   <p>Lorem ipsum dummy text goes here.</p>
-                   <a href="">Shop Now</a>
-               </div>
-           </div>
-       </div>
-       <div class="slide" style="background-image: url('images/bg0.jpg')">
-           <div class="container">
-               <div class="caption">
-                   <h1>3. Winter Collection 2020</h1>
-                   <p>Lorem ipsum dummy text goes here.</p>
-                   <a href="">Shop Now</a>
-               </div>
-           </div>
-       </div>
+                </p>
+              </div>
+              <div class="home-search-bar">
+                  <input type="text" name="q" placeholder="Search Service" class="home-search-input form-control">
+                  <button type="submit" class="secondary-btn"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 col-md-6">
+            <div class="py-5 px-5 text-center">
+              <div class="text-light">
+                <h4>
+              </h4>
+              </div>
+            </div>
+            </div>
+        </div>
+      </form>
     </div>
-
-   <!-- controls  -->
-   <div class="controls">
-       <div class="prev"><</div>
-       <div class="next">></div>
-   </div>
-
-   <!-- indicators -->
-   <div class="indicator">
-   </div>
-
- </section>
-
+  </section>
 
 
 
