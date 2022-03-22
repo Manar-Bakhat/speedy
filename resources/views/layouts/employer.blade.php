@@ -9,7 +9,7 @@
                   <div class="card left-card">
                     <div class="card-body text-center">
                       <div class="employer-card">
-                        <img src="{{asset($jobber->logo)}}"  class="img-fluid mb-3" alt="">
+                        <img src="{{asset($jobber->photo)}}"  class="img-fluid mb-3" alt="">
                       </div>
                       <h6 class="lead font-weight-bold">{{$jobber->title}}</h6>
                       <p >{{$jobber->getCategory->category_name}}</p>
@@ -17,7 +17,7 @@
                         <p class="small">{{$jobber->description}}</p>
                       </div>
                       <div class="text-center">
-                        <a target="_blank" href="{{'https://'.$jobber->website}}"><i class="fas fa-globe"></i></a>
+                        <a target="_blank" href="{{'https://'.$jobber->facebook}}"><i class="fas fa-globe"></i></a>
                       </div>
                     </div>
                   </div>

@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="account-layout  border">
-    <div class="account-hdr bg-primary text-white border">
+    <div class="account-hdr bg-light text-dark border">
       Jobbers Section
     </div>
     <div class="account-bdy p-3">
@@ -71,10 +71,10 @@
                               <div class="col-sm-12 col-md-12">
                                   <div class="card">
                                       <div class="card-body text-center">
-                                          <img src="{{asset($jobber->logo)}}" width="100px" class="img-fluid border p-2" alt="">
+                                          <img src="{{asset($jobber->photo)}}" width="100px" class="img-fluid border p-2" alt="">
                                           <h5>{{$jobber->title}}</h5>
                                           <small>{{$jobber->getCategory->category_name}}</small>
-                                        <a class="d-block" href="{{$jobber->website}}"><i class="fas fa-globe"></i></a>
+                                        <a class="d-block" href="{{$jobber->facebook}}"><i class="fas fa-globe"></i></a>
                                       </div>
                                   </div>
                               </div>

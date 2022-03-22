@@ -17,11 +17,10 @@ class CreateJobbersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedInteger('jobber_category_id');
-            $table->string('logo');
+            $table->string('photo');
             $table->string('title', 50);
             $table->text('description');
-            $table->string('facebook')->nullable();
-            $table->string('website');
+            $table->string('facebook');
             $table->string('cover_img');
             $table->timestamps();
         });

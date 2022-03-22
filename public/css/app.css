@@ -242,6 +242,11 @@ label {
   margin-bottom: 0.5rem;
   margin-left: 190px;
 }
+#labell {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    margin-left: 19px;
+  }
 
 button {
   border-radius: 0;
@@ -627,9 +632,10 @@ pre code {
   display: flex;
   flex-wrap: wrap;
   margin-right: -103px;
-  margin-left: -106px;
+  margin-left: -109px;
 
 }
+
 
 .no-gutters {
   margin-right: 0;
@@ -8522,6 +8528,9 @@ button.bg-dark:focus {
 .mb-3{
     margin-left: -90px;
 }
+.mb-2{
+    margin-left: 0px;
+}
 
 .ml-3,
 .mx-3 {
@@ -11990,6 +11999,26 @@ button {
   margin-bottom: 12px;
   margin-left: 20px;
 }
+.primary-btn1 {
+    background-color: white;
+    color: #000;
+    transition: background-color 0.25s ease;
+    padding: 6px 8px;
+    border: 1px solid #448aff;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    margin-left: 20px;
+  }
+.primary-btn0 {
+    background-color: #448aff;
+    color: white;
+    transition: background-color 0.25s ease;
+    padding: 6px 8px;
+    border: 1px solid #448aff;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    margin-left: 0px;
+  }
 .primary-btnn{
   background-color: #448aff;
   color: white;
@@ -12008,6 +12037,10 @@ button {
   background-color: white;
   color: #023966;
 }
+.primary-btn1:hover {
+    background-color: #448aff;
+    color: white;
+  }
 
 .primary-outline-btn {
   background-color: white;
@@ -12100,25 +12133,25 @@ button {
 
 .home-page {
   padding: 2rem;
-  background-image: url('../images/31.png');
+  background-image: url('../images/bg20.png');
   height:600px;
 }
 
 .home-page .rounded-text {
-  background-color: white;
+  /*background-color: rgba(218, 206, 206, 0.5);*/
   padding: 0.5rem 1rem;
-  border: 1px solid white;
+  /*border: 1px solid white;*/
   margin: 2rem 0;
-  border-radius: 16px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  /*border-radius: 16px;
+/* width: -webkit-fit-content;*/
+ /* width: -moz-fit-content;*/
+  /*width: fit-content;*/
 }
 
 .home-page .rounded-text p {
   font-weight: bold;
   font-size: 1.5rem;
-  color: #185a91;
+  color: black;
 }
 
 .home-page .home-search-bar {

@@ -22,9 +22,9 @@
             <p>Jobber picture</p>
           </div>
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="validatedCustomFile" name="logo" required>
-            <label class="custom-file-label" for="validatedCustomFile">Choose logo...</label>
-            @error('logo')
+            <input type="file" class="custom-file-input" id="validatedCustomFile" name="photo" required>
+            <label class="custom-file-label" for="validatedCustomFile">Choose picture...</label>
+            @error('photo')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
               </span>
@@ -49,7 +49,7 @@
             <p>Jobber facebook Url</p>
 
           </div>
-          <input type="text" placeholder="Jobber Website" class="form-control @error('facebook') is-invalid @enderror" name="website" value="{{ old('website')}}" required>
+          <input type="text" placeholder="Jobber Facebook" class="form-control @error('facebook') is-invalid @enderror" name="facebook" value="{{ old('facebook')}}" required>
             @error('facebook')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

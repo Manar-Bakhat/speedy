@@ -24,10 +24,10 @@ class JobberFactory extends Factory
         return [
             'user_id' => 2, //default author by user seeder class
             'jobber_category_id' => 1,
-            'logo' => 'images/jobbers/logos/',
-            'title' => 'Web App developer',
-            'description' => 'This company Pvt Ltd is the company specialized to help organizations with financial technology solutions. We provide solutions such comprehensive mobile and online payment solutions and gateway facilitating services. We facilitate in online transaction settlement service to merchants and their banks to be able to accept/acquire payments from third party payment sources. We provide technology and solutions for acquiring payment from 3rd party wallets, smart wallets solutions, merchant management solutions and host of other solutions..',
-            'website' => 'https://www.facebook.com',
+            'photo' => 'images/jobbers/logos/',
+            'title' => 'Photographer at home',
+            'description' => 'Tho',
+            'facebook' => 'https://www.facebook.com',
             'cover_img' => 'nocover',
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),

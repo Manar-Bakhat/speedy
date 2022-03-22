@@ -5,8 +5,8 @@
     <div class="row justify-content-center">
         <div class="col-sm-12 col-md-6 px-0">
             <div class="login-container">
-                <div class="login-header mb-3">
-                    <h3> <img src="{{asset('images/logo/')}}" width="50px;" alt=""><img src="{{asset('images/logo/speedy.png')}}" width="15%" alt=""> Login</h3>
+                <div class="login-header mb-2">
+                    <h3> Login</h3>
                     <p class="login-header-title"></p>
                     <p class="text-muted">login with your registered email & password.</p>
                 </div>
@@ -14,7 +14,7 @@
                     <form action="{{route('login')}}" method="POST">
                         @csrf
                         <div class="form-group">
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                                 </div>
@@ -27,7 +27,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
                                 </div>
@@ -41,14 +41,14 @@
                         </div>
                         <div class="form-group mb-0">
                             <input type="checkbox" id="rememberMe" name="remember" {{old('remember')?'checked':''}}>
-                            <label for="rememberMe">Remember me</label>
+                            <label id="labell" for="rememberMe">Remember me</label>
                         </div>
                         <div class="form-group">
                             <a href="#" class="secondary-link">Forgot password?</a>
                         </div>
-                        <button type="submit" class="btn primary-btn btn-block">Login</button>
+                        <button type="submit" class="btn primary-btn0 btn-block">Login</button>
                     </form>
-                    <div class="my-3">
+                    <div class="my-2">
                         <p>Don't have an account? <a href="/register">Register now</a></p>
                     </div>
                 </div>

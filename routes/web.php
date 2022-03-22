@@ -3,8 +3,6 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\Auth\AuthorController;
-use App\Http\Controllers\CompanyCategoryController;
-use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\JobberCategoryController;
 use App\Http\Controllers\JobberController;
 use App\Http\Controllers\CarServiceApplicationController;
@@ -54,6 +52,7 @@ Route::middleware('auth')->prefix('account')->group(function () {
     Route::post('category', [JobberCategoryController::class, 'store'])->name('category.store');
     Route::put('category/{id}', [JobberCategoryController::class, 'update'])->name('category.update');
     Route::get('category/{id}', [JobberCategoryController::class, 'destroy'])->name('category.destroy');
+
 
 
 });

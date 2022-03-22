@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="account-layout border">
-    <div class="account-hdr bg-primary text-white border">
+    <div class="account-hdr bg-light text-dark border">
       Create Job listings
     </div>
     <div class="account-bdy p-3">
@@ -45,7 +45,7 @@
                 </div>
               </div>
             </div>
-       
+
 
             <div class="form-group">
               <label for="">Employment Type</label>
@@ -151,12 +151,12 @@
     placeholder: 'Job Reqirement , Job Specifications etc ...',
     theme: 'snow'
     });
-    
+
 
     const postBtn = document.querySelector('#postBtn');
     const postForm = document.querySelector('#postForm');
     const specifications = document.querySelector('#specifications');
-    
+
     if(specifications.value){
       quill.root.innerHTML = specifications.value;
     }
@@ -164,7 +164,7 @@
     postBtn.addEventListener('click',function(e){
       e.preventDefault();
       specifications.value = quill.root.innerHTML
-      
+
       postForm.submit();
     })
   })

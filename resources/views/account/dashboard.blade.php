@@ -79,7 +79,8 @@
                             <td>{{$author->jobber->title}}</td>
                             <td>
                             <a href="{{route('account.employer',['employer'=>$author->jobber])}}" class="btn primary-btnn">View Profile Jobber</a>
-                            </td>
+                        </td>
+
                         </tr>
                         @endif
                         @endforeach
@@ -174,3 +175,4 @@
     })
 </script>
 @endpush
+

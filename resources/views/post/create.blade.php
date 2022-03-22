@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="account-layout border">
-    <div class="account-hdr bg-primary text-white border">
+    <div class="account-hdr bg-light text-dark border">
       Create Job listings
     </div>
     <div class="account-bdy p-3">

@@ -17,36 +17,36 @@ class JobberSeeder extends Seeder
     {
         $details = [
             [
-                'title' => 'Php laravel developer',
-                'ville' => 'full time',
-                'zone' => 'bachelors',
+                'title' => 'Photographer at home',
+                'ville' => 'Tetouan',
+                'zone' => 'Center ville',
             ], [
-                'title' => 'Marketing Expert',
-                'ville' => 'full time',
-                'zone' => 'bachelors',
+                'title' => 'Car Wash',
+                'ville' => 'Tetouan',
+                'zone' => 'Martil',
             ], [
-                'title' => 'Professional designer',
-                'ville' => 'Part time',
-                'zone' => 'bachelors',
+                'title' => 'Car Service',
+                'ville' => 'Tetouan',
+                'zone' => 'Fnidek',
             ], [
-                'title' => 'Dotnet programmer',
-                'ville' => 'full time',
-                'zone' => 'high school',
+                'title' => 'Babysitter',
+                'ville' => 'Tetouan',
+                'zone' => 'center ville',
             ], [
-                'title' => 'Sales Executive',
-                'ville' => 'Part time',
-                'zone' => 'bachelors',
+                'title' => 'driver',
+                'ville' => 'Tetouan',
+                'zone' => 'Martil',
             ], [
-                'title' => 'Maths Teacher',
-                'zone' => 'full time',
-                'ville' => 'master',
+                'title' => 'Teacher at home',
+                'zone' => 'Tetouan',
+                'ville' => 'Center ville',
             ],
         ];
         //user id is 2 that has author role
         $jobber = jobber::factory()->create([
             'jobber_category_id' => 1,
             'title' => 'Gabrato company',
-            'logo' => 'images/logo/7.png',
+            'photo' => 'images/logo/7.png',
         ]);
         foreach ($details as $index => $detail) {
             $post = Post::factory()->create([

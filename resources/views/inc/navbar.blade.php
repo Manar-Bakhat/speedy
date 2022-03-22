@@ -34,7 +34,7 @@
         @endauth
         @guest
         <a href="/Jobber" class="btn primary-btn">Post Service</a>
-        <a href="/login" class="btn primary-btn">Sign up or Log in</a>
+        <a href="/login" class="btn primary-btn1">Sign up or Log in</a>
         @endguest
       </ul>
     </div>

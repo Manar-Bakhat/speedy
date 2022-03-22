@@ -4,9 +4,9 @@
       <div class="col-sm-12 col-md-5 col-xl-4">
         <Sidebar
           @get-by-category="getByCategory"
-          @get-by-job-level="getByJobLevel"
-          @get-by-employmentType="getByEmploymentType"
-          @get-by-education="getByEducation"
+          @get-by-service-title="getByServiceTitle"
+          @get-by-service-ville="getByServiceVille"
+          @get-by-service-zone="getByServiceZone"
         />
       </div>
       <div class="col-sm-12 col-md-7 col-xl-8">
@@ -19,7 +19,7 @@
                 alt="search-not-found-clip"
               />
               <h4>
-                No Jobs found <br />
+                No Services found <br />
                 <span class="text-muted font-size-12px"
                   >Please search for another keyword.</span
                 >
@@ -37,13 +37,13 @@
 
           <div class="my-4 text-center small">
             <div class="d-block py-2 text-muted">
-              {{ posts.total }} Total Jobs found with matching search
+              {{ posts.total }} Total Services found with matching search
             </div>
             <div class="d-flex justify-content-center">
               <pagination
                 class="custom-pagination"
                 :data="posts"
-                @pagination-change-page="getJobs"
+                @pagination-change-page="getServices"
               ></pagination>
             </div>
           </div>
@@ -126,7 +126,7 @@ export default {
     getByEducation(educationLevel) {
       this.$Progress.start();
       axios
-        .get(`/api/search?education_level=${educationLevel}`)
+        .get(`/api/search?service_ville=${serviceVille}`)
         .then((res) => res.data)
         .then((data) => {
           this.posts = data;
@@ -141,7 +141,7 @@ export default {
     getByJobLevel(jobLevel) {
       this.$Progress.start();
       axios
-        .get(`/api/search?job_level=${jobLevel}`)
+        .get(`/api/search?service_zone=${serviceZone}`)
         .then((res) => res.data)
         .then((data) => {
           this.posts = data;

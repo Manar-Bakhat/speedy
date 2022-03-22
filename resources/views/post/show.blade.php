@@ -9,35 +9,35 @@
           <div class="company-info">
             <div class="company-banner">
               <div class="banner-overlay"></div>
-              @if($company->cover_img == 'nocover')
-              <img src="{{asset('images/companies/nocover.jpg')}}" class="company-banner-img img-fluid" alt="">
+              @if($jobber->cover_img == 'nocover')
+              <img src="{{asset('images/jobbers/nocover.jpg')}}" class="company-banner-img img-fluid" alt="">
               @else
-              <img src="{{asset($company->cover_img)}}" class="company-banner-img img-fluid" alt="">
+              <img src="{{asset($jobber->cover_img)}}" class="company-banner-img img-fluid" alt="">
               @endif
               <div class="company-media">
-                <img src="{{asset($company->logo)}}" alt="" class="company-logo">
+                <img src="{{asset($jobber->photo)}}" alt="" class="company-logo">
                 <div>
-                  <a href="{{route('account.employer',['employer'=>$company])}}" class="secondary-link">
-                    <p class="font-weight-bold">{{$company->title}}</p>
-                    <p class="company-category">{{$company->getCategory->category_name}}</p>
+                  <a href="{{route('account.employer',['employer'=>$jobber])}}" class="secondary-link">
+                    <p class="font-weight-bold">{{$jobber->title}}</p>
+                    <p class="company-category">{{$jobber->getCategory->category_name}}</p>
                   </a>
                 </div>
               </div>
               <div class="company-website">
-                <a href="{{$company->website}}" target="_blank"><i class="fas fa-globe"></i></a>
+                <a href="{{$jobber->facebook}}" target="_blank"><i class="fas fa-globe"></i></a>
               </div>
             </div>
 
             {{-- company information --}}
             <div class="p-3">
-              <p>{{$company->description}}</p>
+              <p>{{$jobber->description}}</p>
             </div>
           </div>
 
           {{-- job information --}}
           <div class="job-info">
             <div class="job-hdr p-3">
-              <p class="job-title">{{$post->job_title}}</p>
+              <p class="job-title">{{$post->service_title}}</p>
               <div class="">
                 <p class="job-views">
                   <span class="text-success">Views: {{$post->views}} </span> |
@@ -53,7 +53,7 @@
                     <tr>
                       <td width="33%">Job Category</td>
                       <td width="3%">:</td>
-                      <td width="64%"><a href="/jobs">{{$company->getCategory->category_name}}</a></td>
+                      <td width="64%"><a href="/jobs">{{$jobber->getCategory->category_name}}</a></td>
                     </tr>
                     <tr>
                       <td width="33%">Job Level</td>
@@ -109,71 +109,7 @@
                   </tbody>
                 </table>
               </div>
-              <div class="job-level-description">
-                {{-- <p class="font-weight-bold">More Specifications</p> --}}
-                <p class="py-2">{!!$post->specifications!!}</p>
-              </div>
-              <br>
-              <hr>
-              <div class="d-flex justify-content-between">
-                <div>
-                  <a href="{{route('account.applyJob',['post_id'=>$post])}}" class="btn primary-btn">Apply now</a>
-                  <a href="{{route('savedJob.store',['id'=>$post])}}" class="btn primary-outline-btn"><i class="fas fa-star"></i> Save job</a>
-                </div>
-                <div class="social-links">
-                  <a href="https://www.facebook.com"  target="_blank" class="btn btn-primary"><i class="fab fa-facebook"></i></a>
-                  <a href="https://www.twitter.com" target="_blank"  class="btn btn-primary"><i class="fab fa-twitter"></i></a>
-                  <a href="https://www.linkedin.com"  target="_blank" class="btn btn-primary"><i class="fab fa-linkedin"></i></a>
-                  <a href="https://www.gmail.com" target="_blank"  class="btn btn-primary"><i class="fas fa-envelope"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-12 col-md-4">
-        <div class="card d-none d-md-block mb-3">
-          <div class="card-header">
-            Job Action
-          </div>
-          <div class="card-body">
-            <div class="btn-group w-100">
-              <a href="{{route('account.applyJob',['post_id'=>$post->id])}}" class="btn primary-outline-btn float-left">Apply Now</a>
-              <a href="{{route('savedJob.store',['id'=>$post->id])}}" class="btn primary-btn"><i class="fas fa-star"></i> Save job</a>
-            </div>
-          </div>
-        </div>
-        <div class="card ">
-          <div class="card-header">
-            Similar Jobs
-          </div>
-          <div class="card-body">
-            <div class="similar-jobs">
-              @foreach ($similarJobs as $job)
-              @if($similarJobs)
-                <div class="job-item border-bottom row">
-                  <div class="col-4">
-                    <img src="{{asset($job->company->logo)}}" class="company-logo" alt="">
-                  </div>
-                  <div class="job-desc col-8">
-                    <a href="{{route('post.show',['job'=>$post])}}" class="job-category text-muted font-weight-bold">
-                      <p class="text-muted h6">{{$job->job_title}}</p>
-                      <p class="small">{{$job->company->title}}</p>
-                      <p class="font-weight-normal small text-danger">Deadline: {{date('d',$job->remainingDays())}} days</p>
-                    </a>
-                  </div>
-                </div>
-                @else
-                <div class="card">
-                  <div class="card-header">
-                    <p>No similar jobs</p>
-                  </div>
-                </div>
-                @endif
-              @endforeach
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>
@@ -220,7 +156,7 @@
     bottom: 1rem;
     color: #333;
     padding-right: 2rem;
-    background-color:rgba(255,255,255,.8);
+    background-color:rgba(243, 242, 242, 0.8);
   }
 
   .company-logo {
@@ -257,7 +193,7 @@
   }
   .job-item:hover {
     background-color:#eee;
-  } 
+  }
 
 </style>
 @endpush

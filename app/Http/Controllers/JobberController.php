@@ -36,7 +36,7 @@ class JobberController extends Controller
         $this->validateJobber($request);
 
         $jobber = new jobber();
-        if ($this->companySave($jobber, $request)) {
+        if ($this->jobberSave($jobber, $request)) {
             Alert::toast('Company created! Now you can add posts.', 'success');
             return redirect()->route('account.authorSection');
         }
@@ -76,9 +76,9 @@ class JobberController extends Controller
         return $request->validate([
             'title' => 'required|min:5',
             'description' => 'required|min:5',
-            'logo' => 'required|image|max:2999',
+            'photo' => 'required|image|max:2999',
             'category' => 'required',
-            'website' => 'required|string',
+            'facebook' => 'required|string',
             'cover_img' => 'sometimes|image|max:3999'
         ]);
     }
@@ -87,9 +87,9 @@ class JobberController extends Controller
         return $request->validate([
             'title' => 'required|min:5',
             'description' => 'required|min:5',
-            'logo' => 'someiimes|image|max:2999',
+            'photo' => 'someiimes|image|max:2999',
             'category' => 'required',
-            'website' => 'required|string',
+            'facebook' => 'required|string',
             'cover_img' => 'sometimes|image|max:3999'
         ]);
     }
@@ -99,15 +99,15 @@ class JobberController extends Controller
         $jobber->title = $request->title;
         $jobber->description = $request->description;
         $jobber->jobber_category_id = $request->category;
-        $jobber->website = $request->website;
+        $jobber->facebook = $request->facebook;
 
         //logo
-        $fileNameToStore = $this->getFileName($request->file('logo'));
-        $logoPath = $request->file('logo')->storeAs('public/jobbers/logos', $fileNameToStore);
-        if ($jobber->logo) {
-            Storage::delete('public/jobbers/logos/' . basename($jobber->logo));
+        $fileNameToStore = $this->getFileName($request->file('photo'));
+        $logoPath = $request->file('photo')->storeAs('public/jobbers/logos', $fileNameToStore);
+        if ($jobber->photo) {
+            Storage::delete('public/jobbers/logos/' . basename($jobber->photo));
         }
-        $jobber->logo = 'storage/jobbers/logos/' . $fileNameToStore;
+        $jobber->photo = 'storage/jobbers/logos/' . $fileNameToStore;
 
         //cover image
         if ($request->hasFile('cover_img')) {
@@ -133,16 +133,16 @@ class JobberController extends Controller
         $jobber->title = $request->title;
         $jobber->description = $request->description;
         $jobber->jobber_category_id = $request->category;
-        $jobber->website = $request->website;
+        $jobber->facebook = $request->facebook;
 
         //logo should exist but still checking for the name
-        if ($request->hasFile('logo')) {
-            $fileNameToStore = $this->getFileName($request->file('logo'));
-            $logoPath = $request->file('logo')->storeAs('public/jobbers/logos', $fileNameToStore);
+        if ($request->hasFile('photo')) {
+            $fileNameToStore = $this->getFileName($request->file('photo'));
+            $logoPath = $request->file('photo')->storeAs('public/jobbers/logos', $fileNameToStore);
             if ($jobber->logo) {
-                Storage::delete('public/jobbers/logos/' . basename($jobber->logo));
+                Storage::delete('public/jobbers/logos/' . basename($jobber->photo));
             }
-            $jobber->logo = 'storage/jobbers/logos/' . $fileNameToStore;
+            $jobber->photo = 'storage/jobbers/logos/' . $fileNameToStore;
         }
 
         //cover image
@@ -170,7 +170,7 @@ class JobberController extends Controller
 
     public function destroy()
     {
-        Storage::delete('public/jobbers/logos/' . basename(auth()->user()->jobber->logo));
+        Storage::delete('public/jobbers/logos/' . basename(auth()->user()->jobber->photo));
         if (auth()->user()->jobber->delete()) {
             return redirect()->route('account.authorSection');
         }
