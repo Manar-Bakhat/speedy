@@ -73,7 +73,7 @@
         </div>
 
         <div class="pt-2">
-          <p class="mt-3 alert alert-primary">Provide a short paragraph description about your company</p>
+          <p class="mt-3 alert alert-primary">Provide a short paragraph description about you</p>
         </div>
         <div class="form-group">
           <textarea class="form-control @error('description') is-invalid @enderror" name="description" required>{{ old('description') }}</textarea>
@@ -86,7 +86,7 @@
 
         <div class="line-divider"></div>
         <div class="mt-3">
-          <button type="submit" class="btn primary-btn">Create company</button>
+          <button type="submit" class="btn primary-btn">Create Profile Jobber</button>
           <a href="{{route('account.authorSection')}}" class="btn primary-outline-btn">Cancel</a>
         </div>
       </form>

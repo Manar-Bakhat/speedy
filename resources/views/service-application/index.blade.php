@@ -3,12 +3,12 @@
 @section('content')
   <div class="account-layout  border">
     <div class="account-hdr bg-light text-dark border">
-      Job Applications
+      Service Applications
     </div>
     <div class="account-bdy p-3">
       <div class="row">
         <div class="col-sm-12 col-md-12">
-          <p class="mb-3 alert alert-primary">Listing all the Applicants who applied for your <strong>job listings</strong>.</p>
+          <p class="mb-4 alert alert-primary">Listing all the Applicants who applied for your <strong>service listings</strong>.</p>
           <div class="table-responsive pt-3">
             <table class="table table-hover table-striped small">
               <thead>
@@ -16,7 +16,7 @@
                   <th>#</th>
                   <th>Applicant Name</th>
                   <th>Email</th>
-                  <th>Job Title</th>
+                  <th>Service Title</th>
                   <th>Applied on</th>
                   <th>Actions</th>
                 </tr>
@@ -42,7 +42,7 @@
                   @endforeach
                 @else
                   <tr>
-                    <td>You haven't received any job applications.</td>
+                    <td>You haven't received any  Service applications.</td>
                     <td></td>
                     <td></td>
                     <td></td>

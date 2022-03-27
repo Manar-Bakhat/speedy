@@ -25,11 +25,11 @@
         <div class="pb-3">
           <div class="py-3">
             <p>Jobber logo</p>
-            <img src="{{asset($jobber->logo)}}" width="80px" alt="">
+            <img src="{{asset($jobber->photo)}}" width="80px" alt="">
           </div>
           <div class="custom-file">
             <input type="file" class="custom-file-input"  name="logo">
-            <label class="custom-file-label" >Choose logo...</label>
+            <label class="custom-file-label" >Choose Picture...</label>
             @error('logo')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -52,11 +52,11 @@
 
         <div class="form-group">
           <div class="pt-3">
-            <p>Company Website Url</p>
-            <p class="text-primary">For example : https://www.examplecompany.com</p>
+            <p>Jobber Facebook Url</p>
+            <p class="text-primary">For example : https://www.facebook.com</p>
           </div>
-          <input type="text" placeholder="Jobber Website" class="form-control @error('website') is-invalid @enderror" name="website" value="{{ old('website')??$jobber->website }}" required>
-            @error('website')
+          <input type="text" placeholder="Jobber Website" class="form-control @error('facebook') is-invalid @enderror" name="facebook" value="{{ old('facebook')??$jobber->facebook }}" required>
+            @error('facebook')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -93,7 +93,7 @@
 
         <div class="line-divider"></div>
         <div class="mt-3">
-          <button type="submit" class="btn primary-btn">Update company</button>
+          <button type="submit" class="btn primary-btn">Update Profile</button>
           <a href="{{route('account.authorSection')}}" class="btn primary-outline-btn">Cancel</a>
         </div>
       </form>

@@ -37,7 +37,7 @@ class JobberController extends Controller
 
         $jobber = new jobber();
         if ($this->jobberSave($jobber, $request)) {
-            Alert::toast('Company created! Now you can add posts.', 'success');
+            Alert::toast('Your Profile created! Now you can add posts.', 'success');
             return redirect()->route('account.authorSection');
         }
         Alert::toast('Failed!', 'error');

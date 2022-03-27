@@ -43,7 +43,7 @@
       <div class="col-sm-12 col-md-7 ml-auto">
         <div class="card">
           <div class="card-header">
-            <p class="card-title font-weight-bold"><i class="fas fa-briefcase"></i> Top jobs</p>
+            <p class="card-title font-weight-bold"><i class="fas fa-briefcase"></i> Top Service</p>
           </div>
           <div class="card-body">
             <div class="top-jobs" >
@@ -77,37 +77,8 @@
           </div>
         </div>
 
-      <div class="col-sm-12 col-md-3 mr-auto">
 
-        <div class="card mb-4">
-          <div class="card-header">
-            <p class="font-weight-bold"><i class="fas fa-building"></i> Top Employers</p>
-          </div>
-          <div class="card-body">
-            <div class="top-employers">
-            @foreach ($topEmployers as $employer)
-              <div class="top-employer">
-                <a href="{{route('account.employer',['employer'=>$employer])}}">
-                  <img src="{{asset($employer->photo)}}" width="60px" class="img-fluid" alt="">
-                </a>
-              </div>
-            @endforeach
-            </div>
-          </div>
-        </div>
 
-          <div class="card mb-4 job-by-category">
-            <div class="card-header">
-              <p class="font-weight-bold"><i class="fab fa-typo3"></i> Jobs By Category</p>
-            </div>
-            <div class="card-body">
-              <div class="jobs-category mb-3 mt-0">
-                @foreach ($categories as $category)
-                <div class="hover-shadow p-1"><a href="{{URL::to('search?category_id='.$category->id)}}" class="text-muted">{{$category->category_name}}</a> </div>
-                @endforeach
-                <a class="p-1 text-info" href="{{route('service.index')}}">More..</a>
-              </div>
-            </div>
           </div>
         </div>
       </div>

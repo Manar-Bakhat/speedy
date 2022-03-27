@@ -15,14 +15,13 @@ class CategorySeeder extends Seeder
     public function run()
     {
         $categories = [
-            'interior washing',
-            'exterior washing', 'Exhaust',
-            'Clutch ',
-            'air conditioner',
-            'mechanic', 'electrite', 'running gear adjustment', 'reservation guaranteed manufacturer preserved',
-            'allumage gestion auteur', '
-            diagnostic electronique
-            electronic diagnosis', 'pneumatic', 'braking', 'shock absorber',
+            'Car Wash',
+            'Car Service', 'Meal delivery',
+            'Maid ',
+            'Handyman',
+            'Chef service', 'Coaching', 'Aesthetic', 'Hairdresser',
+            'Baby sitter',
+            'Driver', 'Moving house', 'support class teacher',
 
         ];
         foreach ($categories as $category) {

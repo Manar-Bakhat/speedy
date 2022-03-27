@@ -26,7 +26,7 @@ class PostController extends Controller
     public function create()
     {
         if (!auth()->user()->jobber) {
-            Alert::toast('You must create a Jobber first!', 'info');
+            Alert::toast('You must complete your profile first!', 'info');
             return redirect()->route('jobber.create');
         }
         return view('post.create');

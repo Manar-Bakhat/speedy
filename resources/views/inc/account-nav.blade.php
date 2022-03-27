@@ -11,20 +11,18 @@
         <i class="fas fa-users"></i> View All Users
       </a>
     </li>
+
     @endrole
     @role('author')
     <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'author-section' ? 'active': ''}}">
       <a href="{{route('account.authorSection')}}" class="account-nav-link">
-        <i class="fas fa-chart-line"></i> Jobbers Section
+        <i class="fas fa-chart-line"></i> Jobber Section
     </li>
     <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'post' && request()->segment(3) == 'create' ? 'active': ''}}">
       <a href="{{route('post.create')}}" class="account-nav-link">
-        <i class="fas fa-plus-square"></i> Create Car Service listing
+        <i class="fas fa-plus-square"></i> Create Post Service
     </li>
-    <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'service-application' ? 'active': ''}}">
-      <a href="{{route('serviceApplication.index')}}" class="account-nav-link">
-        <i class="fas fa-bell"></i> Car Service Application
-    </li>
+
     @endrole
     <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'overview' ? 'active': ''}}">
       <a href="{{route('account.index')}}" class="account-nav-link">
@@ -34,7 +32,7 @@
     @role('user')
     <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'become-employer' ? 'active': ''}}">
       <a href="{{route('account.becomeEmployer')}}" class="account-nav-link">
-        <i class="fas fa-user-shield"></i> Become an employer
+        <i class="fas fa-user-shield"></i> Become a Jobber
       </a>
     </li>
     @endrole

@@ -3,6 +3,14 @@
   <a href="{{URL('/')}}" class="navbar-brand">
     <img src="{{asset('images/logo/speedy.png')}}" width="35%" alt="">
     </a>
+
+    <a href="{{URL('/')}}" class="navbar-brand">
+
+        </a>
+    <a href="{{URL('/')}}" class="navbar-brand">
+
+           </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
      <i class="fas fa-bars"></i>
     </button>
@@ -33,8 +41,8 @@
         </li>
         @endauth
         @guest
-        <a href="/Jobber" class="btn primary-btn">Post Service</a>
-        <a href="/login" class="btn primary-btn1">Sign up or Log in</a>
+        <a href="/Jobber" class="btn primary-btn1">Post Service</a>
+        <a href="/login" class="btn primary-btn">Sign up or Log in</a>
         @endguest
       </ul>
     </div>

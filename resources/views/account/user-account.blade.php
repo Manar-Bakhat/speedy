@@ -81,7 +81,7 @@
 }
 .m-l-0 {
     margin-left: 0px;
-    margin-bottom: -90px
+    margin-bottom: -108px
 }
 .user-card-full .user-profile {
     border-radius: 5px 0 0 5px
