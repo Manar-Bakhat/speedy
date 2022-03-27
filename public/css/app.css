@@ -236,16 +236,21 @@ th {
   text-align: inherit;
   text-align: -webkit-match-parent;
 }
+.texte{
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  margin-left: 90px;
+}
 
 label {
   display: inline-block;
   margin-bottom: 0.5rem;
-  margin-left: 190px;
+  margin-left: 0px;
 }
-#labell {
+#label {
     display: inline-block;
     margin-bottom: 0.5rem;
-    margin-left: 19px;
+    margin-left: 190px;
   }
 
 button {
@@ -631,11 +636,9 @@ pre code {
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -103px;
+  margin-right: -118px;
   margin-left: -109px;
-
 }
-
 
 .no-gutters {
   margin-right: 0;
@@ -728,6 +731,7 @@ pre code {
 }
 .account-nav{
     height: 100%;
+    margin-left:7px;
 }
 
 .col {
@@ -1798,6 +1802,15 @@ pre code {
     color: #212529;
     margin-left:90px;
   }
+  .tables {
+    width: 100%;
+    padding-left: 4rem;
+    margin-bottom: 2rem;
+    color: #212529;
+    margin-left:90px;
+    margin-right: -90px;
+  }
+
 
 .table th,
 .table td {
@@ -2170,6 +2183,12 @@ pre code {
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form{
+display: inline-block;
+  margin-bottom: 0.5rem;
+  margin-left: 90px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -4984,10 +5003,26 @@ input[type=button].btn-block {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 0px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
-
+  margin-left:85px;
 }
+.cardd {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    margin-left:85px;
+  }
+
+  .test{
+      margin-left: -170px
+  }
 
 .card > hr {
   margin-right: 0;
@@ -5759,8 +5794,9 @@ a.badge-dark.focus {
 .list-group {
     display: flex;
     flex-direction: column;
-    padding-left: 0;
-    margin-bottom: 0;
+    padding-left: 0rem;
+    margin-left: 0px;
+    margin-bottom: 1rem;
     border-radius: 0.25rem;
 }
 
@@ -8529,7 +8565,14 @@ button.bg-dark:focus {
     margin-left: -90px;
 }
 .mb-2{
-    margin-left: 0px;
+    margin-left: 10px;
+    margin-right:20px
+}
+.mb-1{
+    margin-left: -20px;
+}
+.mb-4{
+    margin-left: 85px;
 }
 
 .ml-3,
@@ -8544,7 +8587,7 @@ button.bg-dark:focus {
 .mt-4,
 .my-4 {
   margin-top: 1.5rem !important;
-  margin-right:5px
+
 }
 
 .mr-4,
@@ -12009,6 +12052,17 @@ button {
     margin-bottom: 12px;
     margin-left: 20px;
   }
+  .primary-btn2 {
+    background-color: white;
+    color: #000;
+    transition: background-color 0.25s ease;
+    padding: 6px 8px;
+    border: 1px solid #448aff;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    margin-left: -30px;
+  }
+
 .primary-btn0 {
     background-color: #448aff;
     color: white;
@@ -12146,12 +12200,14 @@ button {
 /* width: -webkit-fit-content;*/
  /* width: -moz-fit-content;*/
   /*width: fit-content;*/
+  margin-top: 150px;
+  margin-left: 30px;
 }
 
 .home-page .rounded-text p {
   font-weight: bold;
-  font-size: 1.5rem;
-  color: black;
+  font-size: 1.99rem;
+  color: white;
 }
 
 .home-page .home-search-bar {
@@ -12159,6 +12215,7 @@ button {
   align-items: center;
   background-color: white;
   border-radius: 8px;
+  margin-left: 40px;
 }
 
 .home-page .home-search-bar .home-search-input {
@@ -12267,14 +12324,18 @@ button {
   background-color: white;
 }
 .account-layout .account-hdrr {
-    padding: 1rem 1rem;
+    padding: 0.5rem 1rem;
     background-color: white;
     margin-right: -19px;
+
   }
 .account-layout .account-bdy .list-group-item.active {
-  background-color:  #448aff;
-  color: #fff;
+  background-color: #e9ecf0;
+  opacity:1;
+  color: #448aff;
   border: #185a91;
+  border-right: 4px solid #448aff;
+
 }
 
 .account-layout .account-bdy .list-group-item.active .account-nav-link:hover {

@@ -3,33 +3,20 @@
 @section('content')
 <div class="container my-4">
     <div class="row justify-content-center">
-        <div class="col-sm-12 col-md-6 px-0">
-            {{-- login-poster and register using the same class name --}}
-            <div class="login-poster">
-                {{-- <img src="" alt=""> --}}
-                <h2 class="my-3 slogon">
-                    Register for a better opportunity
-                </h2>
-            
-                <p class="text-white mb-3 lead"><i class="fas fa-angle-right"></i> Its free and always be</p>
-                <p class="text-white mb-3 lead"><i class="fas fa-angle-right"></i>  Your Confidentiality is Assured</p>            
-                <p class="text-white mb-3 lead"><i class="fas fa-angle-right"></i> We Provide Career Opportunities</p> 
-                <p class="text-white mb-3 lead"><i class="fas fa-angle-right"></i> Most Trusted Job Portal in Nepal</p>
-            </div>
-        </div>
+
 
         <div class="col-sm-12 col-md-6 px-0">
             <div class="login-container">
-                <div class="login-header mb-3">
-                    <h3><img src="{{asset('images/logo/joblister.png')}}" width="50px;" alt=""> Create your free jobseeker account</h3>
-                    <p class="text-muted">Register with basic information, Complete your profile and start applying for the job for free!</p>
+                <div class="login-header mb-2">
+                    <h3> Create your account</h3>
+                    <p class="text-muted">Register with basic information, Complete your profile and start contacting for the jobber !</p>
                 </div>
                 <div class="login-form">
                     <form action="{{route('register')}}" method="POST">
                         @csrf
                         {{-- fullname --}}
                         <div class="form-group">
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-id-badge"></i></span>
                                 </div>
@@ -43,7 +30,7 @@
                         </div>
                         {{-- email --}}
                         <div class="form-group">
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                                 </div>
@@ -57,7 +44,7 @@
                         </div>
                         {{-- password --}}
                         <div class="form-group">
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
                                 </div>
@@ -70,7 +57,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
                                 </div>
@@ -83,7 +70,7 @@
                             </div>
                         </div>
                         <div>
-                            <small class="text-muted d-block mb-3">By clicking on 'Create Jobseeker Account' below you are agreeing to the terms and smallrivacy of Joblister!</p>
+                            <small class="text-muted d-block mb-2">By clicking on 'Create Your Account' below you are agreeing to the terms and smallprivacy of Speedy!</p>
                         </div>
                         <button type="submit" class="btn primary-btn btn-block">Register</button>
                     </form>

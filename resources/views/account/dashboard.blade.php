@@ -116,7 +116,7 @@
                         <div class="mb-3">
                             <form action="{{route('category.store')}}" method="POST">
                                 @csrf
-                                <label for="">Add a new Category</label>
+                                <p id="label">Add a new Category</p>
                                 <div class="d-flex">
                                     <input type="text" class="form-control" placeholder="Jobber category name" name="category_name">
                                     <button class="btn secondary-btn">Add</button>

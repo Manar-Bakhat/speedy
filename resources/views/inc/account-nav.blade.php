@@ -11,6 +11,7 @@
         <i class="fas fa-users"></i> View All Users
       </a>
     </li>
+
     @endrole
     @role('author')
     <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'author-section' ? 'active': ''}}">
@@ -34,7 +35,7 @@
     @role('user')
     <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'become-employer' ? 'active': ''}}">
       <a href="{{route('account.becomeEmployer')}}" class="account-nav-link">
-        <i class="fas fa-user-shield"></i> Become an employer
+        <i class="fas fa-user-shield"></i> Become a Jobber
       </a>
     </li>
     @endrole

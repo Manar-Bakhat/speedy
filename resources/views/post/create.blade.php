@@ -1,19 +1,20 @@
 @extends('layouts.account')
 
 @section('content')
+
   <div class="account-layout border">
     <div class="account-hdr bg-light text-dark border">
-      Create Job listings
+      Create Post Service
     </div>
     <div class="account-bdy p-3">
-      <div class="alert alert-primary">Your company details will be attached automatically.</div>
-      <p class="text-primary mb-4">Fill in all fields to create a job listing</p>
-      <div class="row mb-3">
+      <div class="alert alert-primary">Your Profile details will be attached automatically.</div>
+      <p class="text-primary mb-4">Fill in all fields to create a Post Service</p>
+      <div class="row mb-2">
         <div class="col-sm-12 col-md-12">
           <form action="{{route('post.store')}}" id="postForm" method="POST">
             @csrf
             <div class="form-group">
-              <label for="">Job title</label>
+              <label for="">Service Title</label>
               <input type="text" placeholder="Service title" class="form-control @error('service_title') is-invalid @enderror" name="service_title" value="{{ old('service_title') }}" required autofocus >
               @error('service_title')
                   <span class="invalid-feedback" role="alert">
@@ -25,23 +26,46 @@
             <div class="form-group">
               <div class="row">
                 <div class="col-md-6">
-                  <label for="">Service ville</label>
-                  <select name="service_ville" class="form-control" value="{{old('service_ville')}}" required>
-                    <option value="Senior level">Senior level</option>
-                    <option value="Mid level">Mid level</option>
-                    <option value="Top level">Top level</option>
-                    <option value="Entry level">Entry level</option>
+
+                  <p class="texte" >Service City</p>
+                  <select name="service_ville" class="form-control form" value="{{old('service_ville')}}" required>
+                    <option value="Agadir">Agadir </option>
+                    <option value="Beni Mellal">Beni Mellal</option>
+                    <option value="Casablanca">Casablanca</option>
+                    <option value="Chefchaouen">Chefchaouen</option>
+                    <option value="Essaouira">Essaouira</option>
+                    <option value="Fès">Fès</option>
+                    <option value="Ifrane">Ifrane</option>
+                    <option value="Kénitra">Kénitra</option>
+                    <option value="Khénifra">Khénifra</option>
+                    <option value="Khouribga">Khouribga</option>
+                    <option value="Ksar El Kébir">Ksar El Kébir</option>
+                    <option value="Marrakech">Marrakech</option>
+                    <option value="Meknès">Meknès</option>
+                    <option value="Nador">Nador</option>
+                    <option value="Ouezzane">Ouezzane</option>
+                    <option value="Rabat">Rabat</option>
+                    <option value="Safi">Safi</option>
+                    <option value="Salé">Salé</option>
+                    <option value="Tanger">Tanger</option>
+                    <option value="Tétouan">Tétouan</option>
+                    <option value="Tanger">Tanger</option>
+                    <var></var></var></var>
                   </select>
                 </div>
-                <div class="col-md-6">
-                    <label for="">Service zone</label>
-                    <select name="service_zone" class="form-control" value="{{old('service_zone')}}" required>
-                      <option value="Senior level">Senior level</option>
-                      <option value="Mid level">Mid level</option>
-                      <option value="Top level">Top level</option>
-                      <option value="Entry level">Entry level</option>
-                    </select>
+
+                 <div class="form">
+                  <div class="form-group">
+                    <label for="">Service Zoned</label>
+                    <input type="text" placeholder="Service Zoned" class="form-control @error('service_zone') is-invalid @enderror" name="service_zone" value="{{ old('service_zone') }}" required autofocus >
+                    @error('service_zone')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                   </div>
+                </div>
+
 
 
 
@@ -55,20 +79,13 @@
 
 
 
-            <div class="form-group">
+            <div class="form-group ">
               <div class="row">
 
                 <div class="col-md-6">
-                  <label for="">Deadline</label>
-                  <input type="date" class="form-control @error('deadline') is-invalid @enderror" name="deadline" value="{{ old('deadline') }}" required >
+                  <p class="texte">Deadline</p>
+                  <input type="date" class="form-control form @error('deadline') is-invalid @enderror" name="deadline" value="{{ old('deadline') }}" required >
                 </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="row">
-
-
               </div>
             </div>
 
@@ -80,7 +97,7 @@
               <div id="quillEditor" style="height:200px"></div>
             </div>
 
-            <button type="button" id="postBtn" class="btn primary-btn">Create Job listing</button>
+            <button type="button" id="postBtn" class="btn primary-btn">Create Post Service</button>
           </form>
         </div>
       </div>
@@ -105,7 +122,7 @@
           ['link', 'blockquote', 'code-block', 'image'],
         ]
       },
-    placeholder: 'Job Reqirement , Job Specifications etc ...',
+    placeholder: 'service detail , service period , service price  etc ...',
     theme: 'snow'
     });
 
@@ -115,7 +132,7 @@
     const service_specification = document.querySelector('#service_specification');
 
     if(service_specification.value){
-      quill.root.innerHTML = specifications.value;
+      quill.root.innerHTML = service_specification.value;
     }
 
     postBtn.addEventListener('click',function(e){
