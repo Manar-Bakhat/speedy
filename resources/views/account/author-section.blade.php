@@ -54,7 +54,11 @@
             </div>
           </div>
           <div class="table-responsive">
+<<<<<<< HEAD
               <table class="table tabless table-striped table-hover">
+=======
+              <table class="table tables table-striped table-hover">
+>>>>>>> ef50c2a9c5ed5e052c953411f50760ab2057383e
                   <thead class="thead-inverse">
                       <tr>
                           <th>#</th>

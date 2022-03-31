@@ -1810,6 +1810,7 @@ pre code {
     margin-left:90px;
     margin-right: -90px;
   }
+<<<<<<< HEAD
   .tabless {
     width: 100%;
     padding-left: 4rem;
@@ -1819,6 +1820,8 @@ pre code {
     margin-right: -90px;
     width:90%
   }
+=======
+>>>>>>> ef50c2a9c5ed5e052c953411f50760ab2057383e
 
 
 .table th,
