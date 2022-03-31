@@ -45,6 +45,32 @@
         </div>
 
         <div class="form-group">
+            <div class="py-3">
+              <p>Jobber Age</p>
+            </div>
+            <input type="text" placeholder="Jobber age" class="form-control @error('password') is-invalid @enderror" name="age" value="{{ old('age') }}" required>
+              @error('age')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+          </div>
+
+          <div class="form-group">
+            <div class="py-3">
+              <p>Jobber Phone</p>
+            </div>
+            <input type="text" placeholder="Jobber phone" class="form-control @error('password') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required>
+              @error('phone')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+          </div>
+
+
+
+        <div class="form-group">
           <div class="py-3">
             <p>Jobber facebook Url</p>
 

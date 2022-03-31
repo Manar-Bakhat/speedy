@@ -18,6 +18,8 @@ class CreateJobbersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedInteger('jobber_category_id');
             $table->string('photo');
+            $table->integer('age');
+            $table->string('phone');
             $table->string('title', 50);
             $table->text('description');
             $table->string('facebook');

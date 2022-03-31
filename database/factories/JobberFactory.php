@@ -25,6 +25,8 @@ class JobberFactory extends Factory
             'user_id' => 2, //default author by user seeder class
             'jobber_category_id' => 1,
             'photo' => 'images/jobbers/logos/',
+            'age'=> '120',
+            'phone'=> '0667554899',
             'title' => 'Photographer at home',
             'description' => 'Tho',
             'facebook' => 'https://www.facebook.com',

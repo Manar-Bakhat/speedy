@@ -51,6 +51,30 @@
         </div>
 
         <div class="form-group">
+            <div class="py-3">
+              <p>Jobber Age</p>
+            </div>
+            <input type="text" placeholder="Jobber age" class="form-control @error('password') is-invalid @enderror" name="age" value="{{ old('age')??$jobber->age }}" required>
+              @error('age')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+          </div>
+
+          <div class="form-group">
+            <div class="py-3">
+              <p>Jobber Phone</p>
+            </div>
+            <input type="text" placeholder="Jobber phone" class="form-control @error('password') is-invalid @enderror" name="phone" value="{{ old('phone')??$jobber->phone }}" required>
+              @error('phone')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+          </div>
+
+        <div class="form-group">
           <div class="pt-3">
             <p>Jobber Facebook Url</p>
             <p class="text-primary">For example : https://www.facebook.com</p>
@@ -65,7 +89,7 @@
 
         <div class="pb-3">
           <div class="py-3">
-            <p class="py-2">Company banner/cover</p>
+            <p class="py-2">Jobber banner/cover</p>
             <img src="{{asset($jobber->cover_img)}}" width="200px;" class="img-fluid" alt="">
           </div>
           <div class="custom-file">
@@ -80,7 +104,7 @@
         </div>
 
         <div class="pt-2">
-          <p class="mt-3 alert alert-primary">Provide a short paragraph description about your company</p>
+          <p class="mt-3 alert alert-primary">Provide a short paragraph description about your Profile jobber</p>
         </div>
         <div class="form-group">
           <textarea class="form-control @error('description') is-invalid @enderror" name="description" required>{{ old('description')??$jobber->description }}</textarea>

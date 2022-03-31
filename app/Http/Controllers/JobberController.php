@@ -64,7 +64,7 @@ class JobberController extends Controller
 
         $jobber = auth()->user()->jobber;
         if ($this->jobberUpdate($jobber, $request)) {
-            Alert::toast('Jobber created!', 'success');
+            Alert::toast('Jobber updated!', 'success');
             return redirect()->route('account.authorSection');
         }
         Alert::toast('Failed!', 'error');
@@ -77,6 +77,8 @@ class JobberController extends Controller
             'title' => 'required|min:5',
             'description' => 'required|min:5',
             'photo' => 'required|image|max:2999',
+            'age' => 'required',
+            'phone' => 'required',
             'category' => 'required',
             'facebook' => 'required|string',
             'cover_img' => 'sometimes|image|max:3999'
@@ -88,6 +90,8 @@ class JobberController extends Controller
             'title' => 'required|min:5',
             'description' => 'required|min:5',
             'photo' => 'someiimes|image|max:2999',
+            'age' => 'required',
+            'phone' => 'required',
             'category' => 'required',
             'facebook' => 'required|string',
             'cover_img' => 'sometimes|image|max:3999'
@@ -100,6 +104,8 @@ class JobberController extends Controller
         $jobber->description = $request->description;
         $jobber->jobber_category_id = $request->category;
         $jobber->facebook = $request->facebook;
+        $jobber->age = $request->age;
+        $jobber->phone = $request->phone;
 
         //logo
         $fileNameToStore = $this->getFileName($request->file('photo'));
@@ -134,6 +140,8 @@ class JobberController extends Controller
         $jobber->description = $request->description;
         $jobber->jobber_category_id = $request->category;
         $jobber->facebook = $request->facebook;
+        $jobber->age = $request->age;
+        $jobber->phone = $request->phone;
 
         //logo should exist but still checking for the name
         if ($request->hasFile('photo')) {

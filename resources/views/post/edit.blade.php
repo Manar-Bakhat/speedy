@@ -71,8 +71,8 @@
             <div class="form-group ">
                 <div class="row">
                    <div class="col-md-6">
-                  <label for="">Deadline</label>
-                  <input type="date" class="form-control @error('deadline') is-invalid @enderror" name="deadline" value="@php $date = new DateTime($post->deadline); echo date('Y-m-d',$date->getTimestamp());@endphp" required >
+                  <p class="texte">Deadline</p>
+                  <input type="date" class="form-control form @error('deadline') is-invalid @enderror" name="deadline" value="@php $date = new DateTime($post->deadline); echo date('Y-m-d',$date->getTimestamp());@endphp" required >
                 </div>
               </div>
             </div>
