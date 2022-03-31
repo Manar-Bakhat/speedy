@@ -1810,7 +1810,7 @@ pre code {
     margin-left:90px;
     margin-right: -90px;
   }
-<<<<<<< HEAD
+
   .tabless {
     width: 100%;
     padding-left: 4rem;
@@ -1818,12 +1818,8 @@ pre code {
     color: #212529;
     margin-left:90px;
     margin-right: -90px;
-    width:90%
+    width:85%;
   }
-=======
->>>>>>> ef50c2a9c5ed5e052c953411f50760ab2057383e
-
-
 .table th,
 .table td {
   padding: 0.75rem;
@@ -2157,7 +2153,7 @@ pre code {
 .table-responsive {
   display: block;
   width: 100%;
-  overflow-x: auto;
+
   -webkit-overflow-scrolling: touch;
 }
 .table-responsivee {

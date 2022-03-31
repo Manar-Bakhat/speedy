@@ -54,11 +54,8 @@
             </div>
           </div>
           <div class="table-responsive">
-<<<<<<< HEAD
               <table class="table tabless table-striped table-hover">
-=======
-              <table class="table tables table-striped table-hover">
->>>>>>> ef50c2a9c5ed5e052c953411f50760ab2057383e
+              <table class="table tabless table-striped table-hover">
                   <thead class="thead-inverse">
                       <tr>
                           <th>#</th>
@@ -66,7 +63,9 @@
                           <th>City</th>
                           <th>Zoned</th>
                           <th>Deadline</th>
+                          <th>created at</th>
                           <th>Action</th>
+
                       </tr>
                   </thead>
                   <tbody>
@@ -85,6 +84,7 @@
                                   $daysLeft = date('d', $timestamp - time()) .' days remaining';
                                   echo "$dayMonthYear <br> <span class='text-danger'> $daysLeft </span>";
                               @endphp</td>
+                              <td>{{$post->created_at}}</td>
                               <td>
                               <a href="{{route('post.edit',['post'=>$post])}}" class="btn primary-btn">Edit</a>
                               <form action="{{route('post.destroy',['post'=>$post->id])}}" class="d-inline-block" id="delPostForm" method="POST">
