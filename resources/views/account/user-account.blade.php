@@ -1,27 +1,83 @@
 @extends('layouts.account')
 
 @section('content')
+<!-- Button trigger modal -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="{{ route('update-photo') }}" method="post"  enctype="multipart/form-data">
+        <div class="modal-body">
+                @csrf
+
+            <div class="mb-2">
+
+                <input name="photo" class="form-control" type="file" id="formFile">
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+
+            </div>
+        </form>
+        </div>
+    </div>
+  </div>
+
+<!-- fin modal -->
+
+
+
+
 <div class="account-layoutborder">
   <div class="account-hdr bg-light text-dark border ">
     User Account
   </div>
   <div class="account-bdy border py-3">
     <div class="row container d--flex justify-content-center">
+
         <div class="col-xl-12 col-md-12">
             <div class="card user-card-full">
+
+
+
                 <div class="row m-l-0 m-r-0">
+
+
                     <div class="col-sm-4 bg-c-lite-green user-profile">
+                        <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal" class="w-25">
+
                         <div class="card-block text-center text-white">
-                            <div class="m-b-25"> <img src="{{asset('images/user-profile.png')}}" class="img-radius" alt="User-Profile-Image"> </div>
+                            <!-- enregistrer un fichier -->
+
+
+
+
+
+                            <!-- fin -->
+                            <div class="col-sm-4 "><i class="fa fa-camera fa-sm"></i></div>
+                            <div class="m-b-25"> <img src="{{asset('storage/'.auth()->user()->photo)}}" class="img-radius" alt="User-Profile-Image" style="height:80px;width:100px;border:solid 5px"> </div>
                             <h6 class="f-w-600">{{auth()->user()->name}}</h6>
                             @role('user')
                             <p>User</p>
                             @endrole
                             @role('admin')
-                            <p>Author (Jobber) <i class="fas fa-pen-square"></i></p>
+                            <p class="position">Author (Jobber) <i class="fas fa-pen-square"></i></p>
                             @endrole
                         </div>
+                    </a>
                     </div>
+
+
+                <!-- fin de lien -->
                     <div class="col-sm-8">
                         <div class="card-block">
                             <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
@@ -43,7 +99,8 @@
                                 </div>
                                 <div class="col-sm-6">
                                   <p class="m-b-10 f-w-600">Logout</p>
-                                    <a href="{{route('logout')}}" class="btn btn-outline-dark">Logout</a>
+                                    <a href="{{route('account.logout')}}" class="btn btn-outline-dark">Logout</a>
+
                                 </div>
                             </div>
                             <ul class="social-link list-unstyled m-t-40 m-b-10">
@@ -53,12 +110,16 @@
                             </ul>
                         </div>
                     </div>
+
                 </div>
+
             </div>
         </div>
+
     </div>
   </div>
 </div>
+
 @endSection
 
 @push('css')
@@ -66,6 +127,10 @@
 .user-card-full {
     overflow: hidden;
 }
+.position{
+    margin-top:30px;
+}
+
 .card {
     border-radius: 5px;
     -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);

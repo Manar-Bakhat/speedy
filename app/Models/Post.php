@@ -21,6 +21,9 @@ class Post extends Model
     {
         return $this->hasMany('App\Models\User');
     }
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
 
     public function jobber()
     {

@@ -35,6 +35,11 @@
         <i class="fas fa-user-shield"></i> Become a Jobber
       </a>
     </li>
+    <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'my-saved-services' ? 'active': ''}}">
+        <a href="{{route('savedService.index')}}" class="account-nav-link">
+          <i class="fas fa-stream"></i> My saved Services
+        </a>
+      </li>
     @endrole
     <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'change-password' ? 'active': ''}}">
       <a href="{{route('account.changePassword')}}" class="account-nav-link">

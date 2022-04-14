@@ -76,7 +76,7 @@ class JobberController extends Controller
         return $request->validate([
             'title' => 'required|min:5',
             'description' => 'required|min:5',
-            'photo' => 'required|image|max:2999',
+            'photo' => 'sometimes|image|max:2999',
             'age' => 'required',
             'phone' => 'required',
             'category' => 'required',
@@ -89,7 +89,7 @@ class JobberController extends Controller
         return $request->validate([
             'title' => 'required|min:5',
             'description' => 'required|min:5',
-            'photo' => 'someiimes|image|max:2999',
+            'photo' => 'sometimes|image|max:2999',
             'age' => 'required',
             'phone' => 'required',
             'category' => 'required',

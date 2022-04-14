@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Storage;
 
 class AccountController extends Controller
 {
@@ -19,8 +20,10 @@ class AccountController extends Controller
     }
     public function index()
     {
+
         return view('account.user-account');
     }
+
 
     public function becomeEmployerView()
     {
@@ -33,6 +36,19 @@ class AccountController extends Controller
         $user->removeRole('user');
         $user->assignRole('author');
         return redirect()->route('account.authorSection');
+    }
+    public function photo(Request $request)
+    {
+        $filename = time().'.'.$request->photo->extension();
+        $path = $request->photo->storeAs(
+            'photoUser',
+            $filename,
+            'public'
+        );
+        $user = User::find(auth()->user()->id);
+        $user->photo = $path;
+        $user->save();
+        return back();
     }
 
     public function applyJobView(Request $request)

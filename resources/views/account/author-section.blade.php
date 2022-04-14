@@ -31,7 +31,7 @@
                                     <div class="card-body test text-center">
                                         <img src="{{asset($jobber->photo)}}" width="100px" class="img-fluid border p-2" alt="">
                                         <h5>{{$jobber->title}}</h5>
-                                        <small>{{$jobber->getCategory->category_name}}</small>
+                                        <small>{{$jobber->category_name}}</small>
                                       <a class="d-block" href="{{$jobber->facebook}}"><i class="fas fa-globe"></i></a>
                                     </div>
                                 </div>
@@ -86,13 +86,14 @@
                               @endphp</td>
                               <td>{{$post->created_at}}</td>
                               <td>
-                              <a href="{{route('post.edit',['post'=>$post])}}" class="btn primary-btn">Edit</a>
-                              <form action="{{route('post.destroy',['post'=>$post->id])}}" class="d-inline-block" id="delPostForm" method="POST">
-                                  @csrf
-                                  @method('DELETE')
-                                  <button type="submit" id="delPostBtn" class="btn danger-btn">Delete</button>
-                              </form>
-                              </td>
+                                <a href="{{route('post.edit',['post'=>$post])}}" class="btn primary-btn mt-2">Edit</a>
+
+                                <form action="{{route('post.destroy' ,$post->id)}}" class="d-inline-block" id="delPostForm" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                <button type="submit"  id="delPostBtn" class="btn danger-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
+                                </form>
+                            </td>
                           </tr>
                           @endforeach
                           @else
@@ -115,6 +116,57 @@
 
   </div>
 </div>
+
+
+
+
+  <!-- Modal -->
+  <!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure do you want to delete post?
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+          <button type="submit" class="btn btn-primary">Yes</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>  -->
+
+
+   <!-- Modal -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure do you want to delete category?
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+          <button type="submit" class="btn btn-primary">Yes</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
 @endSection
 
 @push('js')

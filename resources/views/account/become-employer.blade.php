@@ -11,11 +11,8 @@
       </div>
       <div class="col-sm-12 col-md-8">
         <div>
-<<<<<<< HEAD
-          <p class="text-sm"><i class="fas fa-info-circle"></i> <span class="font-weight-bold">Join Our Growing Jobber Community .</span> </p>
-=======
+
           <p class="text-sm"><i class="fas fa-info-circle"></i> <span class="font-weight-bold">Join Our Growing Freelance Community .</span> </p>
->>>>>>> ef50c2a9c5ed5e052c953411f50760ab2057383e
           <div class="my-4">
           <p class="my-3">Click the button to assign <span class="text-primary">Jobber roles</span> to your account.</p>
             <form action="{{route('account.becomeEmployer')}}" method="POST">

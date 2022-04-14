@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name')?? 'JobLister' }}</title>
+    <title>{{ config('app.name')?? 'Speedy' }}</title>
 
     <!-- Scripts -->
 
@@ -16,11 +16,11 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
     <!-- Styles -->
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">    
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     @stack('css')
-    
+
 </head>
 <body>
     <div id="app">
@@ -29,5 +29,15 @@
     @include('sweetalert::alert')
     <script src="{{ asset('js/app.js') }}"></script>
     @stack('js')
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+     <!-- ===== Link Swiper's CSS ===== -->
+     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
+     <!-- ===== Fontawesome CDN Link ===== -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+
 </body>
 </html>

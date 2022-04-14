@@ -32,7 +32,9 @@
                       @csrf
                       @method('delete')
                       <input type="hidden" name="user_id" value="{{$user->id}}">
+                      @if(Auth::user()->name!=$user->name)
                       <button class="btn primary-btn">Delete</button>
+                      @endif
                     </form>
                   </td>
                 </tr>

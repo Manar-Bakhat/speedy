@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Events\PostViewEvent;
+use App\Models\Comment;
 use App\Models\Jobber;
 use App\Models\JobberCategory;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\User;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PostController extends Controller
@@ -47,9 +49,10 @@ class PostController extends Controller
         return redirect()->back();
     }
 
-    public function show($id)
+    public function show($id, Request $request)
     {
         $post = Post::findOrFail($id);
+
 
         event(new PostViewEvent($post));
         $jobber = $post->jobber()->first();
@@ -60,8 +63,20 @@ class PostController extends Controller
         return view('post.show')->with([
             'post' => $post,
             'jobber' => $jobber,
-            'similarJobs' => $similarPosts
+            'similarServices' => $similarPosts,
+
         ]);
+
+    }
+    public function created(Post $post,User $user, Request $request){
+
+
+        $post->comments= new Comment();
+        $post->comments->message = $request->message;
+        $post->comments->post_id = $post->id;
+        $post->comments->user_id = auth()->user()->id;
+        $post->comments->save();
+        return back();
     }
 
     public function edit(Post $post)

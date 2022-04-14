@@ -4,7 +4,7 @@
       <div class="card-body p-3">
         <div class="d-flex align-items-center small mb-0">
           <i class="fas fa-search mr-1"></i>
-          <strong>Refine Your Job Search</strong>
+          <strong>Refine Your Service Search</strong>
         </div>
         <a
           href="#"
@@ -22,7 +22,7 @@
       <div class="card border-top-0">
         <div class="card-body p-3" id="jobCategories">
           <div class="pb-0">
-            <div class="card-title mb-1">Job Categories</div>
+            <div class="card-title mb-1">Service Categories</div>
             <div class="card-body p-0">
               <div class="form-group">
                 <select
@@ -47,48 +47,58 @@
           </div>
           <hr class="my-3" />
           <div class="pb-0">
-            <div class="card-title mb-1">Job Level</div>
+            <div class="card-title mb-1">Service Ville</div>
             <div class="card-body p-0">
               <div class="form-group">
                 <select
                   name="job_category"
                   class="form-control"
                   placeholder="Filter by Job Category"
-                  @change="filterJobLevel($event)"
+                  @change="filterServiceVille($event)"
                 >
                   <option disabled selected value>
                     -- select an option --
                   </option>
-                  <option value="Senior level">Senior level</option>
-                  <option value="Mid level">Mid level</option>
-                  <option value="Top level">Top level</option>
-                  <option value="Entry level">Entry level</option>
+                  <option value="Agadir">Agadir </option>
+                    <option value="Beni Mellal">Beni Mellal</option>
+                    <option value="Casablanca">Casablanca</option>
+                    <option value="Chefchaouen">Chefchaouen</option>
+                    <option value="Essaouira">Essaouira</option>
+                    <option value="Fès">Fès</option>
+                    <option value="Ifrane">Ifrane</option>
+                    <option value="Kénitra">Kénitra</option>
+                    <option value="Khénifra">Khénifra</option>
+                    <option value="Khouribga">Khouribga</option>
+                    <option value="Ksar El Kébir">Ksar El Kébir</option>
+                    <option value="Marrakech">Marrakech</option>
+                    <option value="Meknès">Meknès</option>
+                    <option value="Nador">Nador</option>
+                    <option value="Ouezzane">Ouezzane</option>
+                    <option value="Rabat">Rabat</option>
+                    <option value="Safi">Safi</option>
+                    <option value="Salé">Salé</option>
+                    <option value="Tanger">Tanger</option>
+                    <option value="Tétouan">Tétouan</option>
+                    <option value="Tanger">Tanger</option>
                 </select>
               </div>
             </div>
           </div>
           <hr class="my-3" />
           <div class="pb-0">
-            <div class="card-title mb-1">Eductation</div>
+            <div class="card-title mb-1">Zoned</div>
             <div class="card-body p-0">
               <div class="form-group">
                 <select
                   name="job_category"
                   class="form-control"
                   placeholder="Filter by Job Category"
-                  @change="filterEducation($event)"
-                >
-                  <option disabled selected value>
-                    -- select an option --
-                  </option>
-                  <option value="Bachelors">Bachelors</option>
-                  <option value="High School">High School</option>
-                  <option value="Master">Master</option>
-                  <option value="SEE Mid School">SEE Mid School</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-            </div>
+                  @change="filterServiceZone($event)"
+
+
+
+          </div>
+          </div>
           </div>
           <hr class="my-3" />
           <div class="pb-0">
@@ -145,10 +155,10 @@ export default {
       this.$emit("get-by-category", e.target.value);
     },
     filterEmploymentType(e) {
-      this.$emit("get-by-employmentType", e.target.value);
+      this.$emit("get-by-ville", e.target.value);
     },
     filterEducation(e) {
-      this.$emit("get-by-education", e.target.value);
+      this.$emit("get-by-zone", e.target.value);
     },
     filterJobLevel(e) {
       this.$emit("get-by-job-level", e.target.value);

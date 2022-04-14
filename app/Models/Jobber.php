@@ -17,4 +17,8 @@ class Jobber extends Model
     {
         return $this->hasMany('App\Models\Post');
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

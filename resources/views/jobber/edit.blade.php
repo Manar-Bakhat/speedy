@@ -28,9 +28,9 @@
             <img src="{{asset($jobber->photo)}}" width="80px" alt="">
           </div>
           <div class="custom-file">
-            <input type="file" class="custom-file-input"  name="logo">
+            <input type="file" class="custom-file-input"  name="photo">
             <label class="custom-file-label" >Choose Picture...</label>
-            @error('logo')
+            @error('photo')
               <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
               </span>

@@ -7,15 +7,16 @@ use App\Http\Controllers\JobberCategoryController;
 use App\Http\Controllers\JobberController;
 use App\Http\Controllers\CarServiceApplicationController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\savedServiceController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\savedJobController;
+
 use Illuminate\Support\Facades\Route;
 
 //public routes
 Route::get('/', [PostController::class, 'index'])->name('post.index');
 Route::get('/service/{service}', [PostController::class, 'show'])->name('post.show');
 Route::get('employer/{employer}', [AuthorController::class, 'employer'])->name('account.employer');
-
+Route::post('update-photo', [AccountController::class, 'photo'])->name('update-photo');
 //return vue page
 Route::get('/search', [ServiceController::class, 'index'])->name('service.index');
 
@@ -28,13 +29,12 @@ Route::middleware('auth')->prefix('account')->group(function () {
   Route::get('change-password', [AccountController::class, 'changePasswordView'])->name('account.changePassword');
   Route::delete('delete', [AccountController::class, 'deleteAccount'])->name('account.delete');
   Route::put('change-password', [AccountController::class, 'changePassword'])->name('account.changePassword');
-  //savedJob
-  //Route::get('my-saved-jobs', [savedJobController::class, 'index'])->name('savedJob.index');
- // Route::get('my-saved-jobs/{id}', [savedJobController::class, 'store'])->name('savedJob.store');
-  //Route::delete('my-saved-jobs/{id}', [savedJobController::class, 'destroy'])->name('savedJob.destroy');
-  //applyjobs
-  //Route::get('apply-job', [AccountController::class, 'applyJobView'])->name('account.applyJob');
-  //Route::post('apply-job', [AccountController::class, 'applyJob'])->name('account.applyJob');
+  //savedServices
+
+  Route::get('my-saved-services', [savedServiceController::class, 'index'])->name('savedService.index');
+  Route::get('my-saved-services/{id}', [savedServiceController::class, 'store'])->name('savedService.store');
+  Route::delete('my-saved-services/{id}', [savedServiceController::class, 'destroy'])->name('savedService.destroy');
+
 
   //Admin Role Routes
   Route::group(['middleware' => ['role:admin']], function () {
@@ -99,5 +99,6 @@ Route::get('/Jobber',function(){
     return view('Jobber');
 });
 
+Route::post('user/{post}',[PostController::class, 'created'])->name('comment-user');
 
 

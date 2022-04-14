@@ -58,7 +58,7 @@ import Sidebar from "./Sidebar";
 import SearchResult from "./SearchResult";
 
 export default {
-  name: "job-component",
+  name: "service-component",
   components: {
     Sidebar,
     SearchResult,
@@ -72,7 +72,7 @@ export default {
     this.getJobs();
   },
   methods: {
-    getJobs(page = 1) {
+    getServices(page = 1) {
       this.$Progress.start();
       const query = this.getParameterByName("q", window.location.href);
       const category = this.getParameterByName(
@@ -123,7 +123,7 @@ export default {
           this.$Progress.fail();
         });
     },
-    getByEducation(educationLevel) {
+    getByServiceVille(serviceVille) {
       this.$Progress.start();
       axios
         .get(`/api/search?service_ville=${serviceVille}`)
@@ -138,7 +138,7 @@ export default {
           this.$Progress.fail();
         });
     },
-    getByJobLevel(jobLevel) {
+    getByServiceZone(serviceZone) {
       this.$Progress.start();
       axios
         .get(`/api/search?service_zone=${serviceZone}`)
@@ -153,21 +153,7 @@ export default {
           this.$Progress.fail();
         });
     },
-    getByEmploymentType(employmentType) {
-      this.$Progress.start();
-      axios
-        .get(`/api/search?employment_type=${employmentType}`)
-        .then((res) => res.data)
-        .then((data) => {
-          this.posts = data;
-          this.$Progress.finish();
-        })
-        .catch((err) => {
-          console.log(err.message);
-          this.posts = [];
-          this.$Progress.fail();
-        });
-    },
+
     getParameterByName(name, url) {
       if (!url) url = window.location.href;
       name = name.replace(/[\[\]]/g, "\\$&");

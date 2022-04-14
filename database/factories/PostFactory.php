@@ -26,7 +26,7 @@ class PostFactory extends Factory
             'service_ville' => 'Tetouan',
             'service_zone' => 'Martil',
             'deadline' => date("Y-m-d H:i:s", strtotime(date("Y-m-d H:i:s") . " +2 days")),
-            'specifications' => '<p></p>',
+            'service_specification' => '<p></p>',
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),
         ];

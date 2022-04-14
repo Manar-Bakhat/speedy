@@ -16,7 +16,7 @@ class AuthorController extends Controller
         $jobber = null;
         $applications = null;
 
-        if ($this->hasCompany()) {
+        if ($this->hasJobber()) {
             //without the if block the posts relationship returns error
             $jobber = auth()->user()->jobber;
             $posts = $jobber->posts()->get();
@@ -47,7 +47,7 @@ class AuthorController extends Controller
     }
 
     //check if has company
-    protected function hasCompany()
+    protected function hasJobber()
     {
         return auth()->user()->jobber ? true : false;
     }

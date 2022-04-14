@@ -1,6 +1,8 @@
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 @extends('layouts.employer')
 
 @section('content')
+
   <div class="employer-content border">
     <div class="container-fluid p-3">
       <div class="card">
@@ -16,26 +18,7 @@
                   <img src="{{asset($jobber->photo)}}" class="img-fluid" alt="">
                 </div>
               </div>
-              <div class="col-xs-12 col-md-9">
-                <div class="p-sm-3 p-md-0">
-                  <a href="{{route('post.show',['service'=>$post])}}" class="secondary-link pb-2 d-block"><h5 class="font-weight-bold">{{$post->service_title}}</h5></a>
-                  <p class="h6">{{$jobber->title}}</p>
-                  <p class="small"><i class="fas fa-map-marker-alt"></i> {{$post->service_ville}}</p>
-                  <p class="small"><i class="fas fa-lightbulb"></i> {{$post->service_zone}}</p>
-                  <div class="d-flex justify-content-between py-3">
-                    <div class="text-danger">
-                      <i class="fas fa-clock"></i> <span class="">Apply Before:
-                        @php
-                        $date = new DateTime($post->deadline);
-                        echo date('d', $date->getTimestamp() - time());
-                        @endphp day[s] from now</span>
-                    </div>
-                    <div class="text-info">
-                      <i class="fas fa-eye"></i> <span>Views: {{$post->views}}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
             </div>
             {{-- <hr> --}}
             @endforeach

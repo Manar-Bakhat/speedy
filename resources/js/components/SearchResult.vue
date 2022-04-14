@@ -4,7 +4,7 @@
       <div class="card-body row p-3">
         <div class="col-6">
           <h1 class="h6" id="job-count">
-            Showing {{ from }} - {{ to }} job of {{ total }}
+            Showing {{ from }} - {{ to }} service of {{ total }}
           </h1>
         </div>
         <div class="col-6">
@@ -27,7 +27,7 @@
               <div class="col-xs-4 col-sm-4 col-md-3 col-lg-3 pt-2 mx-auto">
                 <img
                   class="border p-2 img-fluid"
-                  :src="`/${post.company.logo}`"
+                  :src="`/${post.jobber.photo}`"
                   width="100px"
                 />
               </div>
@@ -36,7 +36,7 @@
               >
                 <h5 class="secondary-link font-weight-bold">
                   <a
-                    :href="`/job/${post.id}-${post.job_title}`"
+                    :href="`/job/${post.id}-${post.service_title}`"
                     target="_blank"
                   >
                     {{ post.job_title }}
@@ -44,25 +44,20 @@
                 </h5>
                 <h6 class="mt-2">
                   <a
-                    :href="`/employer/${post.company.id}-${post.company.title}`"
+                    :href="`/employer/${post.jobber.id}-${post.service.ville}`"
                     target="_blank"
                     class="text-dark"
                   >
-                    {{ post.company.title }}
+                    {{ post.service.ville }}
                   </a>
                 </h6>
 
                 <div class="small my-1">
-                  <span>Address: </span>
-                  <span>{{ post.job_location }}</span>
+                  <span>Zoned: </span>
+                  <span>{{ post.service.zone }}</span>
                 </div>
 
-                <div class="small">
-                  <span class="text-muted">Key Skills:</span>
-                  <span class="text-info">
-                    {{ post.skills }}
-                  </span>
-                </div>
+
               </div>
             </div>
           </div>

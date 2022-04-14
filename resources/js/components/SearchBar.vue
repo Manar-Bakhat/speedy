@@ -11,11 +11,11 @@
                   name="q"
                   class="form-control"
                   placeholder="Search By Job Title"
-                  v-model="jobTitle"
+                  v-model="serviceTitle"
                 />
                 <span class="input-group-append">
                   <button class="btn btn-success pt-1" @click="searchByTitle">
-                    <span class="icon-search"></span> Search Jobs
+                    <span class="icon-search"></span> Search Services
                   </button>
                 </span>
               </div>
@@ -25,18 +25,18 @@
         <div class="col-sm-12 col-md-6 offset-md-3 small text-center my-2">
           <div class="row">
             <div class="col-sm-6 col-md-3">
-              <router-link to="/">All Jobs</router-link>
+              <router-link to="/">All Services</router-link>
             </div>
             <div class="col-sm-6 col-md-3">
-              <router-link to="/jobs-by-organization"
-                >By Organisation</router-link
+              <router-link to="/jobs-by-category"
+                >By Category</router-link
               >
             </div>
             <div class="col-sm-6 col-md-3">
-              <router-link to="/jobs-by-category">By Job Category</router-link>
+              <router-link to="/jobs-by-ville">By Service City</router-link>
             </div>
             <div class="col-sm-6 col-md-3">
-              <router-link to="/jobs-by-title">By Job Title</router-link>
+              <router-link to="/jobs-by-zone">By Service Zoned</router-link>
             </div>
           </div>
         </div>
@@ -50,18 +50,18 @@ export default {
   name: "search-bar",
   data() {
     return {
-      jobTitle: null,
+      serviceTitle: null,
     };
   },
   mounted() {
     const q = this.getParameterByName("q", window.location.href);
     if (q !== "") {
-      this.jobTitle = q;
+      this.serviceTitle = q;
     }
   },
   methods: {
     searchByTitle() {
-      if (this.jobTitle.trim() != "") {
+      if (this.serviceTitle.trim() != "") {
         this.$emit("searchByTitle", this.jobTitle);
       }
     },
