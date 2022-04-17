@@ -10,7 +10,7 @@
                   type="text"
                   name="q"
                   class="form-control"
-                  placeholder="Search By Job Title"
+                  placeholder="Search By Search Title"
                   v-model="serviceTitle"
                 />
                 <span class="input-group-append">
@@ -62,7 +62,7 @@ export default {
   methods: {
     searchByTitle() {
       if (this.serviceTitle.trim() != "") {
-        this.$emit("searchByTitle", this.jobTitle);
+        this.$emit("searchByTitle", this.serviceTitle);
       }
     },
     getParameterByName(name, url) {

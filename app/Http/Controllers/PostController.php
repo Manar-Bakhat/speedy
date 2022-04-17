@@ -15,7 +15,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::latest()->take(20)->with('jobber')->get();
+        $posts = Post::latest()->take(5)->with('jobber')->get();
         $categories = JobberCategory::take(5)->get();
         $topEmployers = Jobber::latest()->take(3)->get();
         return view('home')->with([
@@ -49,7 +49,7 @@ class PostController extends Controller
         return redirect()->back();
     }
 
-    public function show($id, Request $request)
+    public function show($id, Post $post, Request $request)
     {
         $post = Post::findOrFail($id);
 
@@ -68,7 +68,7 @@ class PostController extends Controller
         ]);
 
     }
-    public function created(Post $post,User $user, Request $request){
+    public function created(Post $post,User $user,Request $request){
 
 
         $post->comments= new Comment();

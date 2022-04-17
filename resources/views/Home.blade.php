@@ -5,7 +5,7 @@
 
   <section class="home home-page pt-4">
     <div class="slider">
-       <div class="slide active" style="background-image: url('images/bg1.png')">
+       <div class="slide active" style="background-image: url('images/5.png')">
            <div class="container">
                <div class="caption">
                 <p><font color="#448aff">Hi everyone!</font></p>
@@ -21,7 +21,7 @@
                </div>
            </div>
        </div>
-       <div class="slide" style="background-image: url('images/bg2.png')">
+       <div class="slide" style="background-image: url('images/6.png')">
            <div class="container">
                <div class="caption">
                    <p><font color="#448aff">Hi everyone!</font></p>
@@ -37,7 +37,7 @@
                 </div>
            </div>
        </div>
-       <div class="slide" style="background-image: url('images/bg3.png')">
+       <div class="slide" style="background-image: url('images/8.png')">
            <div class="container">
                <div class="caption">
                 <p><font color="#448aff">Hi everyone!</font></p>
@@ -83,7 +83,7 @@
 
 
 
-    <h4 class="card-title" px-2>Recommanded for you</h4>
+    <h4 class="card-title  ms-2">Recommanded for you</h4>
 
 
   <div class="roww row-cols-1 row-cols-md-5 g-4">
@@ -92,23 +92,23 @@
 
     <div class="col">
         <a href="{{route('post.show',['service'=>$post->id])}}">
-      <div class="carde h-100">
+      <div class="carde  " style="height: 75vh;">
 
         <img src="{{asset($post->jobber->photo)}}" alt="" class="card-img-top">
 
         <div class="card-body">
-        <p class="card-text primary_bg" >{{$post->service_title}}</p>
+        <p class="card-text primary_bg" ><font color="#448aff"><strong>{{$post->service_title}}</strong></font></p>
     </a>
-        <p class="company-name" title="{{$post->jobber->title}}">{{$post->jobber->title}}</p>
+    <strong><p class="company-name " title="{{$post->jobber->title}}">{{$post->jobber->title}}</p></strong>
 
 
 
 
 
-          <p class="card-text">{{$post->service_ville}}</p>
-          <p class="card-text">{{$post->service_zone}}</p>
-          <p class="card-text">{{$post->jobber->phone}}</p>
-          <p class="card-text">{{$post->jobber->description}}</p>
+        <strong><p class="card-text ms-2"><i class="fa-solid fa-location-dot"></i>&nbsp;{{$post->service_ville}}</p></strong>
+        <strong><p class="card-text ms-2"><i class="fa-solid fa-location-arrow"></i>&nbsp;{{$post->service_zone}}</p></strong>
+        <strong><p class="card-text ms-2"><i class="fa-solid fa-phone"></i>&nbsp;{{$post->jobber->phone}}</p></strong>
+        <p class="card-text">{{$post->jobber->description}}</p>
            </div>
 
         <div class="card-footer">
@@ -126,6 +126,54 @@
 
 
   <!--  -->
+
+
+
+<br/>
+
+<section class="homee-page pt-4">
+    <div class="container">
+        <div style="margin-top:200px; margin-left:40px" ><a href="/login" class="btn primary-btn">Start now</a></div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-primary text-white mt-5 py-1 px-sm-1 px-md-5">
+        <div class="container text-center py-5">
+            <div class="d-flex justify-content-center mb-4">
+                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="d-flex justify-content-center mb-4">
+                <a class="text-white" href="#">Privacy</a>
+                <span class="px-3">|</span>
+                <a class="text-white" href="#">Terms</a>
+                <span class="px-3">|</span>
+                <a class="text-white" href="#">FAQs</a>
+                <span class="px-3">|</span>
+                <a class="text-white" href="#">Help</a>
+            </div>
+            <p class="m-0">&copy; <a class="text-white font-weight-bold" href="#">Speedy</a>. All Rights Reserved. <a class="text-white font-weight-bold" href="#">Pfe Speedy App.2022</a>
+            </p>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Scroll to Bottom -->
+    <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-outline-dark px-0 back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
 

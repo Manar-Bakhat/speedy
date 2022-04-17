@@ -24,7 +24,7 @@
 
         <div class="pb-3">
           <div class="py-3">
-            <p>Jobber logo</p>
+            <p>Jobber Photo</p>
             <img src="{{asset($jobber->photo)}}" width="80px" alt="">
           </div>
           <div class="custom-file">
@@ -102,6 +102,7 @@
             @enderror
           </div>
         </div>
+
 
         <div class="pt-2">
           <p class="mt-3 alert alert-primary">Provide a short paragraph description about your Profile jobber</p>

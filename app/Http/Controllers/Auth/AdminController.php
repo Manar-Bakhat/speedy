@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use App\Models\JobberCategory;
 use App\Models\Post;
 use App\Models\User;
@@ -53,6 +54,14 @@ class AdminController extends Controller
         } else {
             return redirect()->intented('account.viewAllUsers');
         }
+    }
+    public function destroyComment(Comment $comment)
+    {
+
+        $comment->delete();
+        Alert::toast('Deleted Successfully!', 'danger');
+        return back();
+
     }
 
 }

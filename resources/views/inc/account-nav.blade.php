@@ -37,7 +37,7 @@
     </li>
     <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'my-saved-services' ? 'active': ''}}">
         <a href="{{route('savedService.index')}}" class="account-nav-link">
-          <i class="fas fa-stream"></i> My saved Services
+          <i class="fas fa-stream"></i> My favorites
         </a>
       </li>
     @endrole

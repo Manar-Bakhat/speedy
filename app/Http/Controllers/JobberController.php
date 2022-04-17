@@ -147,7 +147,7 @@ class JobberController extends Controller
         if ($request->hasFile('photo')) {
             $fileNameToStore = $this->getFileName($request->file('photo'));
             $logoPath = $request->file('photo')->storeAs('public/jobbers/logos', $fileNameToStore);
-            if ($jobber->logo) {
+            if ($jobber->photo) {
                 Storage::delete('public/jobbers/logos/' . basename($jobber->photo));
             }
             $jobber->photo = 'storage/jobbers/logos/' . $fileNameToStore;

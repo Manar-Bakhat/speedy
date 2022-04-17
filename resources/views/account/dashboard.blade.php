@@ -119,7 +119,7 @@
                                 <p id="label">Add a new Category</p>
                                 <div class="d-flex">
                                     <input type="text" class="form-control" placeholder="Jobber category name" name="category_name">
-                                    <button class="btn secondary-btn">Add</button>
+                                    <button type="submit" class="btn secondary-btn">Add</button>
                                 </div>
                                 @error('category_name')
                                         <span class="text-danger">{{$message}}</span>
@@ -138,14 +138,44 @@
                                 </thead>
                                 <tbody>
                                     @foreach($jobberCategories as $category)
+
+
+
+
                                     <tr>
                                         <td>{{$category->id}}</td>
                                         <td>{{$category->category_name}}</td>
                                         <td><a class="btn secondary-btn" href="{{route('category.edit',['category'=>$category])}}">Edit</a>
-                                                 <button id="categoryDestroyBtn" class="btn danger-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
+                                             <button type="button" id="categoryDestroyBtn" class="btn danger-btn" data-bs-toggle="modal" data-bs-target="#manar{{ $category->id }}">Delete</button>
+                                              <!-- Modal -->
+                                     <div class="modal fade" id="manar{{ $category->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title text-danger" id="exampleModalLabel">Warning <i class="fa-solid fa-triangle-exclamation"></i></h5>
+                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <strong>Are you sure do you want to <font color="#448aff">delete</font> {{ $category->name }}"?</strong>
+                                            </div>
 
-                                        </td>
-                                    </tr>
+                                            <form action="{{route('category.destroy',['id'=>$category->id])}}" id="categoryDestroyForm" class="d-inline">
+                                                @csrf
+                                                @method('delete')
+
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                                              <button type="submit" class="btn btn-primary">Yes</button>
+                                            </div>
+                                            </form>
+                                          </div>
+                                        </div>
+                                      </div>
+                                            </td>
+                                        </tr>
+
+
+
                                     @endforeach
 
                                 </tbody>
@@ -159,29 +189,10 @@
   </div>
 
 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Are you sure do you want to delete category?
-        </div>
-        <form action="{{route('category.destroy',['id'=>$category->id])}}" id="categoryDestroyForm" class="d-inline">
-            @csrf
-            @method('delete')
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
-          <button type="submit" class="btn btn-primary">Yes</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
+
+
+
 @endSection
 
 @push('js')

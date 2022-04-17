@@ -9,12 +9,12 @@
                   <div class="card left-card">
                     <div class="card-body text-center">
                       <div class="employer-card">
-                        <img src="{{asset($jobber->photo)}}"  class="img-fluid mb-3" alt="">
+                        <img src="{{asset($jobber->photo)}}"  class="img-fluid mb-2" alt="">
                       </div>
-                      <h6 class="lead font-weight-bold">{{$jobber->title}}</h6>
+                      <h6 class="lead font-weight-bold  mb-2">{{$jobber->title}}</h6>
                       <p >{{$jobber->getCategory->category_name}}</p>
-                      <div class="py-2">
-                        <p class="small">{{$jobber->description}}</p>
+                      <div class="py-2 mb-2">
+                        <p class="small mb-2">{{$jobber->description}}</p>
                       </div>
                       <div class="text-center">
                         <a target="_blank" href="{{'https://'.$jobber->facebook}}"><i class="fas fa-globe"></i></a>

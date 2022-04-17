@@ -1,7 +1,9 @@
 @extends('layouts.post')
 
 @section('content')
-<p>{{$jobber->description}}</p>
+<br/>
+<br/>
+<strong><i><h4 class="ms-3">{{$jobber->description}}</h4></i></strong>
 <section class="show-page pt-4 mb-5">
   <div class="container">
     <div class="row rows">
@@ -11,12 +13,12 @@
             <div class="company-banner">
               <div class="banner-overlay"></div>
               @if($jobber->cover_img == 'nocover')
-              <img src="{{asset('images/companies/nocover.jpg')}}" class="company-banner-img img-fluid" alt="">
+              <img src="{{asset('images/jobbbers/nocover.jpg')}}" class="company-banner-img img-fluid" alt="">
               @else
               <img src="{{asset($jobber->cover_img)}}" class="company-banner-img img-fluid" alt="">
               @endif
               <div class="company-media">
-                <img src="{{asset($jobber->logo)}}" alt="" class="company-logo">
+                <img src="{{asset($jobber->photo)}}" alt="" class="company-logo">
                 <div>
                   <a href="{{route('account.employer',['employer'=>$jobber])}}" class="secondary-link">
                     <p class="font-weight-bold">{{$jobber->title}}</p>
@@ -25,17 +27,19 @@
                 </div>
               </div>
               <div class="company-website">
-                <a href="{{$jobber->facebook}}" target="_blank"><i class="fas fa-globe"></i></a>
+                <a href="{{$jobber->facebook}}" target="_blank"><i class="fa-brands fa-facebook"></i></a>
               </div>
             </div>
 
             {{-- company information --}}
             <div class="p-3">
-              <p>{{$post->service_specification}}</p>
+                <p>{!!$post->service_specification!!}</p>
+              </div>
             </div>
-          </div>
 
-          {{-- job information --}}
+              <br/>
+
+          {{-- Service information --}}
           <div class="job-info">
             <div class="job-hdr p-3">
               <p class="job-title">{{$post->service_title}}</p>
@@ -47,14 +51,9 @@
             </div>
             <div class="job-bdy p-3 my-3">
               <div class="job-level-description">
-                <p class="font-weight-bold">Basic job level description</p>
+                <p class="font-weight-bold">Post detail</p>
                 <table class="table table-hover">
                   <tbody>
-                    <tr>
-                      <td width="33%">Service Category</td>
-                      <td width="3%">:</td>
-                      <td width="64%"><a href="/jobs">{{$jobber->category_name}}</a></td>
-                    </tr>
                     <tr>
                       <td width="33%">Service City</td>
                       <td width="3%">:</td>
@@ -93,10 +92,7 @@
                   </tbody>
                 </table>
               </div>
-              <div class="job-level-description">
-                {{-- <p class="font-weight-bold">More Specifications</p> --}}
-                <p class="py-2">{!!$post->service_specification!!}</p>
-              </div>
+
               <br>
               <hr>
               <div class="d-flex justify-content-between">
@@ -121,11 +117,11 @@
           </div>
           <div class="card-body">
             <div class="btn-group w-75">
-              <a href="{{route('savedService.store',['id'=>$post->id])}}" class="btn primary-btn"><i class="fas fa-star"></i> Save service</a>
+              <a href="{{route('savedService.store',['id'=>$post->id])}}" class="btn primary-btn"><i class="fas fa-star"></i>Add to favorites</a>
             </div>
           </div>
         </div>
-
+    <!-- similar service
         <div class="card ">
             <div class="card-header">
               Similar Services
@@ -160,14 +156,18 @@
 
 
     </div>
+    <!-- fin -->
   </div>
 </section>
 <div class="container ">
+
+    <strong><h4 class="" >You can add a Comment</h4></strong>
+    <br/>
     @auth
     <form action="{{route('comment-user' , $post->id) }}" method="post">
         @csrf
 <div class="form-floating w-50">
-    <textarea name="message" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+    <textarea name="message" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea><br/>
     <button type="submit" class="shadow p-2 w-25 mb-2 bg-primary text-light rounded fw-bold">Post a comment</button>
 </div>
 </form>
@@ -176,27 +176,78 @@
 <form action="#" method="post">
     @csrf
 <div class="form-floating w-50 pt-4" >
-<textarea name="message" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-<a onClick = "history.go(0)" type="reset" href="/login" class="shadow p-2 w-25 mb-2 bg-primary text-light rounded fw-bold">Post a comment</a>
+<textarea name="message" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea><br/>
+<a onClick = "history.go(0)" type="reset" href="/login" class="shadow p-2 w-25 mb-2 primary-btn text-light rounded fw-bold">Post a comment</a>
 
 </div>
 </form>
 
 @endguest
+<br/><br/>
+<div class="" >
   @foreach ($post->comments as $comment )
-  <img src="{{asset('storage/'.$comment->user->photo)}}" class="img-radius" alt="User-Profile-Image" style="height:80px;width:100px;border:solid 5px">
+
+  <!---- modal ----->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-danger" id="exampleModalLabel">Warning <i class="fa-solid fa-triangle-exclamation text-danger"></i> </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <strong>Are you sure do you want to delete comment?</strong>
+        </div>
+        <form action="{{ route('destroy-comment' , $comment->id) }}" method="post">
+         @csrf
+         @method('delete')
+
+
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+          <button type="submit" class="btn btn-primary">Yes</button>
+        </div>
+    </form>
+
+      </div>
+    </div>
+  </div>
+  <!--- fin modal -->
+
+  <img src="{{asset('storage/'.$comment->user->photo)}}" class="img-radius" alt="User-Profile-Image" style="height:40px;width:60px;border-radius: 50%">
+
+
+
      {{ $comment->user->name }}
+
+     @role('admin')
+
+     <i class="fa-solid fa-trash text-danger ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+     @endrole
      <br/>
      <br/>
+     <div class="" style="width: 600px ;  ">
      {{ $comment->message }}
+
+
+
+
+
      <p class="card-text">publish {{ $comment->created_at }} </p>
+     </div>
      <br/><br/>
-    <hr>
-
-
+    <hr width="600px">
   @endforeach
+</div>
   <hr>
 </div>
+
+
+
+
+
 
 
 

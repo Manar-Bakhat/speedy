@@ -69,7 +69,7 @@ export default {
     };
   },
   created() {
-    this.getJobs();
+    this.getServices();
   },
   methods: {
     getServices(page = 1) {

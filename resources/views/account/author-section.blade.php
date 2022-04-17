@@ -22,6 +22,11 @@
                           <div class="ml-auto">
 
                           </div>
+                          <form action="{{route('jobber.destroy')}}" id="jobberDestroyForm" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" id="jobberDestroyBtn" class="btn danger-btn">Delete Company</a>
+                                </form>
                           @endif
                         </div>
                         @if($jobber)
@@ -32,7 +37,7 @@
                                         <img src="{{asset($jobber->photo)}}" width="100px" class="img-fluid border p-2" alt="">
                                         <h5>{{$jobber->title}}</h5>
                                         <small>{{$jobber->category_name}}</small>
-                                      <a class="d-block" href="{{$jobber->facebook}}"><i class="fas fa-globe"></i></a>
+                                      <a class="d-block" href="{{$jobber->facebook}}"><i class="fa-brands fa-facebook"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -70,9 +75,12 @@
                   </thead>
                   <tbody>
                       @if($jobber)
-                          @foreach($jobber->posts as $index=>$post)
+                          @foreach($jobber->posts as $post)
+
+
+
                           <tr>
-                              <td>{{$index+1}}</td>
+                              <td>{{$loop->index+1}}</td>
                               <td> <a href="{{route('post.show',['service'=>$post])}}" target="_blank" title="Go to this post">{{$post->service_title}}</a></td>
                               <td>{{$post->service_ville}}</td>
                               <td>{{$post->service_zone}}</td>
@@ -88,12 +96,34 @@
                               <td>
                                 <a href="{{route('post.edit',['post'=>$post])}}" class="btn primary-btn mt-2">Edit</a>
 
-                                <form action="{{route('post.destroy' ,$post->id)}}" class="d-inline-block" id="delPostForm" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                <button type="submit"  id="delPostBtn" class="btn danger-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
-                                </form>
-                            </td>
+
+                                <button type="submit"  id="delPostBtn" class="btn danger-btn" data-bs-toggle="modal" data-bs-target="#manar{{ $post->id }}">Delete</button>
+
+                                                    <!-- Modal -->
+   <div class="modal fade" id="manar{{ $post->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-danger" id="exampleModalLabel">Warning <i class="fa-solid fa-triangle-exclamation"></i></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         <strong>Are you sure do you want to <font color="#448aff">delete</font> {{ $post->service_title }}"?</strong> 
+        </div>
+        <form action="{{route('post.destroy' ,$post->id)}}" class="d-inline-block" id="delPostForm" method="POST">
+            @csrf
+            @method('DELETE')
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+          <button type="submit" class="btn btn-primary">Yes</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- fin modal -->
+
+</td>
                           </tr>
                           @endforeach
                           @else
@@ -143,26 +173,7 @@
   </div>  -->
 
 
-   <!-- Modal -->
-   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Are you sure do you want to delete category?
-        </div>
 
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
-          <button type="submit" class="btn btn-primary">Yes</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
 
 
 

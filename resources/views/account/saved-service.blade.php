@@ -22,6 +22,7 @@
             <tbody>
               @foreach ($posts as $post)
                 @if($posts->count() >0)
+
                 <tr>
 
                   <td><a href="{{route('post.show',['service'=>$post])}}">{{$post->jobber->title}}</a></td>
@@ -30,11 +31,37 @@
                   <td><a href="#">{{$post->service_ville}}</a></td>
                   <td>{{$post->service_zone}}</td>
                   <td>
+
+
+                   
+
+                    <button href="#" class="btn secondary-outline-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Unsave</button>
+                      <!-- Modal -->
+             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title text-danger" id="exampleModalLabel">Warning <i class="fa-solid fa-triangle-exclamation"></i></h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <strong>Are you sure do you want to <font color="#448aff">remove</font> 
+                            {{ $post->jobber->title }}
+                       your from favorites ?</strong> 
+                    </div>
+
                     <form action="{{route('savedService.destroy',['id'=>$post])}}" method="POST">
                         @csrf
                         @method("delete")
-                    <button href="#" class="btn secondary-outline-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Unsave</button>
-                </form>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                      <button type="submit" class="btn btn-primary">Yes</button>
+                    </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+               
                 </td>
 
                 </tr>
@@ -57,28 +84,7 @@
     </div>
   </div>
 
-   <!-- Modal -->
-   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Are you sure do you want to delete Save Service?
-        </div>
-
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
-          <button type="submit" class="btn btn-primary">Yes</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
+             
 
 
 @endSection

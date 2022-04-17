@@ -41,11 +41,7 @@ Route::middleware('auth')->prefix('account')->group(function () {
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('account.dashboard');
     Route::get('view-all-users', [AdminController::class, 'viewAllUsers'])->name('account.viewAllUsers');
     Route::delete('view-all-users', [AdminController::class, 'destroyUser'])->name('account.destroyUser');
-
-   // Route::get('category/{category}/edit', [CompanyCategoryController::class, 'edit'])->name('category.edit');
-    //Route::post('category', [CompanyCategoryController::class, 'store'])->name('category.store');
-    //Route::put('category/{id}', [CompanyCategoryController::class, 'update'])->name('category.update');
-   // Route::get('category/{id}', [CompanyCategoryController::class, 'destroy'])->name('category.destroy');
+    Route::delete('manarelanrif/{comment}', [AdminController::class, 'destroyComment'])->name('destroy-comment');
 
 
     Route::get('category/{category}/edit', [JobberCategoryController::class, 'edit'])->name('category.edit');

@@ -24,10 +24,10 @@ class ServiceController extends Controller
             $posts = Post::whereHas('jobber', function ($query) use ($request) {
                 return $query->where('jobber_category_id', $request->category_id);
             });
-        } elseif ($request->job_level) {
-            $posts = Post::where('service_level', 'Like', '%' . $request->service_level . '%');
-        } elseif ($request->education_level) {
-            $posts = Post::where('education_level', 'Like', '%' . $request->education_level . '%');
+        } elseif ($request->service_ville) {
+            $posts = Post::where('service_ville', 'Like', '%' . $request->service_level . '%');
+        } elseif ($request->service_zone) {
+            $posts = Post::where('service_zone', 'Like', '%' . $request->service_zone . '%');
         } elseif ($request->employment_type) {
             $posts = Post::where('employment_type', 'Like', '%' . $request->employment_type . '%');
         } else {

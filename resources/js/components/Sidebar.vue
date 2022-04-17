@@ -4,7 +4,7 @@
       <div class="card-body p-3">
         <div class="d-flex align-items-center small mb-0">
           <i class="fas fa-search mr-1"></i>
-          <strong>Refine Your Service Search</strong>
+          <strong>Refine Your Job Search</strong>
         </div>
         <a
           href="#"
@@ -26,9 +26,9 @@
             <div class="card-body p-0">
               <div class="form-group">
                 <select
-                  name="job_category"
+                  name="service_category"
                   class="form-control"
-                  placeholder="Filter by Job Category"
+                  placeholder="Filter by Service Category"
                   @change="filterCategory($event)"
                 >
                   <option disabled selected value>
@@ -47,13 +47,13 @@
           </div>
           <hr class="my-3" />
           <div class="pb-0">
-            <div class="card-title mb-1">Service Ville</div>
+            <div class="card-title mb-1"></div>
             <div class="card-body p-0">
               <div class="form-group">
                 <select
-                  name="job_category"
+                  name="service_category"
                   class="form-control"
-                  placeholder="Filter by Job Category"
+                  placeholder="Filter by Service Category"
                   @change="filterServiceVille($event)"
                 >
                   <option disabled selected value>
@@ -80,50 +80,15 @@
                     <option value="Tanger">Tanger</option>
                     <option value="Tétouan">Tétouan</option>
                     <option value="Tanger">Tanger</option>
+
                 </select>
               </div>
             </div>
           </div>
           <hr class="my-3" />
-          <div class="pb-0">
-            <div class="card-title mb-1">Zoned</div>
-            <div class="card-body p-0">
-              <div class="form-group">
-                <select
-                  name="job_category"
-                  class="form-control"
-                  placeholder="Filter by Job Category"
-                  @change="filterServiceZone($event)"
 
-
-
-          </div>
-          </div>
-          </div>
           <hr class="my-3" />
-          <div class="pb-0">
-            <div class="card-title mb-1">Employment Type</div>
-            <div class="card-body p-0">
-              <div class="form-group">
-                <select
-                  name="job_category"
-                  class="form-control"
-                  placeholder="Filter by Job Category"
-                  @change="filterEmploymentType($event)"
-                >
-                  <option disabled selected value>
-                    -- select an option --
-                  </option>
-                  <option value="Full Time">Full Time</option>
-                  <option value="Part Time">Part Time</option>
-                  <option value="Freelance">Freelance</option>
-                  <option value="Internship">Internship</option>
-                  <option value="Trainneship">Trainneship</option>
-                  <option value="Volunter">Volunter</option>
-                </select>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>
@@ -154,14 +119,8 @@ export default {
     filterCategory(e) {
       this.$emit("get-by-category", e.target.value);
     },
-    filterEmploymentType(e) {
-      this.$emit("get-by-ville", e.target.value);
-    },
-    filterEducation(e) {
-      this.$emit("get-by-zone", e.target.value);
-    },
-    filterJobLevel(e) {
-      this.$emit("get-by-job-level", e.target.value);
+    filterServiceVille(e) {
+      this.$emit("get-by-service-ville", e.target.value);
     },
   },
 };
