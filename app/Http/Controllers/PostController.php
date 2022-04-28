@@ -15,7 +15,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::latest()->take(5)->with('jobber')->get();
+        $posts = Post::latest()->take(200)->with('jobber')->get();
         $categories = JobberCategory::take(5)->get();
         $topEmployers = Jobber::latest()->take(3)->get();
         return view('home')->with([
@@ -54,7 +54,7 @@ class PostController extends Controller
     public function show($id, Post $post, Request $request)
     {
         $post = Post::findOrFail($id);
-
+        $comments = Comment::latest()->get();
 
         event(new PostViewEvent($post));
         $jobber = $post->jobber()->first();
@@ -66,7 +66,6 @@ class PostController extends Controller
             'post' => $post,
             'jobber' => $jobber,
             'similarServices' => $similarPosts,
-
         ]);
 
     }

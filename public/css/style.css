@@ -12256,7 +12256,7 @@ button {
 }
 
 .custom-pagination .page-item.active .page-link {
-  background-color: #2d873a !important;
+  background-color: #448aff !important;
   border: 1px solid #185a91 !important;
 }
 
@@ -12860,8 +12860,6 @@ h1 {
  .card-search:hover{
 
     box-shadow: 0 .5rem 2rem rgba(0,0,0,.1);
-
-
 
 }
 .btn-retour:hover{

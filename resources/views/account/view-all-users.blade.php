@@ -33,8 +33,9 @@
                         @method('delete')
 
                       <input type="hidden" name="user_id" value="{{$user->id}}">
+                      @if(Auth::user()->name!=$user->name)
                       <button class="btn primary-btn" data-bs-toggle="modal" data-bs-target="#manar{{ $user->name }}">Delete</button>
-
+                      @endif
                     </form>
                          <!-- Modal -->
                          <div class="modal fade" id="manar{{ $user->name }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

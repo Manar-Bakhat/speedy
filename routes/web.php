@@ -47,7 +47,7 @@ Route::middleware('auth')->prefix('account')->group(function () {
     Route::get('view-all-users', [AdminController::class, 'viewAllUsers'])->name('account.viewAllUsers');
     Route::delete('view-all-users', [AdminController::class, 'destroyUser'])->name('account.destroyUser');
     Route::delete('comment/{comment}', [AdminController::class, 'destroyComment'])->name('destroy-comment');
-    Route::get('progile-jobber/{comment}', [AdminController::class, 'destroyComment'])->name('destroy-comment');
+    Route::delete('progile-jobber/{comment}', [AdminController::class, 'destroyComment'])->name('destroy-comment');
 
 
     Route::get('category/{category}/edit', [JobberCategoryController::class, 'edit'])->name('category.edit');

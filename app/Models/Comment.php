@@ -19,7 +19,7 @@ class Comment extends Model
 
     public function posts(){
 
-        return $this->belongsTo(Post::class)->latest;
+        return $this->belongsTo(Post::class);
 
     }
 }

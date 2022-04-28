@@ -118,10 +118,10 @@
   <div class="col">
 
       <a href="{{route('post.show',['service'=>$post->id])}}">
-    <div class="carde  " style="height: 75vh;">
+    <div class="carde  " style="height: 70vh;">
 
-      <img src="{{asset($post->jobber->photo)}}" alt="" class="card-img-top">
-
+     <Center> <img src="{{asset($post->jobber->photo)}}" alt="" class="card-img-top"  style="height:90px;width:110px;border-radius:50% ;margin-top: 15px">
+     </Center>
       <div class="card-body">
       <p class="card-text primary_bg" ><font color="#448aff"><strong>{{$post->service_title}}</strong></font></p>
   </a>
@@ -135,7 +135,7 @@
 
       <div class="card-footer">
         <small class="text-muted">
-          <a href="{{route('savedService.store',['id'=>$post->id])}}" class=""><i class="fas fa-star"></i> Save service</a>
+          <a href="{{route('savedService.store',['id'=>$post->id])}}" class=""><i class="fa-solid fa-heart"></i>&nbsp;Add To Favorite</a>
 
         </small>
       </div>
@@ -162,9 +162,9 @@
 
 
 
-    <!-- Scroll to Bottom -->
+    <!-- Scroll to Bottom
     <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
-
+-->
     <!-- Back to Top -->
     <a href="#" class="btn btn-outline-dark px-0 back-to-top"><i class="fa fa-angle-double-up"></i></a>
 

@@ -1,15 +1,31 @@
 <footer>
-    <div class="footer-main">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 col-md-3">
 
-          </div>
+       <!-- Footer Start -->
+       <div class="container-fluid bg-primary text-white mt-5 py-1 px-sm-1 px-md-5">
+        <div class="container text-center py-5">
+            <div class="d-flex justify-content-center" style="margin-left: 130px">
+                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <br/>
+            <div class="d-flex justify-content-center" style="margin-left: 130px">
+                <a class="text-white" href="#">Privacy</a>
+                <span class="px-3">|</span>
+                <a class="text-white" href="#">Terms</a>
+                <span class="px-3">|</span>
+                <a class="text-white" href="#">FAQs</a>
+                <span class="px-3">|</span>
+                <a class="text-white" href="#">Help</a>
+            </div>
 
-
+            <p class="m-0">&copy; <a class="text-white font-weight-bold" href="#">Speedy</a>. All Rights Reserved. <a class="text-white font-weight-bold" href="#">Pfe Speedy App.2022</a>
+            </p>
         </div>
-      </div>
     </div>
+
+
   </footer>
 
   @push('css')

@@ -4,12 +4,12 @@
       <img src="{{asset('images/logo/speedy.png')}}" width="35%" alt="">
       </a>
 
-      <strong><a href="{{URL('/http://127.0.0.1:8000/#/')}}" class="navh" style="margin-left: -150px ; font-size: 20px">
+      <strong><a href="{{URL('')}}" class="navh" style="margin-left: -150px ; font-size: 20px">
         Home
       </a></strong>
 
-      <strong><a href="{{URL('http://127.0.0.1:8000/search#/')}}" class="navh" style="margin-left: -40px ; font-size: 20px">
-        Find Service
+      <strong><a href="{{route('service.index')}}" class="navh" style="margin-left: -40px ; font-size: 20px">
+        Find Jobber
             </a></strong>
       <strong><a href="{{URL('/')}}" class="navh" style="margin-left: 60px  ; font-size: 20px">
         Contact Us

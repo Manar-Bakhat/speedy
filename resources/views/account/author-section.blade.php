@@ -22,11 +22,13 @@
                           <div class="ml-auto">
 
                           </div>
+                          <!---
                           <form action="{{route('jobber.destroy')}}" id="jobberDestroyForm" method="POST">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" id="jobberDestroyBtn" class="btn danger-btn">Delete Company</a>
                                 </form>
+                            -->
                           @endif
                         </div>
                         @if($jobber)

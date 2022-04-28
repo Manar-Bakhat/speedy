@@ -121,7 +121,7 @@
 
             <div class="card-footer">
               <small class="text-muted">
-                <a href="{{route('savedService.store',['id'=>$post->id])}}" class=""><i class="fas fa-star"></i> Save service</a>
+                <a href="{{route('savedService.store',['id'=>$post->id])}}" class=""><i class="fa-solid fa-heart"></i>&nbsp;Add To Favorite</a>
 
               </small>
             </div>
@@ -148,7 +148,8 @@
 
 
 
-  <!--  -->
+  <!-- <i class="fas fa-star"></i>
+ -->
 
 
 

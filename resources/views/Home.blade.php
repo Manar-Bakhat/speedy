@@ -286,13 +286,15 @@
      <div class="accordion-item-body">
        <div class="accordion-item-body-content">
         If you are looking for a property on Speedy please proceed as follows:
-
+        <br/>
         1- Click on the following link: http://www.speedy.ma/fr/maroc/
-
+        <br/>
         2- Select the Service.
-
+        <br/>
         3- Select the city.
+        <br/>
         4-Select the Zoned.
+        <br/>
         4- Click on search.  </div>
      </div>
    </div>
@@ -303,30 +305,6 @@
 
 
 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-primary text-white mt-5 py-1 px-sm-1 px-md-5">
-        <div class="container text-center py-5">
-            <div class="d-flex justify-content-center" style="margin-left: 130px">
-                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
-            </div>
-            <br/>
-            <div class="d-flex justify-content-center" style="margin-left: 130px">
-                <a class="text-white" href="#">Privacy</a>
-                <span class="px-3">|</span>
-                <a class="text-white" href="#">Terms</a>
-                <span class="px-3">|</span>
-                <a class="text-white" href="#">FAQs</a>
-                <span class="px-3">|</span>
-                <a class="text-white" href="#">Help</a>
-            </div>
-
-            <p class="m-0">&copy; <a class="text-white font-weight-bold" href="#">Speedy</a>. All Rights Reserved. <a class="text-white font-weight-bold" href="#">Pfe Speedy App.2022</a>
-            </p>
-        </div>
-    </div>
 
 
 
@@ -344,9 +322,9 @@
 
     <!-- Footer End -->
 
-    <!-- Scroll to Bottom -->
+    <!-- Scroll to Bottom
     <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
-
+-->
     <!-- Back to Top -->
     <a href="#" class="btn btn-outline-dark px-0 back-to-top"><i class="fa fa-angle-double-up"></i></a>
 

@@ -187,7 +187,17 @@
 <div class="" >
   @foreach ($post->comments as $comment )
 
-  <!---- modal ----->
+
+  <img src="{{asset('storage/'.$comment->user->photo)}}" class="img-radius" alt="User-Profile-Image" style="height:40px;width:60px;border-radius: 50%">
+
+
+
+     {{ $comment->user->name }}
+
+     @role('admin')
+
+     <i class="fa-solid fa-trash text-danger ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+      <!---- modal ----->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -202,9 +212,6 @@
          @csrf
          @method('delete')
 
-
-
-
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
           <button type="submit" class="btn btn-primary">Yes</button>
@@ -216,23 +223,13 @@
   </div>
   <!--- fin modal -->
 
-  <img src="{{asset('storage/'.$comment->user->photo)}}" class="img-radius" alt="User-Profile-Image" style="height:40px;width:60px;border-radius: 50%">
 
 
-
-     {{ $comment->user->name }}
-
-     @role('admin')
-
-     <i class="fa-solid fa-trash text-danger ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
      @endrole
      <br/>
      <br/>
      <div class="" style="width: 600px ;  ">
      {{ $comment->message }}
-
-
-
 
 
      <p class="card-text">publish {{ $comment->created_at }} </p>

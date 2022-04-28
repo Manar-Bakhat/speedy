@@ -15,7 +15,7 @@
         @method('put')
         <div class="form-group">
           <label for="">Choose a Jobber Category</label>
-          <select class="form-control" name="category" value="{{ old('category')??$jobber->jobber_category_id }}"  required>
+          <select class="form-control" name="category" style="width: 97%" value="{{ old('category')??$jobber->jobber_category_id }}"  required>
             @foreach ($categories as $category)
               <option value="{{$category->id}}">{{$category->category_name}}</option>
             @endforeach
@@ -24,10 +24,10 @@
 
         <div class="pb-3">
           <div class="py-3">
-            <p>Jobber Photo</p>
+            <p style="margin-left: -70px">Jobber Photo</p>
             <img src="{{asset($jobber->photo)}}" width="80px" alt="">
           </div>
-          <div class="custom-file">
+          <div class="custom-file" style="width: 97%">
             <input type="file" class="custom-file-input"  name="photo">
             <label class="custom-file-label" >Choose Picture...</label>
             @error('photo')
@@ -40,9 +40,9 @@
 
         <div class="form-group">
           <div class="py-3">
-            <p>Jobber Title</p>
+            <p style="margin-left: -70px">Jobber Title</p>
           </div>
-          <input type="text" placeholder="Jobber title" class="form-control @error('password') is-invalid @enderror" name="title" value="{{ old('title')??$jobber->title }}" required>
+          <input type="text" placeholder="Jobber title" style="width: 97%" class="form-control @error('password') is-invalid @enderror" name="title" value="{{ old('title')??$jobber->title }}" required>
             @error('title')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -52,9 +52,9 @@
 
         <div class="form-group">
             <div class="py-3">
-              <p>Jobber Age</p>
+              <p style="margin-left: -70px">Jobber Age</p>
             </div>
-            <input type="text" placeholder="Jobber age" class="form-control @error('password') is-invalid @enderror" name="age" value="{{ old('age')??$jobber->age }}" required>
+            <input type="text" placeholder="Jobber age" style="width: 97%" class="form-control @error('password') is-invalid @enderror" name="age" value="{{ old('age')??$jobber->age }}" required>
               @error('age')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
@@ -64,9 +64,9 @@
 
           <div class="form-group">
             <div class="py-3">
-              <p>Jobber Phone</p>
+              <p style="margin-left: -70px">Jobber Phone</p>
             </div>
-            <input type="text" placeholder="Jobber phone" class="form-control @error('password') is-invalid @enderror" name="phone" value="{{ old('phone')??$jobber->phone }}" required>
+            <input type="text" placeholder="Jobber phone" style="width: 97%" class="form-control @error('password') is-invalid @enderror" name="phone" value="{{ old('phone')??$jobber->phone }}" required>
               @error('phone')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
@@ -76,10 +76,10 @@
 
         <div class="form-group">
           <div class="pt-3">
-            <p>Jobber Facebook Url</p>
-            <p class="text-primary">For example : https://www.facebook.com</p>
+            <p style="margin-left: -70px">Jobber Social Media Url</p>
+            <p class="text-primary">For example : https://www.socialMedia.com</p>
           </div>
-          <input type="text" placeholder="Jobber Website" class="form-control @error('facebook') is-invalid @enderror" name="facebook" value="{{ old('facebook')??$jobber->facebook }}" required>
+          <input type="text" placeholder="Jobber Website" style="width: 97%" class="form-control @error('facebook') is-invalid @enderror" name="facebook" value="{{ old('facebook')??$jobber->facebook }}" required>
             @error('facebook')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -89,7 +89,7 @@
 
         <div class="pb-3">
           <div class="py-3">
-            <p class="py-2">Jobber banner/cover</p>
+            <p class="py-2" style="margin-left: -170px">Jobber banner/cover</p>
             <img src="{{asset($jobber->cover_img)}}" width="200px;" class="img-fluid" alt="">
           </div>
           <div class="custom-file">
