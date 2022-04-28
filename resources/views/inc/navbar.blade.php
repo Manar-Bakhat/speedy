@@ -4,12 +4,15 @@
     <img src="{{asset('images/logo/speedy.png')}}" width="35%" alt="">
     </a>
 
-    <a href="{{URL('/')}}" class="navbar-brand">
+    <a href="{{URL('/http://127.0.0.1:8000/#/')}}" class="">
 
         </a>
-    <a href="{{URL('/')}}" class="navbar-brand">
+    <a href="{{URL('/http://127.0.0.1:8000/search?q=#/')}}" class="nave">
 
            </a>
+    <a href="{{URL('/')}}" class="">
+
+               </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
      <i class="fas fa-bars"></i>

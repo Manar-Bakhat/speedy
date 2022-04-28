@@ -19,6 +19,11 @@ Route::get('employer/{employer}', [AuthorController::class, 'employer'])->name('
 Route::post('update-photo', [AccountController::class, 'photo'])->name('update-photo');
 //return vue page
 Route::get('/search', [ServiceController::class, 'index'])->name('service.index');
+Route::get('/resultat', [ServiceController::class, 'search'])->name('service-search');
+Route::get('/resultats', [PostController::class, 'searchPost'])->name('service-searche');
+
+
+
 
 //auth routes
 Route::middleware('auth')->prefix('account')->group(function () {
@@ -41,7 +46,8 @@ Route::middleware('auth')->prefix('account')->group(function () {
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('account.dashboard');
     Route::get('view-all-users', [AdminController::class, 'viewAllUsers'])->name('account.viewAllUsers');
     Route::delete('view-all-users', [AdminController::class, 'destroyUser'])->name('account.destroyUser');
-    Route::delete('manarelanrif/{comment}', [AdminController::class, 'destroyComment'])->name('destroy-comment');
+    Route::delete('comment/{comment}', [AdminController::class, 'destroyComment'])->name('destroy-comment');
+    Route::get('progile-jobber/{comment}', [AdminController::class, 'destroyComment'])->name('destroy-comment');
 
 
     Route::get('category/{category}/edit', [JobberCategoryController::class, 'edit'])->name('category.edit');
@@ -96,5 +102,8 @@ Route::get('/Jobber',function(){
 });
 
 Route::post('user/{post}',[PostController::class, 'created'])->name('comment-user');
+
+
+
 
 

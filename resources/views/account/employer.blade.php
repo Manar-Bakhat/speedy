@@ -44,6 +44,21 @@
     </div>
   </div>
 
+  @if($jobber)
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <div class="card">
+                                    <div class="card-body test text-center">
+                                        <img src="{{asset($jobber->photo)}}" width="100px" class="img-fluid border p-2" alt="">
+                                        <h5>{{$jobber->title}}</h5>
+                                        <small>{{$jobber->category_name}}</small>
+                                      <a class="d-block" href="{{$jobber->facebook}}"><i class="fa-brands fa-facebook"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+
 
 
 @endSection

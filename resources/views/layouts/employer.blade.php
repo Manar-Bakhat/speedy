@@ -12,7 +12,8 @@
                         <img src="{{asset($jobber->photo)}}"  class="img-fluid mb-2" alt="">
                       </div>
                       <h6 class="lead font-weight-bold  mb-2">{{$jobber->title}}</h6>
-                      <p >{{$jobber->getCategory->category_name}}</p>
+
+
                       <div class="py-2 mb-2">
                         <p class="small mb-2">{{$jobber->description}}</p>
                       </div>

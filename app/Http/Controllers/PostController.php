@@ -21,7 +21,9 @@ class PostController extends Controller
         return view('home')->with([
             'posts' => $posts,
             'categories' => $categories,
-            'topEmployers' => $topEmployers
+            'topEmployers' => $topEmployers,
+
+
         ]);
     }
 
@@ -68,7 +70,7 @@ class PostController extends Controller
         ]);
 
     }
-    public function created(Post $post,User $user,Request $request){
+    public function created(Post $post,User $user,Comment $comment ,Request $request){
 
 
         $post->comments= new Comment();
@@ -117,4 +119,72 @@ class PostController extends Controller
 
         ]);
     }
+    public function searchPost(Request $request){
+
+        if ($request->qq) {
+            $posts = Post::where('service_title', 'LIKE', '%' . $request->qq . '%');
+        }
+
+
+        if ($request->q2) {
+            $posts = Post::where('service_ville', 'LIKE', '%' . $request->q2 . '%');
+        }
+
+        if ($request->q3) {
+            $posts = Post::where('service_zone', 'LIKE', '%' . $request->q3 . '%');
+
+        }
+
+
+        if ($request->qq && $request->q2) {
+
+            $posts = Post::where('service_title', 'LIKE', '%' . $request->qq . '%')
+                          ->Where('service_ville' , 'LIKE','%' . $request->q2 . '%')
+                          ->get();
+
+                          $count = $posts->count();
+                          return view('post.searche', compact('posts','count'));
+        }
+        if ($request->qq && $request->q3) {
+
+            $posts = Post::where('service_title', 'LIKE', '%' . $request->qq . '%')
+                          ->Where('service_zone' , 'LIKE','%' . $request->q3 . '%')
+                          ->get();
+
+                          $count = $posts->count();
+                          return view('post.searche', compact('posts','count'));
+        }
+        if ($request->q2 && $request->q3) {
+
+            $posts = Post::where('service_ville', 'LIKE', '%' . $request->q2 . '%')
+                          ->Where('service_zone' , 'LIKE','%' . $request->q3 . '%')
+                          ->get();
+
+                          $count = $posts->count();
+                          return view('post.searche', compact('posts','count'));
+        }
+        if ($request->qq && $request->q2 && $request->q3) {
+
+            $posts = Post::where('service_title', 'LIKE', '%' . $request->qq . '%')
+                          ->Where('service_ville' , 'LIKE','%' . $request->q2 . '%')
+                          ->Where('service_zone' , 'LIKE','%' . $request->q3 . '%')
+                          ->get();
+
+                          $count = $posts->count();
+                          return view('post.searche', compact('posts','count'));
+        }
+
+
+
+        else{
+            redirect()->route('service.index');
+        }
+
+
+
+
+
+
+    }
+
 }

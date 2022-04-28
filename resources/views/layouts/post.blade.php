@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('layout-holder')
-  @include('inc.navbar')
+  @include('inc.nav-home')
   @yield('content')
 
   @include('inc.footer')

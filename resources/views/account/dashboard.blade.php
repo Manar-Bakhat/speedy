@@ -156,7 +156,7 @@
                                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <strong>Are you sure do you want to <font color="#448aff">delete</font> {{ $category->name }}"?</strong>
+                                                <center><strong>Are you sure you want to <font color="#448aff">delete</font> {{ $category->category_name }}?</strong></center>
                                             </div>
 
                                             <form action="{{route('category.destroy',['id'=>$category->id])}}" id="categoryDestroyForm" class="d-inline">

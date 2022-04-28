@@ -12,45 +12,29 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        return view('service.index');
+        $posts = Post::latest()->take(200)->with('jobber')->get();
+        $categories = JobberCategory::take(5)->get();
+        $topEmployers = Jobber::latest()->take(3)->get();
+        return view('service.index')->with([
+            'posts' => $posts,
+            'categories' => $categories,
+            'topEmployers' => $topEmployers,
+
+        ]);
     }
 
-    //api route
-    public function search(Request $request)
-    {
-        if ($request->q) {
-            $posts = Post::where('service_title', 'LIKE', '%' . $request->q . '%');
-        } elseif ($request->category_id) {
-            $posts = Post::whereHas('jobber', function ($query) use ($request) {
-                return $query->where('jobber_category_id', $request->category_id);
-            });
-        } elseif ($request->service_ville) {
-            $posts = Post::where('service_ville', 'Like', '%' . $request->service_level . '%');
-        } elseif ($request->service_zone) {
-            $posts = Post::where('service_zone', 'Like', '%' . $request->service_zone . '%');
-        } elseif ($request->employment_type) {
-            $posts = Post::where('employment_type', 'Like', '%' . $request->employment_type . '%');
-        } else {
-            $posts = Post::take(30);
-        }
+    public function search(){
+        $q = request()->input('q');
 
-        $posts = $posts->has('jobber')->with('jobber')->paginate(6);
+        $posts = Post::where('service_title', 'like' , "%$q%")
+               ->orWhere('service_ville' , 'like',"%$q%")
+               ->orWhere('service_zone' , 'like',"%$q%")->get();
+        $count = $posts->count();
 
-        return $posts->toJson();
+
+        return view('post.search', compact('posts','count'));
+
+
     }
-    public function getCategories()
-    {
-        $categories = JobberCategory::all();
-        return $categories->toJson();
-    }
-    public function getAllOrganization()
-    {
-        $jobbers = Jobber::all();
-        return $jobbers->toJson();
-    }
-    public function getAllByTitle()
-    {
-        $posts = Post::where('deadline', '>', Carbon::now())->get()->pluck('id', 'service_title');
-        return $posts->toJson();
-    }
+
 }

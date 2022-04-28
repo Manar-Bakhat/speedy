@@ -2,7 +2,7 @@
 
 @section('content')
 
-
+<!---
   <section class="home home-page pt-4">
     <div class="slider">
        <div class="slide active" style="background-image: url('images/5.png')">
@@ -59,26 +59,26 @@
            </div>
        </div>
     </div>
+ -->
 
-    <!---     -->
 
-
-   <!-- controls  -->
+   <!-- controls
    <div class="controls">
        <div class="prev"><</div>
        <div class="next">></div>
    </div>
 
-   <!-- indicators -->
+
    <div class="indicator">
 </div>
 
  </section>
+ --->
 
   <!-- Affiher les postes service -->
 
 
-  <!-- fin -->
+  <!-- fin
 
 
 
@@ -93,17 +93,13 @@
     <div class="col">
         <a href="{{route('post.show',['service'=>$post->id])}}">
       <div class="carde  " style="height: 75vh;">
-
-        <img src="{{asset($post->jobber->photo)}}" alt="" class="card-img-top">
-
+        <br/>
+        <center><img src="{{asset($post->jobber->photo)}}" alt="" class="card-img-top" class="img-radius"  style="height:120px;width:150px;border-radius: 100%">
+        </center>
         <div class="card-body">
         <p class="card-text primary_bg" ><font color="#448aff"><strong>{{$post->service_title}}</strong></font></p>
     </a>
     <strong><p class="company-name " title="{{$post->jobber->title}}">{{$post->jobber->title}}</p></strong>
-
-
-
-
 
         <strong><p class="card-text ms-2"><i class="fa-solid fa-location-dot"></i>&nbsp;{{$post->service_ville}}</p></strong>
         <strong><p class="card-text ms-2"><i class="fa-solid fa-location-arrow"></i>&nbsp;{{$post->service_zone}}</p></strong>
@@ -125,11 +121,126 @@
   </div>
 
 
-  <!--  -->
+    -->
+ <!-- fin -->
+
+ <!-- home section starts  -->
+
+
+<section class="home" id="home">
+
+    <div class="content">
+        <p style="margin-left: 40px ; margin-top: 0px" ><font color="#448aff">Hi everyone!</font></p>
+        <strong><p style="margin-left: 40px ; font-size: 35px ; color:black">Don't waste time in one click find the perfect jobber for you</p>
+        </strong>
+        <h6 style="margin-left: 40px">All the services you need in one place</h6>
 
 
 
+    </div>
+
+    <div class="image">
+        <img src="{{asset('images/img-home.png')}}" alt="">
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- home section ends -->
+<br/><br/>
+
+<center><strong><h1>Here is how it works</h1></strong></center>
 <br/>
+  <div class="roww row-cols-1 row-cols-md-3 g-4 " style="margin-left: 50px; margin-right: 50px">
+
+    <div class="col">
+      <div class="carde" style="background-color: #f8f9fa ; border: none">
+        <center><img src="{{asset('images/icon2.png')}}" class="card-img-top" alt="..." style="width: 80px ; height: 60px" >
+        </center>
+         <div class="card-body">
+
+          <p class="card-text">Locate a jobber using our search directory</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="carde" style="background-color: #f8f9fa ; border: none">
+        <center><img src="{{asset('images/icon3.png')}}" class="card-img-top" alt="..." style="width: 80px ; height: 60px" >
+        </center>
+        <div class="card-body">
+
+          <p class="card-text">Communicate with the best jobber for you </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="carde" style="background-color: #f8f9fa ; border: none">
+        <center><img src="{{asset('images/icon4.png')}}" class="card-img-top" alt="..." style="width: 80px ; height: 60px" >
+        </center>
+        <div class="card-body">
+
+          <p class="card-text">Get started and leave your notes on the jobber profile </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+<div class="section">
+    <div class="containerres">
+        <div class="content-section">
+            <div class="title">
+                <h1>About Us</h1>
+            </div>
+            <div class="content">
+                <h3><font color="#d932c8">Speedy.ma</font>
+                     allows all jobbers from various disciplines ( car wash , handy man , maid , chef , driver ...) to place their advertisements for free, also it facilitates the dissemination of their information on</p>
+                    <div class="button">
+						<a href="">Read More</a>
+					</div>
+            </div>
+            <div class="social">
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="image-section">
+            <img src="{{asset('images/home-img.png')}}" class="" alt="..." style="width: ; height: " >
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+ <!--  -->
+ <br/>
 
 <section class="homee-page pt-4">
     <div class="container">
@@ -143,18 +254,66 @@
 
 
 
+       <!-- Accordion   --->
+ <h1>FAQ</h1>
+
+ <div class="accordion">
+   <div class="accordion-item">
+     <div class="accordion-item-header">
+        I can't insert my ad
+     </div>
+     <div class="accordion-item-body">
+       <div class="accordion-item-body-content">
+        If you encounter difficulties when inserting your advertisement, make sure that you have filled in the mandatory fields of the forms, normally if you leave an empty box a message in red is displayed "Please fill in this field".
+
+         </div>
+     </div>
+   </div>
+   <div class="accordion-item">
+     <div class="accordion-item-header">
+        The modification of my ad does not apply
+     </div>
+     <div class="accordion-item-body">
+       <div class="accordion-item-body-content">
+        If you have modified your ad and the modification has not been taken into account, check that you have followed all the steps of the modification</div>
+     </div>
+   </div>
+
+   <div class="accordion-item">
+     <div class="accordion-item-header">
+        How to search ?
+     </div>
+     <div class="accordion-item-body">
+       <div class="accordion-item-body-content">
+        If you are looking for a property on Speedy please proceed as follows:
+
+        1- Click on the following link: http://www.speedy.ma/fr/maroc/
+
+        2- Select the Service.
+
+        3- Select the city.
+        4-Select the Zoned.
+        4- Click on search.  </div>
+     </div>
+   </div>
+
+ </div>
+
+
+
 
 
     <!-- Footer Start -->
     <div class="container-fluid bg-primary text-white mt-5 py-1 px-sm-1 px-md-5">
         <div class="container text-center py-5">
-            <div class="d-flex justify-content-center mb-4">
+            <div class="d-flex justify-content-center" style="margin-left: 130px">
                 <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
                 <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-light btn-social mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
                 <a class="btn btn-light btn-social" href="#"><i class="fab fa-instagram"></i></a>
             </div>
-            <div class="d-flex justify-content-center mb-4">
+            <br/>
+            <div class="d-flex justify-content-center" style="margin-left: 130px">
                 <a class="text-white" href="#">Privacy</a>
                 <span class="px-3">|</span>
                 <a class="text-white" href="#">Terms</a>
@@ -163,10 +322,26 @@
                 <span class="px-3">|</span>
                 <a class="text-white" href="#">Help</a>
             </div>
+
             <p class="m-0">&copy; <a class="text-white font-weight-bold" href="#">Speedy</a>. All Rights Reserved. <a class="text-white font-weight-bold" href="#">Pfe Speedy App.2022</a>
             </p>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Footer End -->
 
     <!-- Scroll to Bottom -->
@@ -281,9 +456,36 @@ let index=0;
 
 </script>
 
+<script>
+    const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
 
+accordionItemHeaders.forEach(accordionItemHeader => {
+  accordionItemHeader.addEventListener("click", event => {
 
+    // Uncomment in case you only want to allow for the display of only one collapsed item at a time!
+
+    // const currentlyActiveAccordionItemHeader = document.querySelector(".accordion-item-header.active");
+    // if(currentlyActiveAccordionItemHeader && currentlyActiveAccordionItemHeader!==accordionItemHeader) {
+    //   currentlyActiveAccordionItemHeader.classList.toggle("active");
+    //   currentlyActiveAccordionItemHeader.nextElementSibling.style.maxHeight = 0;
+    // }
+
+    accordionItemHeader.classList.toggle("active");
+    const accordionItemBody = accordionItemHeader.nextElementSibling;
+    if(accordionItemHeader.classList.contains("active")) {
+      accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+    }
+    else {
+      accordionItemBody.style.maxHeight = 0;
+    }
+
+  });
+});
+</script>
 
 
 @endpush
+
+
+
 

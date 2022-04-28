@@ -39,7 +39,7 @@ class AdminController extends Controller
     }
     public function viewAllUsers()
     {
-        $users = User::select('id', 'name', 'email', 'created_at')->latest()->paginate(30);
+        $users = User::select('id', 'name', 'email', 'created_at')->latest()->paginate(10);
         return view('account.view-all-users')->with([
             'users' => $users
         ]);

@@ -108,7 +108,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-         <strong>Are you sure do you want to <font color="#448aff">delete</font> {{ $post->service_title }}"?</strong> 
+         <center><strong>Are you sure do you want to <font color="#448aff">delete</font> {{ $post->service_title }}?</strong></center>
         </div>
         <form action="{{route('post.destroy' ,$post->id)}}" class="d-inline-block" id="delPostForm" method="POST">
             @csrf
