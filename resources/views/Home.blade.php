@@ -210,10 +210,9 @@
             </div>
             <div class="content">
                 <h3><font color="#d932c8">Speedy.ma</font>
-                     allows all jobbers from various disciplines ( car wash , handy man , maid , chef , driver ...) to place their advertisements for free, also it facilitates the dissemination of their information on</p>
-                    <div class="button">
-						<a href="">Read More</a>
-					</div>
+                     allows all jobbers from various disciplines ( car wash , handy man , maid , chef , driver ...) to place their advertisements for free, also it facilitates the dissemination of their information on
+ On  the widest , the other hand, it helps the user of the application to find a jobber without wasting time in purely.
+                    </p>
             </div>
             <div class="social">
                 <a href=""><i class="fab fa-facebook-f"></i></a>
@@ -244,7 +243,7 @@
 
 <section class="homee-page pt-4">
     <div class="container">
-        <div style="margin-top:200px; margin-left:40px" ><a href="/login" class="btn primary-btn">Start now</a></div>
+        <div style="margin-top:200px; margin-left:40px ; width: 300px ; height: 90px" ><a href="/login" class="btn primary-btn" style="width: 200px ; height: 40px">Start now</a></div>
 
     </div>
   </section>

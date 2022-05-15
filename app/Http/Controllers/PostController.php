@@ -7,6 +7,7 @@ use App\Models\Comment;
 use App\Models\Jobber;
 use App\Models\JobberCategory;
 use App\Models\Post;
+use App\Models\Rating;
 use Illuminate\Http\Request;
 use App\Models\User;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -53,22 +54,55 @@ class PostController extends Controller
 
     public function show($id, Post $post, Request $request)
     {
-        $post = Post::findOrFail($id);
-        $comments = Comment::latest()->get();
+        if(auth()->user()){
 
-        event(new PostViewEvent($post));
-        $jobber = $post->jobber()->first();
+            $post = Post::findOrFail($id);
+            //$comments = Comment::latest()->get();
+            $rate = Rating::where('user_id',auth()->user()->id)->where('post_id',$post->id)->first();
+            $rating = Rating::where('post_id',$post->id)->get();
 
-        $similarPosts = Post::whereHas('jobber', function ($query) use ($jobber) {
-            return $query->where('jobber_category_id', $jobber->jobber_category_id);
-        })->where('id', '<>', $post->id)->with('jobber')->take(5)->get();
-        return view('post.show')->with([
-            'post' => $post,
-            'jobber' => $jobber,
-            'similarServices' => $similarPosts,
-        ]);
+            event(new PostViewEvent($post));
+            $jobber = $post->jobber()->first();
+
+            $similarPosts = Post::whereHas('jobber', function ($query) use ($jobber) {
+                return $query->where('jobber_category_id', $jobber->jobber_category_id);
+            })->where('id', '<>', $post->id)->with('jobber')->take(5)->get();
+            return view('post.show')->with([
+                'post' => $post,
+                'jobber' => $jobber,
+                'similarServices' => $similarPosts,
+                'rates' => $rate,
+                'ratings' =>$rating,
+            ]);
+
+        }
+        else{
+
+            $post = Post::findOrFail($id);
+           // $comments = Comment::latest()->get();
+            $rate = Rating::where('post_id',$post->id)->first();
+            $rating = Rating::where('post_id',$post->id)->get();
+
+            event(new PostViewEvent($post));
+            $jobber = $post->jobber()->first();
+
+            $similarPosts = Post::whereHas('jobber', function ($query) use ($jobber) {
+                return $query->where('jobber_category_id', $jobber->jobber_category_id);
+            })->where('id', '<>', $post->id)->with('jobber')->take(5)->get();
+            return view('post.showinvite')->with([
+                'post' => $post,
+                'jobber' => $jobber,
+                'similarServices' => $similarPosts,
+                'rates' => $rate,
+                'ratings' =>$rating,
+            ]);
+
+        }
+
+
 
     }
+    /*
     public function created(Post $post,User $user,Comment $comment ,Request $request){
 
 
@@ -79,11 +113,12 @@ class PostController extends Controller
         $post->comments->save();
         return back();
     }
-
+    */
     public function edit(Post $post)
     {
         return view('post.edit', compact('post'));
     }
+
 
     public function update(Request $request, $post)
     {

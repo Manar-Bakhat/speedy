@@ -11,6 +11,16 @@
         <i class="fas fa-users"></i> View All Users
       </a>
     </li>
+    <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'view-all-comments' ? 'active': ''}}">
+        <a href="" class="account-nav-link">
+          <i class="fas fa-users"></i> View All Comments
+        </a>
+      </li>
+      <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'view-all-messages' ? 'active': ''}}">
+        <a href="{{ route('account.viewAllMessages') }}" class="account-nav-link">
+          <i class="fas fa-users"></i> View All Message
+        </a>
+      </li>
 
     @endrole
     @role('author')
@@ -22,6 +32,11 @@
       <a href="{{route('post.create')}}" class="account-nav-link">
         <i class="fas fa-plus-square"></i> Create Post Service
     </li>
+    <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'my-saved-services' ? 'active': ''}}">
+        <a href="{{route('savedService.index')}}" class="account-nav-link">
+          <i class="fas fa-stream"></i> My favorites
+        </a>
+      </li>
 
     @endrole
     <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'overview' ? 'active': ''}}">

@@ -1,17 +1,17 @@
 <nav class="navbar navbar-expand-md navbar-white bg-white border-bottom sticky-top" id="navbar">
-    <div class="container">
-    <a href="{{URL('/')}}" class="navbar-brand">
+    <div class="container ">
+    <a href="{{URL('/')}}" class="navbar-brand ">
       <img src="{{asset('images/logo/speedy.png')}}" width="35%" alt="">
       </a>
 
-      <strong><a href="{{URL('')}}" class="navh" style="margin-left: -150px ; font-size: 20px">
+      <strong><a href="{{URL('')}}" class="navh nav-header {{request()->is('/') ? 'nav-headers' : ''}}" style="margin-left: -150px ; font-size: 20px">
         Home
       </a></strong>
 
-      <strong><a href="{{route('service.index')}}" class="navh" style="margin-left: -40px ; font-size: 20px">
+      <strong><a href="{{route('service.index')}}" class="navh nav-header {{request()->is('search*') ? 'nav-headers' : ''}}" style="margin-left: -40px ; font-size: 20px">
         Find Jobber
             </a></strong>
-      <strong><a href="{{URL('/')}}" class="navh" style="margin-left: 60px  ; font-size: 20px">
+      <strong><a href="{{URL('/Contact')}}" class="navh nav-header {{request()->is('Contact*') ? 'nav-headers' : ''}}" style="margin-left: 60px  ; font-size: 20px">
         Contact Us
                  </a></strong>
 

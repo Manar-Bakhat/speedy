@@ -28,6 +28,7 @@
                   <td><a href="mailto:{{$user->email}}">{{$user->email}}</a></td>
                   <td>{{$user->created_at}}</td>
                   <td>
+
                     <form action="{{route('account.destroyUser')}}" method="POST">
                         @csrf
                         @method('delete')
@@ -35,8 +36,10 @@
                       <input type="hidden" name="user_id" value="{{$user->id}}">
                       @if(Auth::user()->name!=$user->name)
                       <button class="btn primary-btn" data-bs-toggle="modal" data-bs-target="#manar{{ $user->name }}">Delete</button>
-                      @endif
                     </form>
+
+
+
                          <!-- Modal -->
                          <div class="modal fade" id="manar{{ $user->name }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
@@ -61,7 +64,7 @@
                           <!-- fin modal -->
 
 
-
+                          @endif
 
                   </td>
 

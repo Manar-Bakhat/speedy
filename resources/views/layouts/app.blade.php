@@ -10,6 +10,8 @@
     <title>{{ config('app.name')?? 'Speedy' }}</title>
 
     <!-- Scripts -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
 
     <link rel="shortcut icon" type="image/png" href="{{asset('images/logo/joblister.png')}}" />
     <!-- Fonts -->
@@ -18,7 +20,6 @@
     <!-- Styles -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     @stack('css')
 
 </head>

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
@@ -23,6 +23,12 @@ class Post extends Model
     }
     public function comments(){
         return $this->hasMany(Comment::class)->latest();
+    }
+    public function useres(){
+        return $this->belongsToMany(User::class,'ratings')->withPivot('stars_rated','created_at','message');
+    }
+    public function ratings(){
+        return $this->hasMany(Rating::class);
     }
 
     public function jobber()
@@ -46,4 +52,6 @@ class Post extends Model
     {
         return explode(',', $this->skills);
     }
+
+
 }

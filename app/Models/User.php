@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Http\Request;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -48,6 +49,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+    public function postes(){
+        return $this->belongsToMany(Post::class,'ratings')->withPivot('stars_rated','created_at','message');
+    }
 
     public function jobber()
     {
@@ -63,5 +67,11 @@ class User extends Authenticatable
     public function applied()
     {
         return $this->hasMany('App\Models\JobApplication');
+    }
+
+    public function exist($post)
+    {
+        // $this->postes c'est comme on est dans dans le pivot (table ratings)
+        return $this->postes()->where('post_id',$post->id)->exists();
     }
 }

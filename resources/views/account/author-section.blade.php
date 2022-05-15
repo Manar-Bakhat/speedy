@@ -11,7 +11,7 @@
             <div class="col-sm-12 col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Complete Your Profile Information Details</h4>
+                        <h4 class="card-title" style="margin-left: 5px">Complete Your Profile Information Details</h4>
                         <p class="mb-1 alert alert-info">For Service listings you need to Complete your Profile details.</p>
 
                         <div class="mb-2 d-flex">
@@ -98,8 +98,8 @@
                               <td>
                                 <a href="{{route('post.edit',['post'=>$post])}}" class="btn primary-btn mt-2">Edit</a>
 
-
-                                <button type="submit"  id="delPostBtn" class="btn danger-btn" data-bs-toggle="modal" data-bs-target="#manar{{ $post->id }}">Delete</button>
+                                 <button type="submit"  id="delPostBtn" class="btn danger-btn" data-bs-toggle="modal" data-bs-target="#manar{{ $post->id }}">
+                                    Delete</button>
 
                                                     <!-- Modal -->
    <div class="modal fade" id="manar{{ $post->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -112,14 +112,15 @@
         <div class="modal-body">
          <center><strong>Are you sure do you want to <font color="#448aff">delete</font> {{ $post->service_title }}?</strong></center>
         </div>
-        <form action="{{route('post.destroy' ,$post->id)}}" class="d-inline-block" id="delPostForm" method="POST">
-            @csrf
-            @method('DELETE')
+          <form action="{{route('post.destroy' ,$post->id)}}" class="d-inline-block" id="delPostForm" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
           <button type="submit" class="btn btn-primary">Yes</button>
         </div>
-        </form>
+       </form>
       </div>
     </div>
   </div>

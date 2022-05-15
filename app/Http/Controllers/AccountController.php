@@ -51,37 +51,6 @@ class AccountController extends Controller
         return back();
     }
 
-    public function applyJobView(Request $request)
-    {
-        if ($this->hasApplied(auth()->user(), $request->post_id)) {
-            Alert::toast('You have already applied for this job!', 'success');
-            return redirect()->route('post.show', ['job' => $request->post_id]);
-        }else if(!auth()->user()->hasRole('user')){
-            Alert::toast('You are a employer! You can\'t apply for the job! ', 'error');
-            return redirect()->route('post.show', ['job' => $request->post_id]);
-        }
-
-        $post = Post::find($request->post_id);
-        $company = $post->company()->first();
-        return view('account.apply-job', compact('post', 'jobber'));
-    }
-
-    public function applyJob(Request $request)
-    {
-        $application = new CarServiceApplication;
-        $user = User::find(auth()->user()->id);
-
-        if ($this->hasApplied($user, $request->post_id)) {
-            Alert::toast('You have already applied for this job!', 'success');
-            return redirect()->route('post.show', ['job' => $request->post_id]);
-        }
-
-        $application->user_id = auth()->user()->id;
-        $application->post_id = $request->post_id;
-        $application->save();
-        Alert::toast('Thank you for applying! Wait for the company to respond!', 'success');
-        return redirect()->route('post.show', ['job' => $request->post_id]);
-    }
 
     public function changePasswordView()
     {
@@ -148,13 +117,5 @@ class AccountController extends Controller
         return redirect()->route('login');
     }
 
-    protected function hasApplied($user, $postId)
-    {
-        $applied = $user->applied()->where('post_id', $postId)->get();
-        if ($applied->count()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+
 }

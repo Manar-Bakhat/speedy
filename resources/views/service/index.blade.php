@@ -111,14 +111,19 @@
 
 
 
-  <div class="roww row-cols-1 row-cols-md-4 g-4 card-search" style="margin-left: 50px; margin-right: 50px">
+  <div class="roww row-cols-1 row-cols-md-4 g-4" style="margin-left: 50px; margin-right: 50px">
   @foreach ($posts as $post)
+
   @if ($post->jobber)
 
   <div class="col">
 
+
+
+
+
       <a href="{{route('post.show',['service'=>$post->id])}}">
-    <div class="carde  " style="height: 70vh;">
+    <div class="carde  " style="height: 77vh;">
 
      <Center> <img src="{{asset($post->jobber->photo)}}" alt="" class="card-img-top"  style="height:90px;width:110px;border-radius:50% ;margin-top: 15px">
      </Center>
@@ -131,8 +136,56 @@
       <strong><p class="card-text ms-2"><i class="fa-solid fa-location-arrow"></i>&nbsp;{{$post->service_zone}}</p></strong>
       <strong><p class="card-text ms-2"><i class="fa-solid fa-phone"></i>&nbsp;{{$post->jobber->phone}}</p></strong>
       <p class="card-text">{{$post->jobber->description}}</p>
-         </div>
 
+
+
+
+    </div>
+    <div class="">
+        <div class="text-muted" style="margin-left: 20px ; margin-top: 0px">
+
+        <span style="color:#ffc014 ; font-weight:bold"><i class="fas fa-star" ></i>
+
+
+
+            <?php
+
+            $sum = 0;
+
+
+            foreach($post->useres as $usere){
+
+                $result = $usere->pivot->stars_rated;
+                $sum = $sum + $result;
+
+
+            }
+            if($post->useres->count()>0){
+
+               $moy = $sum/$post->useres->count();
+               $moyen = round($moy,1);
+               echo $moyen;
+            }
+            else{
+                echo 0;
+            }
+
+
+
+            ?>
+        </span>
+
+
+
+
+        ({{ $post->useres->count() }})
+
+
+
+
+        </div>
+    </div>
+    <br/>
       <div class="card-footer">
         <small class="text-muted">
           <a href="{{route('savedService.store',['id'=>$post->id])}}" class=""><i class="fa-solid fa-heart"></i>&nbsp;Add To Favorite</a>
@@ -140,13 +193,16 @@
         </small>
       </div>
 
-    </div>
+
   </div>
 
+</div>
 
   @endif
+
   @endforeach
 </div>
+
 
 
 <br/>

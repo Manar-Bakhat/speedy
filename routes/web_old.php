@@ -6,13 +6,10 @@ use App\Http\Controllers\Auth\AuthorController;
 use App\Http\Controllers\JobberCategoryController;
 use App\Http\Controllers\JobberController;
 use App\Http\Controllers\CarServiceApplicationController;
-use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\savedServiceController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RatingController;
-
-
 
 
 
@@ -68,6 +65,8 @@ Route::middleware('auth')->prefix('account')->group(function () {
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('account.dashboard');
     Route::get('view-all-users', [AdminController::class, 'viewAllUsers'])->name('account.viewAllUsers');
     Route::delete('view-all-users', [AdminController::class, 'destroyUser'])->name('account.destroyUser');
+    Route::delete('comment/{comment}', [AdminController::class, 'destroyComment'])->name('destroy-comment');
+    Route::delete('progile-jobber/{comment}', [AdminController::class, 'destroyComment'])->name('destroy-comment');
 
     //Route::delete('post/{id}', [AdminController::class, 'destroyPost'])->name('destroy-post');
 
@@ -77,9 +76,8 @@ Route::middleware('auth')->prefix('account')->group(function () {
     Route::put('category/{id}', [JobberCategoryController::class, 'update'])->name('category.update');
     Route::get('category/{id}', [JobberCategoryController::class, 'destroy'])->name('category.destroy');
 
-    //Route::get('view-all-reviews', [AdminController::class, 'viewAllComments'])->name('account.viewAllComments');
-    //Route::delete('view-all-reviews', [AdminController::class, 'destroyComment'])->name('account.destroyComment');
-    Route::get('view-all-messages', [AdminController::class, 'viewAllMessages'])->name('account.viewAllMessages');
+    Route::get('view-all-reviews', [AdminController::class, 'viewAllComments'])->name('account.viewAllComments');
+    Route::delete('view-all-reviews', [AdminController::class, 'destroyComment'])->name('account.destroyComment');
 
 
 });
@@ -124,7 +122,7 @@ Route::get('/Contact',function(){
     return view('Contact');
 });
 
-Route::post('contact/create',[ContactController::class, 'create'])->name('contact.create');
+
 
 
 
