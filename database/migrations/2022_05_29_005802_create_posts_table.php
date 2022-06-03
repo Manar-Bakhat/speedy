@@ -15,7 +15,7 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('jobber_id');
+            $table->foreignId('jobber_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->string('service_title', 50);
             $table->string('service_ville');
             $table->string('service_zone');

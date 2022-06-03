@@ -134,9 +134,9 @@
         @endforeach
 
 
-  <strong><h4 class="" style="margin-left: -300px ;margin-buttom: 10px;" >{{ $count }} post find</h4>
+  <Center><strong><h4 class="" style="margin-left: -300px ;margin-buttom: 10px;" >{{ $count }} post find</h4>
   </strong>
-
+</Center>
 
 
     @endif

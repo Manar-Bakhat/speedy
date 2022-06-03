@@ -24,6 +24,9 @@ class User extends Authenticatable
         'photo',
         'email',
         'password',
+        'age',
+        'description',
+        'city',
     ];
 
     /**
@@ -74,4 +77,18 @@ class User extends Authenticatable
         // $this->postes c'est comme on est dans dans le pivot (table ratings)
         return $this->postes()->where('post_id',$post->id)->exists();
     }
+
+    public function postess(){
+        return $this->belongsToMany(Post::class,'contact_jobbers')->withPivot('created_at','messagee','id');
+    }
+
+    public function postesss(){
+        return $this->belongsToMany(Post::class,'contact_reponses')->withPivot('created_at','message','id');
+    }
+
+    public function contactReponse(){
+        return $this->hasMany(ContactReponse::class);
+    }
+
+
 }

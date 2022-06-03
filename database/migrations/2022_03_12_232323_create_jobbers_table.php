@@ -15,7 +15,7 @@ class CreateJobbersTable extends Migration
     {
         Schema::create('jobbers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->foreignId('user_id')->constrained()->constrained()->onDelete('cascade');
             $table->unsignedInteger('jobber_category_id');
             $table->string('photo');
             $table->integer('age');

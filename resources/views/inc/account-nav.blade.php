@@ -12,15 +12,11 @@
       </a>
     </li>
     <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'view-all-comments' ? 'active': ''}}">
-        <a href="" class="account-nav-link">
+        <a href="{{ route('account.viewAllComments') }}" class="account-nav-link">
           <i class="fas fa-users"></i> View All Comments
         </a>
       </li>
-      <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'view-all-messages' ? 'active': ''}}">
-        <a href="{{ route('account.viewAllMessages') }}" class="account-nav-link">
-          <i class="fas fa-users"></i> View All Message
-        </a>
-      </li>
+
 
     @endrole
     @role('author')
@@ -35,6 +31,18 @@
     <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'my-saved-services' ? 'active': ''}}">
         <a href="{{route('savedService.index')}}" class="account-nav-link">
           <i class="fas fa-stream"></i> My favorites
+        </a>
+      </li>
+
+    </li>
+    <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'jobber-contact' ? 'active': ''}}">
+      <a href="{{ route('contact.jobber') }}" class="account-nav-link">
+      <i class="fas fa-comments"></i> Chat
+      </a>
+    </li>
+    <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'user-contact' ? 'active': ''}}">
+        <a href="{{ route('contact.user') }}" class="account-nav-link">
+        <i class="fas fa-comments"></i> Message
         </a>
       </li>
 
@@ -53,6 +61,11 @@
     <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'my-saved-services' ? 'active': ''}}">
         <a href="{{route('savedService.index')}}" class="account-nav-link">
           <i class="fas fa-stream"></i> My favorites
+        </a>
+      </li>
+      <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'user-contact' ? 'active': ''}}">
+        <a href="{{ route('contact.user') }}" class="account-nav-link">
+        <i class="fas fa-comments"></i> Chat
         </a>
       </li>
     @endrole

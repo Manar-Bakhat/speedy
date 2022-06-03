@@ -45,7 +45,7 @@ class PostController extends Controller
 
         $post = Post::create($postData);
         if ($post) {
-            Alert::toast('Post listed!', 'success');
+            Alert::toast('Congratulation! Your post listed succesfully', 'success');
             return redirect()->route('account.authorSection');
         }
         Alert::toast('Post failed to list!', 'warning');

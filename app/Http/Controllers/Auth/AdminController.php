@@ -47,7 +47,7 @@ class AdminController extends Controller
     public function viewAllMessages(){
         return view('account.view-all-messages');
     }
-/*
+
     public function viewAllComments()
     {
         $users = User::all();
@@ -55,7 +55,7 @@ class AdminController extends Controller
             'users' => $users
         ]);
     }
-*/
+
     public function destroyUser(Request $request)
     {
         $user = User::findOrFail($request->user_id);
@@ -66,7 +66,7 @@ class AdminController extends Controller
             return redirect()->intented('account.viewAllUsers');
         }
     }
-/*
+
     public function destroyComment(Comment $comment)
     {
 
@@ -75,10 +75,19 @@ class AdminController extends Controller
         return back();
 
     }
-*/
+
     public function destroyPost(Post $post)
     {
 
+        $post->delete();
+        Alert::toast('Deleted Successfully!', 'danger');
+        return back();
+
+    }
+
+    public function deleted(Request $request){
+
+        $post = Post::where('id',$request->post);
         $post->delete();
         Alert::toast('Deleted Successfully!', 'danger');
         return back();

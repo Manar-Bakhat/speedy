@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 
 
     <link rel="shortcut icon" type="image/png" href="{{asset('images/logo/joblister.png')}}" />

@@ -53,5 +53,13 @@ class Post extends Model
         return explode(',', $this->skills);
     }
 
+    public function useress(){
+        return $this->belongsToMany(User::class,'contact_jobbers')->withPivot('created_at','messagee','id');
+    }
+
+    public function useresss(){
+        return $this->belongsToMany(User::class,'contact_reponses')->withPivot('created_at','message','id');
+    }
+
 
 }

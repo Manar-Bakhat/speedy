@@ -20,6 +20,7 @@ class CreatePostUserTable extends Migration
         });
     }
 
+
     /**
      * Reverse the migrations.
      *

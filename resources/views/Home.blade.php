@@ -238,20 +238,6 @@
 
 
 
- <!--  -->
- <br/>
-
-<section class="homee-page pt-4">
-    <div class="container">
-        <div style="margin-top:200px; margin-left:40px ; width: 300px ; height: 90px" ><a href="/login" class="btn primary-btn" style="width: 200px ; height: 40px">Start now</a></div>
-
-    </div>
-  </section>
-
-
-
-
-
 
        <!-- Accordion   --->
  <h1>FAQ</h1>
@@ -299,10 +285,6 @@
    </div>
 
  </div>
-
-
-
-
 
 
 

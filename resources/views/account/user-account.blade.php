@@ -65,12 +65,12 @@
                             <!-- fin -->
                             <div class="col-sm-4 "><i class="fa fa-camera fa-sm"></i></div>
                             <div class="m-b-25"> <img src="{{asset('storage/'.auth()->user()->photo)}}" class="img-radius" alt="User-Profile-Image" style="height:80px;width:100px;border:solid 5px"> </div>
-                            <h6 class="f-w-600">{{auth()->user()->name}}</h6>
+                            <h6 class="f-w-600" style="margin-top: -70px">{{auth()->user()->name}}</h6>
                             @role('user')
-                            <p>User</p>
+                            <p style="margin-top: -20px" >User</p>
                             @endrole
                             @role('admin')
-                            <p class="position">Author (Jobber) <i class="fas fa-pen-square"></i></p>
+                            <p class="position" style="margin-top: 0px">Author (Jobber) <i class="fas fa-pen-square"></i></p>
                             @endrole
                         </div>
                     </a>
@@ -94,8 +94,44 @@
                             <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Account</h6>
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <p class="m-b-10 f-w-600">Password</p>
-                                    <a href="{{route('account.changePassword')}}" class="btn primary-outline-btn">Change password</a>
+                                    <p class="m-b-10 f-w-600">Edit Profile</p>
+                                    <a href="" class="btn primary-outline-btn" data-bs-toggle="modal" data-bs-target="#exampleModale">Editer Profile</a>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModale" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editer Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="{{ route('edit-user',auth()->user()->id) }}" method="post">
+            @csrf
+            @method('PUT')
+        <div class="modal-body">
+
+
+              <h6>Full name :</h6><input type="text" name="name" value="{{ old('name') }}" placeholder="{{auth()->user()->name}}">
+              <h6>Email :</h6><input type="text" name="email" value="{{ old('email') }}" placeholder="{{auth()->user()->email}}">
+              <h6>Age :</h6><input type="integer" name="email" >
+              <h6>Phone :</h6><input type="text" name="phone">
+              <h6>Description :</h6><input type="text" name="description">
+              <h6>City :</h6><input type="text" name="city">
+
+
+
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
                                 </div>
                                 <div class="col-sm-6">
                                   <p class="m-b-10 f-w-600">Logout</p>
@@ -120,6 +156,9 @@
   </div>
 </div>
 
+
+
+
 @endSection
 
 @push('css')
@@ -133,8 +172,8 @@
 
 .card {
     border-radius: 5px;
-    -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
-    box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+    -webkit-box-shadow: 0 1px 20px 0 rgba(224, 38, 172, 0.08);
+    box-shadow: 0 1px 20px 0 rgba(240, 109, 201, 0.08);
     border: none;
     margin-bottom: 40px;
     margin-right: 80px;

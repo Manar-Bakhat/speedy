@@ -14,9 +14,7 @@
                       <h6 class="lead font-weight-bold  mb-2">{{$jobber->title}}</h6>
 
 
-                      <div class="py-2 mb-2">
-                        <p class="small mb-2">{{$jobber->description}}</p>
-                      </div>
+
                       <div class="text-center">
                         <a target="_blank" href="{{'https://'.$jobber->facebook}}"><i class="fas fa-globe"></i></a>
                       </div>

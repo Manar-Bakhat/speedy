@@ -117,5 +117,22 @@ class AccountController extends Controller
         return redirect()->route('login');
     }
 
+    public function editerProfile(User $user ,Request $request){
+
+        $user->Update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $user->password,
+            'photo' => $user->photo,
+            'age' => $request->age,
+            'phone' => $request->phone,
+            'description' => $request->description,
+            'city' => $request->city,
+        ]);
+
+        Alert::toast('Your Profile Updated Succefully!', 'success');
+        return redirect()->back();
+    }
+
 
 }

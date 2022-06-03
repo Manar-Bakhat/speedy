@@ -38,7 +38,7 @@
                   <a href="{{route('account.employer',['employer'=>$jobber])}}" class="secondary-link">
                     <p class="font-weight-bold">{{$jobber->title}}</p>
 
-                    <span style="color:#000 ; font-weight:bold"><i class="fas fa-star" ></i>
+                    <span style="color: #d9a943  ; font-weight:bold"><i class="fas fa-star" ></i>
 
                     <?php
 
@@ -171,37 +171,112 @@
               <a href="{{route('savedService.store',['id'=>$post->id])}}" class="btn primary-btn"><i class="fas fa-star"></i>Add to favorites</a>
             </div>
           </div>
+
         </div>
-    <!-- similar service
-        <div class="card ">
+  <br/><br/>
+        <div class="card " style="margin-left: 9px ; margin-right: 10px">
             <div class="card-header">
-              Similar Services
+              Contact
             </div>
             <div class="card-body">
-              <div class="similar-jobs">
-                @foreach ($similarServices as $service)
-                @if($similarServices)
-                  <div class="job-item border-bottom row">
-                    <div class="col-4">
-                      <img src="{{asset($service->jobber->photo)}}" class="company-logo" alt="">
-                    </div>
-                    <div class="job-desc col-8">
-                      <a href="{{route('post.show',['service'=>$post])}}" class="job-category text-muted font-weight-bold">
-                        <p class="text-muted h6">{{$service->service_title}}</p>
-                        <p class="small">{{$service->jobber->title}}</p>
-                        <p class="font-weight-normal small text-danger">Deadline: {{date('d',$service->remainingDays())}} days</p>
-                      </a>
-                    </div>
+                <div class="btn-group w-75">
+                    <a href="" class="btn primary-btn1" data-bs-toggle="modal" data-bs-target="#exampleModale">Contact Jobber</a>
+
+
+ @if (auth()->user()->id != $post->jobber->user_id)
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModale" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold">Send Message</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+
+            <img src="{{asset($jobber->photo)}}" alt="" class="company-logo" class="card-img-top"  style="height:90px;width:110px;border-radius:50% ;margin-top: 15px">
+            <span style="font-weight: bold">{{ $jobber->title }}</span>
+            <div style="margin-top: -40px ; margin-left: 120px; color:#448aff">{{ $post->service_title }}</div>
+            <br/><div>
+                <h6 style="color:#333">Please include :</h6>
+                <p>. Describe what you want exactly</p>
+                <p>. The time that you need the service</p>
+                <p>. Your budget</p>
+
+            </div>
+            <br/>
+
+
+            <form action="{{ route('contact.jobber') }}" method="post">
+                @csrf
+                <div class="form-group">
+                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                    <input type="hidden" name="post_id" value="{{ $post->id }}">
+                    <input type="hidden" name="jobber_id" value="{{ $jobber->id }}">
+
+
+                    <input id="quillEditor" name="messagee" style="height:100px ; width:466px">
                   </div>
-                  @else
-                  <div class="card">
-                    <div class="card-header">
-                      <p>No similar services</p>
-                    </div>
+
+                  <div class="modal-footer">
+
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Send</button>
                   </div>
-                  @endif
-                @endforeach
-              </div>
+            </form>
+
+
+
+
+
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+                  </div>
+            </div>
+          </div>
+
+
+    </div>
+
+    @endif
+    <!-- fin -->
+    <!-- Modal -->
+  <div class="modal fade" id="exampleModale" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="font-weight: bold">Send Message</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+       <center><img src="{{asset('images/emogi.png')}}" style="width: 430px ; height:330px ; margin-top: -90px "  >
+       </center>
+       <h5 style="font-weight: bold ; margin-top: -40px ; text-align:center">Sorry! you can send message to yourself</h5>
+      <p style="text-align: center">This place is dedicated for your customers so that they send you a message.</p>
+       <br/>
+       <div class="">
+        <center><button type="button" class="btn btn-danger" style=" width: 100px ; height: 40px"  data-bs-dismiss="modal">Close</button></center>
+        </div>
+
+
+    </div>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+                  </div>
             </div>
           </div>
 
@@ -645,6 +720,45 @@
 
 
 @endsection
+@push('css')
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+@endpush
+
+@push('js')
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script>
+  $(document).ready(function(){
+    var quill = new Quill('#quillEditor', {
+    modules: {
+      toolbar: [
+          [{ 'font': [] }, { 'size': [] }],
+          ['bold', 'italic'],
+          [{ list: 'ordered' }, { list: 'bullet' }],
+          ['link', 'blockquote', 'code-block', 'image'],
+        ]
+      },
+    placeholder: 'service detail , service period , service price  etc ...',
+    theme: 'snow'
+    });
+
+
+    const postBtn = document.querySelector('#postBtn');
+    const postForm = document.querySelector('#postForm');
+    const service_specification = document.querySelector('#service_specification');
+
+    if(service_specification.value){
+      quill.root.innerHTML = service_specification.value;
+    }
+
+    postBtn.addEventListener('click',function(e){
+      e.preventDefault();
+      service_specification.value = quill.root.innerHTML
+
+      postForm.submit();
+    })
+  })
+</script>
+@endpush
 
 @push('css')
 <style>
@@ -728,5 +842,10 @@
 @endpush
 
 @push('js')
+
+<script src="ckeditor/ckeditor.js"></script>
+<script>
+    CKIDETOR.replace('message');
+</script>
 
 @endpush

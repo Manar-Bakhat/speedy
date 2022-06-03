@@ -7,6 +7,7 @@ use App\Http\Controllers\JobberCategoryController;
 use App\Http\Controllers\JobberController;
 use App\Http\Controllers\CarServiceApplicationController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactJobberController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\savedServiceController;
 use App\Http\Controllers\PostController;
@@ -23,7 +24,6 @@ Route::get('/', [PostController::class, 'index'])->name('post.index');
 Route::get('/service/{service}', [PostController::class, 'show'])->name('post.show');
 Route::get('employer/{employer}', [AuthorController::class, 'employer'])->name('account.employer');
 Route::post('update-photo', [AccountController::class, 'photo'])->name('update-photo');
-
 
 
 
@@ -46,6 +46,16 @@ Route::middleware('auth')->prefix('account')->group(function () {
   Route::get('change-password', [AccountController::class, 'changePasswordView'])->name('account.changePassword');
   Route::delete('delete', [AccountController::class, 'deleteAccount'])->name('account.delete');
   Route::put('change-password', [AccountController::class, 'changePassword'])->name('account.changePassword');
+
+  Route::put('edit-profile/{user}', [AccountController::class, 'editerProfile'])->name('edit-user');
+
+
+  Route::post('jobber-contact', [ContactJobberController::class, 'index'])->name('contact.jobber');
+
+
+
+
+
   //savedServices
 
   Route::get('my-saved-services', [savedServiceController::class, 'index'])->name('savedService.index');
@@ -58,13 +68,14 @@ Route::middleware('auth')->prefix('account')->group(function () {
 
 
 
-
   // comment post
   //Route::post('user/{post}',[PostController::class, 'created'])->name('comment-user');
 
 
   //Admin Role Routes
   Route::group(['middleware' => ['role:admin']], function () {
+
+
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('account.dashboard');
     Route::get('view-all-users', [AdminController::class, 'viewAllUsers'])->name('account.viewAllUsers');
     Route::delete('view-all-users', [AdminController::class, 'destroyUser'])->name('account.destroyUser');
@@ -77,9 +88,10 @@ Route::middleware('auth')->prefix('account')->group(function () {
     Route::put('category/{id}', [JobberCategoryController::class, 'update'])->name('category.update');
     Route::get('category/{id}', [JobberCategoryController::class, 'destroy'])->name('category.destroy');
 
-    //Route::get('view-all-reviews', [AdminController::class, 'viewAllComments'])->name('account.viewAllComments');
-    //Route::delete('view-all-reviews', [AdminController::class, 'destroyComment'])->name('account.destroyComment');
-    Route::get('view-all-messages', [AdminController::class, 'viewAllMessages'])->name('account.viewAllMessages');
+    Route::get('view-all-comments', [AdminController::class, 'viewAllComments'])->name('account.viewAllComments');
+    Route::delete('view-all-comments', [AdminController::class, 'destroyComment'])->name('account.destroyComment');
+    //Route::get('view-all-messages', [AdminController::class, 'viewAllMessages'])->name('account.viewAllMessages');
+    Route::delete('post-delete', [AdminController::class, 'deleted'])->name('delete-post');
 
 
 });
@@ -106,7 +118,9 @@ Route::middleware('auth')->prefix('account')->group(function () {
     Route::get('jobber/edit', [JobberController::class, 'edit'])->name('jobber.edit');
     Route::delete('jobber', [JobberController::class, 'destroy'])->name('jobber.destroy');
 
-
+    Route::get('jobber-contact', [ContactJobberController::class, 'store'])->name('jobber.contact');
+    Route::post('elanrif-reponse', [ContactJobberController::class, 'reponse'])->name('reponse_chat');
+    Route::delete('message-delete', [ContactJobberController::class, 'deleted'])->name('delete-messages');
 
 
   });
@@ -115,7 +129,16 @@ Route::middleware('auth')->prefix('account')->group(function () {
    Route::group(['middleware' => ['role:user']], function () {
     Route::get('become-employer', [AccountController::class, 'becomeEmployerView'])->name('account.becomeEmployer');
     Route::post('become-employer', [AccountController::class, 'becomeEmployer'])->name('account.becomeEmployer');
+    //Route::get('user-contact', [ContactJobberController::class, 'stored'])->name('contact.user');
+
+    //Route::get('jobber-contact', [ContactJobberController::class, 'index'])->name('contact.jobber');
+
+
 });
+Route::get('user-contact', [ContactJobberController::class, 'stored'])->name('contact.user');
+Route::delete('message-delete/{message}', [ContactJobberController::class, 'delete'])->name('delete-message');
+
+
 });
 Route::get('/Jobber',function(){
     return view('Jobber');
@@ -125,6 +148,7 @@ Route::get('/Contact',function(){
 });
 
 Route::post('contact/create',[ContactController::class, 'create'])->name('contact.create');
+
 
 
 

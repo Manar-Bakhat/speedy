@@ -13,10 +13,13 @@
 
  <div class="accordion">
     @foreach ($posts as $post)
-        @if ($post->jobber_id == auth()->user()->jobber->id)
+
 
 
         @foreach ($post->useress->sortByDesc('id') as $useress)
+
+        @if ($useress->id == auth()->user()->id)
+
 
 
 
@@ -30,29 +33,30 @@
                  </div>
                  <div class="col-md-10">
                    <div class="card-body">
-                     <h6 class="card-title" style="margin-left: -60px; margin-top: 10px"><span style="font-weight:bold">{{ $useress->name }}</span>
-                        &nbsp;  <i class="fa-solid fa-trash" style="color: red; font-size:14px" data-bs-toggle="modal" data-bs-target="#manar{{ $loop->index }}" ></i>
-                        <!-- Modal -->
+
+                     <h6 class="card-title" style="margin-left: -60px; margin-top: 10px"><span style="font-weight:bold">{{ $useress->name }}</span> &nbsp;  <i class="fa-solid fa-trash" style="color: red; font-size:14px" data-bs-toggle="modal" data-bs-target="#manar{{ $loop->index }}"></i>
+                        &nbsp;<a href="{{ route('post.show',$post->id) }}"><i class="fa-solid fa-arrow-trend-up"></i></a>
+
+  <!-- Modal -->
   <div class="modal fade" id="manar{{ $loop->index }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Warning <i class="fa-solid fa-triangle-exclamation" style="color: red"></i> </h5>
+          <h5 class="modal-title" id="exampleModalLabel">Warning <i class="fa-solid fa-triangle-exclamation" style="color: red"></i></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
          <h6 style="">Are you sure do you want to <span style="color:red">delete</span> this message of <span style="color: #448aff">{{ $useress->name }}</span></h6>
 
         </div>
-        <form action="{{ route('delete-messages') }}" method="post">
+        <form action="{{ route('delete-message',$useress->pivot->id) }}" method="post">
             @csrf
             @method('delete')
-            <input type="text" name="message" value="{{ $useress->pivot->id }}" style="visibility: hidden">
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
           <button type="submit" class="btn btn-primary">Yes</button>
         </div>
-        </form>
+    </form>
       </div>
     </div>
   </div>
@@ -73,7 +77,7 @@
                  </div>
                  <div class="col-md-10" style="margin-left:-45px">
                    <div class="card-bodyyy" style="background-color: #ebeced ; box-shadow:40px" >
-                     <h6 class="card-title" style="margin-left:-18px ; font-weight:bold">{{ $useress->name }} &nbsp;  <i class="fa-solid fa-trash" style="color: red; font-size:19px" ></i></h6>
+                     <h6 class="card-title" style="margin-left:-18px ; font-weight:bold">{{ $useress->name }}</h6>
                      <p class="card-text" style="margin-left: -20px">{{ $useress->pivot->messagee }}.</p>
 
                    </div>
@@ -92,13 +96,13 @@
                 <div class="row g-0">
                     <div class="col-md-10" style="margin-left:-85px; box-shadow:40px">
                         <div class="card-bodyy" style="background-color: #448aff ;"  >
-                          <h6 class="card-title" style="margin-left:-35px ; font-weight:bold">{{ $reponse->message }} &nbsp;  <i class="fa-solid fa-trash" style="color: red; font-size:19px" ></i></h6>
+                          <h6 class="card-title" style="margin-left:-35px ; font-weight:bold">{{ $reponse->message }}</h6>
                           <p class="card-text" style="margin-left: -35px"></p>
                         </div>
                       </div>
-                  <div class="col-md-2" style="margin-left: -20px">
 
-                    <img src="{{asset('storage/'.auth()->user()->photo)}}" class="img-fluid rounded-start" alt="..."
+                  <div class="col-md-2" style="margin-left: -20px">
+                    <img src="{{asset('storage/'.$reponse->user->photo)}}" class="img-fluid rounded-start" alt="..."
                     style="height:40px;width:120px;border-radius: 50% ; margin-top: 10px ">
                   </div>
 
@@ -115,7 +119,7 @@
 
 
 
-                 <form class="chat-form" action="{{ route('reponse_chat') }}" method="post">
+                 <form class="chat-form" action="{{ route('reponse_chat') }}" method="post" style="visibility: hidden">
                     @csrf
                 <div class="container-inputs-stuffs">
 
@@ -145,8 +149,13 @@
             </div>
         </div>
       </div>
-      @endforeach
+
       @endif
+
+      @endforeach
+
+
+
       @endforeach
 
 

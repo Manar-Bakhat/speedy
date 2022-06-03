@@ -35,10 +35,12 @@
                   @endforeach
 
                   <td>
-                    <form action="" method="POST">
+                    <form action="{{ route('account.destroyComment') }}" method="POST">
                       @csrf
                       @method('delete')
-                      <input type="hidden" name="user_id" value="">
+                      <input type="hidden" name="user_id" value="{{$user->id}}">
+                      <input type="hidden" name="post_id" value="">
+
                       <button class="btn primary-btn">Delete</button>
                     </form>
                   </td>

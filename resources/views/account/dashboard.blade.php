@@ -78,7 +78,7 @@
                             <td>{{$author->email}}</td>
                             <td>{{$author->jobber->title}}</td>
                             <td>
-                            <a href="{{route('account.employer',['employer'=>$author->jobber])}}" class="btn primary-btnn">View Profile Jobber</a>
+                            <a href="{{route('account.employer',['employer'=>$author->jobber->id])}}" class="btn primary-btnn">View Profile Jobber</a>
                         </td>
 
                         </tr>
