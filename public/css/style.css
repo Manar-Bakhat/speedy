@@ -12942,8 +12942,6 @@ h1 {
 
 
 
-
-
 .home{
     display: flex;
     align-items: center;
@@ -12988,6 +12986,50 @@ h1 {
 
 
 
+/*jobber page */
+.homes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:url(../images/bgg1.jpg) no-repeat;
+
+    background-size: cover;
+    background-position: center;
+}
+
+.homes .image img{
+    width:40vw;
+    animation: float 3s linear infinite;
+}
+
+@keyframes float{
+    0%, 100%{
+        transform: translateY(0rem);
+    }
+    50%{
+        transform: translateY(-3.5rem);
+    }
+}
+
+.homes .content h3{
+    font-size: 5.5rem;
+    color:#333;
+    text-transform: uppercase;
+}
+
+.homes .content h3 span{
+    color:var(--pink);
+    text-transform: uppercase;
+}
+
+.homes .content p{
+    font-size: 1.7rem;
+    color:#666;
+    padding:1rem 0;
+}
+
+
+/* fin page jobber */
 
 
 
@@ -13962,3 +14004,17 @@ h1 {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -23,28 +23,31 @@
               </thead>
               <tbody>
                 @if($users->count())
+                <!--  Quand on a deux foreach et que on veut afficher tous les informations dependement
+                    de deuxieme foreach alors on mets tous les variables dans le deuxieme foreach
+                -->
                 @foreach($users as $user)
                 <tr>
-                  <td>{{ $user->name }}</td>
-                  @foreach ($user->postes as $poste)
+                    <!-- qui devrait etre ici -->
+                    @foreach ($user->postes as $poste)
+                    <td>{{ $user->name }}</td> <!-- exemple ici -->
                       <td>{{ $poste->id}}</td>
                       <td>{{ $poste->pivot->message }}</td>
                       <td>{{ $poste->pivot->stars_rated }}</td>
                       <td>{{ $poste->pivot->created_at }}</td>
 
-                  @endforeach
-
                   <td>
                     <form action="{{ route('account.destroyComment') }}" method="POST">
                       @csrf
                       @method('delete')
-                      <input type="hidden" name="user_id" value="{{$user->id}}">
-                      <input type="hidden" name="post_id" value="">
+                      <input type="hidden" name="id" value="{{$poste->pivot->id}}">
+
 
                       <button class="btn primary-btn">Delete</button>
                     </form>
                   </td>
                 </tr>
+                @endforeach
                 @endforeach
                 @else
                 <tr>

@@ -25,7 +25,7 @@ class Post extends Model
         return $this->hasMany(Comment::class)->latest();
     }
     public function useres(){
-        return $this->belongsToMany(User::class,'ratings')->withPivot('stars_rated','created_at','message');
+        return $this->belongsToMany(User::class,'ratings')->withPivot('id','stars_rated','created_at','message')->orderByPivot('id','desc');
     }
     public function ratings(){
         return $this->hasMany(Rating::class);

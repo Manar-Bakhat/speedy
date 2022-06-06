@@ -9,16 +9,6 @@
 <br/>
 <strong><i><h4 class="ms-3">{{$jobber->description}}</h4></i></strong>
 
-
-
-
-
-
-
-
-
-
-
 <section class="show-page pt-4 mb-5">
   <div class="container">
     <div class="row rows">
@@ -406,142 +396,13 @@
 @auth
 
 
-@if (auth()->user()->exist($post))
-
-
-
-        <h6>-> Give your opinion to users</h6>
-
-
-<button type="button" class="btn btn-primary" style="margin-left: 370px ; margin-top: -50px ; width: 150px ; height: 40px ; background-color:#448aff " data-bs-toggle="modal" data-bs-target="#exampleModal18">
-    Edit my Review
-  </button>
-
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal18" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-       <form action="{{ route('rate_update.jobber') }}" method="post">
-        @csrf
 
 
 
 
 
-        <input type="hidden" name="post_id" value="{{ $post->id }}">
-
-        @auth
-        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
-        @endauth
-
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Rate {{ $jobber->title }}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-
-            <div class="rating-css">
 
 
-                @if ( $rates->stars_rated ==1 )
-                <div class="star-icon">
-                    <input type="radio" value="1" name="product_rating" checked id="rating1">
-                    <label for="rating1" class="fa fa-star"></label>
-                    <input type="radio" value="2" name="product_rating" id="rating2">
-                    <label for="rating2" class="fa fa-star"></label>
-                    <input type="radio" value="3" name="product_rating"  id="rating3">
-                    <label for="rating3" class="fa fa-star"></label>
-                    <input type="radio" value="4" name="product_rating" id="rating4">
-                    <label for="rating4" class="fa fa-star"></label>
-                    <input type="radio" value="5" name="product_rating" id="rating5">
-                    <label for="rating5" class="fa fa-star"></label>
-                </div>
-
-
-
-                @endif
-                @if ( $rates->stars_rated ==2 )
-                <div class="star-icon">
-                    <input type="radio" value="1" name="product_rating"  id="rating1">
-                    <label for="rating1" class="fa fa-star"></label>
-                    <input type="radio" value="2" name="product_rating" checked id="rating2">
-                    <label for="rating2" class="fa fa-star"></label>
-                    <input type="radio" value="3" name="product_rating"  id="rating3">
-                    <label for="rating3" class="fa fa-star"></label>
-                    <input type="radio" value="4" name="product_rating" id="rating4">
-                    <label for="rating4" class="fa fa-star"></label>
-                    <input type="radio" value="5" name="product_rating" id="rating5">
-                    <label for="rating5" class="fa fa-star"></label>
-                </div>
-                @endif
-                @if ( $rates->stars_rated ==3 )
-                <div class="star-icon">
-                    <input type="radio" value="1" name="product_rating"  id="rating1">
-                    <label for="rating1" class="fa fa-star"></label>
-                    <input type="radio" value="2" name="product_rating" id="rating2">
-                    <label for="rating2" class="fa fa-star"></label>
-                    <input type="radio" value="3" name="product_rating" checked id="rating3">
-                    <label for="rating3" class="fa fa-star"></label>
-                    <input type="radio" value="4" name="product_rating" id="rating4">
-                    <label for="rating4" class="fa fa-star"></label>
-                    <input type="radio" value="5" name="product_rating" id="rating5">
-                    <label for="rating5" class="fa fa-star"></label>
-                </div>
-                @endif
-                @if ( $rates->stars_rated ==4 )
-                <div class="star-icon">
-                    <input type="radio" value="1" name="product_rating"  id="rating1">
-                    <label for="rating1" class="fa fa-star"></label>
-                    <input type="radio" value="2" name="product_rating" id="rating2">
-                    <label for="rating2" class="fa fa-star"></label>
-                    <input type="radio" value="3" name="product_rating"  id="rating3">
-                    <label for="rating3" class="fa fa-star"></label>
-                    <input type="radio" value="4" name="product_rating" checked id="rating4">
-                    <label for="rating4" class="fa fa-star"></label>
-                    <input type="radio" value="5" name="product_rating" id="rating5">
-                    <label for="rating5" class="fa fa-star"></label>
-                </div>
-                @endif
-                @if ( $rates->stars_rated ==5 )
-                <div class="star-icon">
-                    <input type="radio" value="1" name="product_rating" id="rating1">
-                    <label for="rating1" class="fa fa-star"></label>
-                    <input type="radio" value="2" name="product_rating" id="rating2">
-                    <label for="rating2" class="fa fa-star"></label>
-                    <input type="radio" value="3" name="product_rating"  id="rating3">
-                    <label for="rating3" class="fa fa-star"></label>
-                    <input type="radio" value="4" name="product_rating" id="rating4">
-                    <label for="rating4" class="fa fa-star"></label>
-                    <input type="radio" value="5" name="product_rating" checked id="rating5">
-                    <label for="rating5" class="fa fa-star"></label>
-                </div>
-                @endif
-
-            </div>
-            <div class="form-floating w-50 pt-4"  >
-                <textarea name="message" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px  ; width: 450px">{{ $rates->message }} </textarea></div>
-
-
-
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary">Publish</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
-<!-- fin Modal -->
-
-
-
-
-@else
 
 <h6>-> Give your opinion to users</h6>
 <button type="button" class="btn btn-primary" style="margin-left: 370px ; margin-top: -50px ; width: 150px ; height: 40px ; background-color:#448aff " data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -575,16 +436,16 @@
 
 
                 <div class="star-icon">
-                    <input type="radio" value="1" name="product_rating" checked id="rating1">
-                    <label for="rating1" class="fa fa-star"></label>
-                    <input type="radio" value="2" name="product_rating" id="rating2">
-                    <label for="rating2" class="fa fa-star"></label>
-                    <input type="radio" value="3" name="product_rating"  id="rating3">
-                    <label for="rating3" class="fa fa-star"></label>
-                    <input type="radio" value="4" name="product_rating" id="rating4">
-                    <label for="rating4" class="fa fa-star"></label>
-                    <input type="radio" value="5" name="product_rating" id="rating5">
-                    <label for="rating5" class="fa fa-star"></label>
+                    <input type="radio" value="1" name="product_rating" checked id="rating11">
+                    <label for="rating11" class="fa fa-star"></label>
+                    <input type="radio" value="2" name="product_rating" id="rating22">
+                    <label for="rating22" class="fa fa-star"></label>
+                    <input type="radio" value="3" name="product_rating"  id="rating33">
+                    <label for="rating33" class="fa fa-star"></label>
+                    <input type="radio" value="4" name="product_rating" id="rating44">
+                    <label for="rating44" class="fa fa-star"></label>
+                    <input type="radio" value="5" name="product_rating" id="rating55">
+                    <label for="rating55" class="fa fa-star"></label>
                 </div>
             </div>
 
@@ -607,7 +468,7 @@
 <!-- fin Modal -->
 
 
-@endif
+
 @endauth
 
     </div>
@@ -618,15 +479,70 @@
 
 
 
+    @if ($post->useres->count()!=0)
 
+
+    <h5 style="color:#448aff ;margin-left: 50px"><i class="fa-solid fa-comments"></i> {{ $post->useres->count() }} Comments</h5><br/>
 
 
 
     <div class="card bg-light">
         @foreach ($post->useres->sortByDesc('id') as $usere)
+        @if(auth()->user()->id==$usere->pivot->user_id)
         <div class="card-body">
 
-          <h6 class="card-text" style="margin-left: -50px"><img src="{{asset('storage/'.$usere->photo)}}" class="img-radius" alt="User-Profile-Image" style="height:40px;width:40px;border-radius: 50% "> {{ $usere->name }} </h6>
+          <h6 class="card-text" style="margin-left: -50px">
+            <img src="{{asset('storage/'.$usere->photo)}}" class="img-radius" alt="User-Profile-Image" style="height:40px;width:40px;border-radius: 50% "> {{ $usere->name }}
+
+            <div class="dropdownn" style="margin-left: 300px ; margin-top:  -30px">
+                <span style="font-size:30px ; font-weight:bold ">...</span>
+                <div>
+                  <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal189{{$usere->pivot->id}}"><i class="fa-solid fa-pen"></i> Edit
+                </a>
+
+
+
+
+
+                  <a href="" data-bs-toggle="modal" data-bs-target="#manar{{ $usere->name }}"><i class="fa-solid fa-trash"></i> Delete</a>
+
+
+                </div>
+
+
+              </div>
+
+
+
+                   <!-- Modal -->
+                   <div class="modal fade" id="manar{{ $usere->name }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title text-danger" id="exampleModalLabel">Warning <i class="fa-solid fa-triangle-exclamation"></i></h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h6><center><strong>Are you sure you want to <font color="#448aff">delete</font> {{ $usere->name }} ?</strong></center></h6>
+                        </div>
+
+                        <form action="{{ route('delete.mycomment',$usere->pivot->id) }}" method="post">
+                            @csrf
+                            @method('delete')
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                          <button type="submit" class="btn btn-primary">Yes</button>
+                        </div>
+                    </form>
+
+                      </div>
+                    </div>
+                  </div>
+                  <!-- fin modal -->
+
+
+        </h6>
+
 
         <div class="ratings-css" style="width: 30% ; margin-left: -50px">
 
@@ -701,17 +617,227 @@
 
           <p class="card-text"  style="width: 600px ">{{ $usere->pivot->message }}</p>
 
+       
+                   <!-- Modal -->
+<div class="modal fade" id="exampleModal189{{$usere->pivot->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+       <form action="{{ route('rate_update.jobber') }}" method="post">
+        @csrf
+        @method('put')
+
+
+
+        <input type="hidden" name="id" value="{{ $usere->pivot->id }}">
+        <input type="hidden" name="post_id" value="{{ $post->id }}">
+
+        @auth
+        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+        @endauth
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Rate {{ $jobber->title }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="rating-css">
+
+
+                @if ( $usere->pivot->stars_rated ==1 )
+                <div class="star-icon">
+                    <input type="radio" value="1" name="product_rating" checked id="rating1{{ $usere->pivot->id }}">
+                    <label for="rating1{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="2" name="product_rating" id="rating2{{ $usere->pivot->id }}">
+                    <label for="rating2{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="3" name="product_rating"  id="rating3{{ $usere->pivot->id }}">
+                    <label for="rating3{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="4" name="product_rating" id="rating4{{ $usere->pivot->id }}">
+                    <label for="rating4{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="5" name="product_rating" id="rating5{{ $usere->pivot->id }}">
+                    <label for="rating5{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                </div>
+
+
+
+                @endif
+                @if ( $usere->pivot->stars_rated ==2 )
+                <div class="star-icon">
+                    <input type="radio" value="1" name="product_rating"  id="rating1{{ $usere->pivot->id }}">
+                    <label for="rating{{ $usere->pivot->id }}1" class="fa fa-star"></label>
+                    <input type="radio" value="2" name="product_rating" checked id="rating2{{ $usere->pivot->id }}">
+                    <label for="rating2{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="3" name="product_rating"  id="rating3{{ $usere->pivot->id }}">
+                    <label for="rating3{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="4" name="product_rating" id="rating4{{ $usere->pivot->id }}">
+                    <label for="rating4{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="5" name="product_rating" id="rating5{{ $usere->pivot->id }}">
+                    <label for="rating5{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                </div>
+                @endif
+                @if ( $usere->pivot->stars_rated ==3 )
+                <div class="star-icon">
+                    <input type="radio" value="1" name="product_rating"  id="rating1{{ $usere->pivot->id }}">
+                    <label for="rating1{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="2" name="product_rating" id="rating2{{ $usere->pivot->id }}">
+                    <label for="rating2{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="3" name="product_rating" checked id="rating3{{ $usere->pivot->id }}">
+                    <label for="rating3{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="4" name="product_rating" id="rating4{{ $usere->pivot->id }}">
+                    <label for="rating4{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="5" name="product_rating" id="rating5{{ $usere->pivot->id }}">
+                    <label for="rating5{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                </div>
+                @endif
+                @if ( $usere->pivot->stars_rated ==4 )
+                <div class="star-icon">
+                    <input type="radio" value="1" name="product_rating"  id="rating1{{ $usere->pivot->id }}">
+                    <label for="rating1{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="2" name="product_rating" id="rating2{{ $usere->pivot->id }}">
+                    <label for="rating2{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="3" name="product_rating"  id="rating3{{ $usere->pivot->id }}">
+                    <label for="rating3{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="4" name="product_rating" checked id="rating4{{ $usere->pivot->id }}">
+                    <label for="rating4{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="5" name="product_rating" id="rating5{{ $usere->pivot->id }}">
+                    <label for="rating5{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                </div>
+                @endif
+                @if ( $usere->pivot->stars_rated ==5 )
+                <div class="star-icon">
+                    <input type="radio" value="1" name="product_rating" id="rating1{{ $usere->pivot->id }}">
+                    <label for="rating1{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="2" name="product_rating" id="rating2{{ $usere->pivot->id }}">
+                    <label for="rating2{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="3" name="product_rating"  id="rating3{{ $usere->pivot->id }}">
+                    <label for="rating3{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="4" name="product_rating" id="rating4{{ $usere->pivot->id }}">
+                    <label for="rating4{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                    <input type="radio" value="5" name="product_rating" checked id="rating5{{ $usere->pivot->id }}">
+                    <label for="rating5{{ $usere->pivot->id }}" class="fa fa-star"></label>
+                </div>
+                @endif
+
+            </div>
+            <div class="form-floating w-50 pt-4"  >
+                <textarea name="message" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px  ; width: 450px">{{ $usere->pivot->message }}</textarea></div>
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Publish</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<!-- fin Modal -->
+
+
+
+ 
+
         </div>
         <hr width="600px">
+        @else
+
+        <div class="card-body">
+
+            <h6 class="card-text" style="margin-left: -50px">
+              <img src="{{asset('storage/'.$usere->photo)}}" class="img-radius" alt="User-Profile-Image" style="height:40px;width:40px;border-radius: 50% "> {{ $usere->name }}
+
+
+          </h6>
+
+
+          <div class="ratings-css" style="width: 30% ; margin-left: -50px">
+
+
+              <div class="star-icon">
+                  @if ($usere->pivot->stars_rated ==1 )
+                  <input type="radio" name="product_rating"    >
+                  <label  class="fa fa-star" ></label>
+                  <input type="radio" name="product_rating"   style="color:#b4afaf" >
+                  <label  class="fa fa-star"  style="color:#b4afaf"></label>
+                  <input type="radio" name="product_rating"   style="color:#b4afaf" >
+                  <label  class="fa fa-star"  style="color:#b4afaf"></label>
+                  <input type="radio" name="product_rating"   style="color:#b4afaf" >
+                  <label  class="fa fa-star"  style="color:#b4afaf"></label>
+                  <input type="radio" name="product_rating"   style="color:#b4afaf" >
+                  <label  class="fa fa-star"  style="color:#b4afaf"></label>
+
+                  @endif
+                  @if ($usere->pivot->stars_rated ==2 )
+                  <input type="radio" name="product_rating"  >
+                  <label  class="fa fa-star"></label>
+                  <input type="radio" name="product_rating"  >
+                  <label  class="fa fa-star"></label>
+                  <input type="radio" name="product_rating" style="color:#b4afaf" >
+                  <label  class="fa fa-star"style="color:#b4afaf"></label>
+                  <input type="radio" name="product_rating" style="color:#b4afaf" >
+                  <label  class="fa fa-star"style="color:#b4afaf"></label>
+                  <input type="radio" name="product_rating" style="color:#b4afaf" >
+                  <label  class="fa fa-star"style="color:#b4afaf" style="color:#b4afaf"></label>
+                  @endif
+                  @if ($usere->pivot->stars_rated ==3 )
+                  <input type="radio" name="product_rating"  >
+                  <label  class="fa fa-star"></label>
+                  <input type="radio" name="product_rating"  >
+                  <label  class="fa fa-star"></label>
+                  <input type="radio" name="product_rating"  >
+                  <label  class="fa fa-star"></label>
+                  <input type="radio" name="product_rating"  style="color:#b4afaf" >
+                  <label  class="fa fa-star" style="color:#b4afaf"></label>
+                  <input type="radio" name="product_rating"  style="color:#b4afaf" >
+                  <label  class="fa fa-star" style="color:#b4afaf"></label>
+                  @endif
+                  @if ($usere->pivot->stars_rated ==4 )
+                  <input type="radio" name="product_rating"  >
+                  <label  class="fa fa-star"></label>
+                  <input type="radio" name="product_rating"  >
+                  <label  class="fa fa-star"></label>
+                  <input type="radio" name="product_rating"  >
+                  <label  class="fa fa-star"></label>
+                  <input type="radio" name="product_rating"  >
+                  <label  class="fa fa-star"></label>
+                  <input type="radio" name="product_rating" style="color:#b4afaf" >
+                  <label  class="fa fa-star" style="color:#b4afaf"></label>
+                  @endif
+                  @if ($usere->pivot->stars_rated ==5 )
+                  <input type="radio" name="product_rating"  >
+                  <label  class="fa fa-star"></label>
+                  <input type="radio" name="product_rating"  >
+                  <label  class="fa fa-star"></label>
+                  <input type="radio" name="product_rating"  >
+                  <label  class="fa fa-star"></label>
+                  <input type="radio" name="product_rating"  >
+                  <label  class="fa fa-star"></label>
+                  <input type="radio" name="product_rating"  >
+                  <label  class="fa fa-star"></label>
+                  @endif
+                   &nbsp; <span style="color:#333">publish {{ $usere->pivot->created_at }}</span>
+              </div>
+
+
+          </div>
+
+            <p class="card-text"  style="width: 600px ">{{ $usere->pivot->message }}</p>
+
+          </div>
+          <hr width="600px">
+        @endif
         @endforeach
       </div>
 
 
+       @else
 
+       <h5 style="color:#6e6f71 ;margin-left: 50px"><i class="fa-solid fa-comments"></i> No Comments here</h5><br/>
 
-
-
-
+      @endif
 
 
 
@@ -720,6 +846,60 @@
 
 
 @endsection
+@push('css')
+    <style>
+      .dropdownn{
+    display:inline-block;
+    position:relative;
+  }
+
+  .dropdownn button{
+    border:none;
+    padding:8px 16px;
+    background-color: #f8f9fa;
+    color:black;
+    transition:.3s;
+    cursor:pointer;
+  }
+
+  .dropdownn:hover button{
+    background-color: #f8f9fa;
+  }
+
+  .dropdownn div{
+    background-color:#fff;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    z-index:1;
+    visibility:hidden;
+    position:absolute;
+    min-width:100%;
+    opacity:0;
+    transition:.3s;
+  }
+
+  .dropdownn:hover div{
+    visibility:visible;
+    opacity:1;
+  }
+
+  .dropdownn div a{
+    display:block;
+    text-decoration:none;
+    padding:8px;
+    color:#000;
+    transition:.1s;
+    white-space:nowrap;
+  }
+
+  .dropdownn div a:hover{
+    background-color: #a4a6ab;
+    color:#fff;
+  }
+    </style>
+
+@endpush
+
+
 @push('css')
 <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 @endpush
@@ -849,3 +1029,6 @@
 </script>
 
 @endpush
+
+
+

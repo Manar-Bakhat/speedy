@@ -92,8 +92,8 @@
                 <div class="row g-0">
                     <div class="col-md-10" style="margin-left:-85px; box-shadow:40px">
                         <div class="card-bodyy" style="background-color: #448aff ;"  >
-                          <h6 class="card-title" style="margin-left:-35px ; font-weight:bold">{{ $reponse->message }} &nbsp;  <i class="fa-solid fa-trash" style="color: red; font-size:19px" ></i></h6>
-                          <p class="card-text" style="margin-left: -35px"></p>
+                          <h6 class="card-title" style="margin-left:-35px ; font-weight:bold">Me &nbsp;  <i class="fa-solid fa-trash" style="color: red; font-size:19px" ></i></h6>
+                          <p class="card-text" style="margin-left: -35px">{{ $reponse->message }}</p>
                         </div>
                       </div>
                   <div class="col-md-2" style="margin-left: -20px">

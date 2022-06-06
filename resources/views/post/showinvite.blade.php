@@ -38,7 +38,7 @@
                   <a href="{{route('account.employer',['employer'=>$jobber])}}" class="secondary-link">
                     <p class="font-weight-bold">{{$jobber->title}}</p>
 
-                    <span style="color:#000 ; font-weight:bold"><i class="fas fa-star" ></i>
+                    <span style="color: #d9a943 ; font-weight:bold"><i class="fas fa-star" ></i>
 
                     <?php
 

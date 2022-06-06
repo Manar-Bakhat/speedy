@@ -64,8 +64,8 @@ Route::middleware('auth')->prefix('account')->group(function () {
 
   // rating post jobber
   Route::post('add-rating', [RatingController::class, 'add'])->name('rate-jobber');
-  Route::post('update-rating', [RatingController::class, 'update'])->name('rate_update.jobber');
-
+  Route::put('update-rating', [RatingController::class, 'update'])->name('rate_update.jobber');
+  Route::delete('delete-rating/{rating}', [RatingController::class, 'deleteMycomment'])->name('delete.mycomment');
 
 
   // comment post

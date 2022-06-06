@@ -34,7 +34,7 @@
                  <div class="col-md-10">
                    <div class="card-body">
 
-                     <h6 class="card-title" style="margin-left: -60px; margin-top: 10px"><span style="font-weight:bold">{{ $useress->name }}</span> &nbsp;  <i class="fa-solid fa-trash" style="color: red; font-size:14px" data-bs-toggle="modal" data-bs-target="#manar{{ $loop->index }}"></i>
+                     <h6 class="card-title" style="margin-left: -60px; margin-top: 10px"><span style="font-weight:bold">Me</span> &nbsp;  <i class="fa-solid fa-trash" style="color: red; font-size:14px" data-bs-toggle="modal" data-bs-target="#manar{{ $loop->index }}"></i>
                         &nbsp;<a href="{{ route('post.show',$post->id) }}"><i class="fa-solid fa-arrow-trend-up"></i></a>
 
   <!-- Modal -->
@@ -69,21 +69,24 @@
         </div>
         <div class="accordion-item-body">
           <div class="accordion-item-body-content">
-           <div class="card mb-3" style="max-width: 350px; margin-left: 180px ">
-               <div class="row g-0">
-                 <div class="col-md-2" style="margin-left: -90px">
-                   <img src="{{asset('storage/'.$useress->photo)}}" class="img-fluid rounded-start" alt="..."
-                   style="height:40px;width:40px;border-radius: 50% ; margin-top: 10px ">
-                 </div>
-                 <div class="col-md-10" style="margin-left:-45px">
-                   <div class="card-bodyyy" style="background-color: #ebeced ; box-shadow:40px" >
-                     <h6 class="card-title" style="margin-left:-18px ; font-weight:bold">{{ $useress->name }}</h6>
-                     <p class="card-text" style="margin-left: -20px">{{ $useress->pivot->messagee }}.</p>
 
-                   </div>
-                 </div>
-               </div>
-             </div>
+             <div class="card mb-3" style="max-width: 540px; margin-left: 580px">
+                <div class="row g-0">
+                    <div class="col-md-10" style="margin-left:-85px; box-shadow:40px">
+                        <div class="card-bodyy" style="background-color: #448aff ;"  >
+                          <h6 class="card-title" style="margin-left:-35px ; font-weight:bold">Me</h6>
+                          <p class="card-text" style="margin-left: -35px">{{ $useress->pivot->messagee }}</p>
+                        </div>
+                      </div>
+
+                  <div class="col-md-2" style="margin-left: -20px">
+                    <img src="{{asset('storage/'.$useress->photo)}}" class="img-fluid rounded-start" alt="..."
+                    style="height:40px;width:120px;border-radius: 50% ; margin-top: 10px ">
+                  </div>
+
+
+                </div>
+              </div>
 
 
 
@@ -92,23 +95,27 @@
 
             @foreach ($reponses as $reponse)
                 @if ($reponse->contact_jobber_id==$useress->pivot->id)
-              <div class="card mb-3" style="max-width: 540px; margin-left: 580px">
-                <div class="row g-0">
-                    <div class="col-md-10" style="margin-left:-85px; box-shadow:40px">
-                        <div class="card-bodyy" style="background-color: #448aff ;"  >
-                          <h6 class="card-title" style="margin-left:-35px ; font-weight:bold">{{ $reponse->message }}</h6>
-                          <p class="card-text" style="margin-left: -35px"></p>
+                <div class="card mb-3" style="max-width: 350px; margin-left: 180px ">
+                    <div class="row g-0">
+                      <div class="col-md-2" style="margin-left: -90px">
+                        <img src="{{asset('storage/'.$reponse->user->photo)}}" class="img-fluid rounded-start" alt="..."
+                        style="height:40px;width:40px;border-radius: 50% ; margin-top: 10px ">
+                      </div>
+                      <div class="col-md-10" style="margin-left:-45px">
+                        <div class="card-bodyyy" style="background-color: #ebeced ; box-shadow:40px" >
+                          <h6 class="card-title" style="margin-left:-18px ; font-weight:bold">{{ $reponse->user->name }}</h6>
+                          <p class="card-text" style="margin-left: -20px">{{ $reponse->message }}</p>
+
                         </div>
                       </div>
-
-                  <div class="col-md-2" style="margin-left: -20px">
-                    <img src="{{asset('storage/'.$reponse->user->photo)}}" class="img-fluid rounded-start" alt="..."
-                    style="height:40px;width:120px;border-radius: 50% ; margin-top: 10px ">
+                    </div>
                   </div>
 
 
-                </div>
-              </div>
+
+
+
+
               @endif
             @endforeach
 
@@ -118,7 +125,7 @@
 
 
 
-
+               <!--
                  <form class="chat-form" action="{{ route('reponse_chat') }}" method="post" style="visibility: hidden">
                     @csrf
                 <div class="container-inputs-stuffs">
@@ -145,6 +152,7 @@
                 </div>
 
             </form>
+            --->
 
             </div>
         </div>

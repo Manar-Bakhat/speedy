@@ -112,12 +112,12 @@
         <div class="modal-body">
 
 
-              <h6>Full name :</h6><input type="text" name="name" value="{{ old('name') }}" placeholder="{{auth()->user()->name}}">
-              <h6>Email :</h6><input type="text" name="email" value="{{ old('email') }}" placeholder="{{auth()->user()->email}}">
-              <h6>Age :</h6><input type="integer" name="email" >
-              <h6>Phone :</h6><input type="text" name="phone">
-              <h6>Description :</h6><input type="text" name="description">
-              <h6>City :</h6><input type="text" name="city">
+              <h6>Full name :</h6><input type="text" name="name"  value="{{auth()->user()->name}}">
+              <h6>Email :</h6><input type="text" name="email" value="{{auth()->user()->email}}">
+              <h6>Age :</h6><input type="numeric" name="age" value="{{auth()->user()->age}}">
+              <h6>Phone :</h6><input type="text" name="phone" value="{{auth()->user()->phone}}">
+              <h6>Description :</h6><input type="text" name="description" value="{{auth()->user()->description}}">
+              <h6>City :</h6><input type="text" name="city" value="{{auth()->user()->city}}">
 
 
 

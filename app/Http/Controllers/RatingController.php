@@ -28,20 +28,29 @@ class RatingController extends Controller
 
 public function update(Request $request){
 
-    $var = Rating::where('post_id','=',$request->post_id)->where('user_id','=', $request->user_id)->first();
+    $var = Rating::where('id','=',$request->id);
 
-    $var->post_id = $request->post_id;
-    $var->user_id = $request->user_id;
-    $var->stars_rated = $request->product_rating;
-    $var->message = $request->message;
+    $var->update([
+        'user_id' => $request->user_id,
+        'post_id' => $request->post_id,
+        'stars_rated' => $request->product_rating,
+        'message' => $request->message,
+    ]) ; 
+    
 
-    $var->save();
     Alert::toast('Review updated Successfully!', 'success');
 
 
 
     return back();
 
+}
+
+public function deleteMycomment(Rating $rating){
+
+    $rating->delete();
+    Alert::toast('Deleted Successfully!', 'danger');
+    return back();
 }
 
 

@@ -42,7 +42,7 @@
     </li>
     <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'user-contact' ? 'active': ''}}">
         <a href="{{ route('contact.user') }}" class="account-nav-link">
-        <i class="fas fa-comments"></i> Message
+        <i class="fas fa-comments"></i>Response Message
         </a>
       </li>
 
@@ -65,7 +65,7 @@
       </li>
       <li class="list-group-item list-group-item-action {{ request()->segment(2) == 'user-contact' ? 'active': ''}}">
         <a href="{{ route('contact.user') }}" class="account-nav-link">
-        <i class="fas fa-comments"></i> Chat
+        <i class="fas fa-comments"></i> response Message
         </a>
       </li>
     @endrole

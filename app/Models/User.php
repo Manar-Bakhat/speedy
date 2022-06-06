@@ -18,16 +18,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'date_naissance',
-        'photo',
-        'email',
-        'password',
-        'age',
-        'description',
-        'city',
-    ];
+    protected $guarded=[];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -53,7 +44,7 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
     public function postes(){
-        return $this->belongsToMany(Post::class,'ratings')->withPivot('stars_rated','created_at','message');
+        return $this->belongsToMany(Post::class,'ratings')->withPivot('id','stars_rated','created_at','message')->orderByPivot('id','desc');
     }
 
     public function jobber()

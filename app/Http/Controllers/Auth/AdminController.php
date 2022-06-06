@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Comment;
 use App\Models\JobberCategory;
 use App\Models\Post;
+use App\Models\Rating;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -67,10 +68,11 @@ class AdminController extends Controller
         }
     }
 
-    public function destroyComment(Comment $comment)
+    public function destroyComment(Request $request)
     {
 
-        $comment->delete();
+        $var = Rating::where('id',$request->id);
+        $var->delete();
         Alert::toast('Deleted Successfully!', 'danger');
         return back();
 
