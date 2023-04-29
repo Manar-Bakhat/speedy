@@ -1,2 +1,2 @@
-PFE_speedy_app
+speedy_app
 
